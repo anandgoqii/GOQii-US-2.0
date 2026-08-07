@@ -1,0 +1,6 @@
+{
+  "name": "GOQii USA",
+  "description": "GOQii AI-powered health engagement platform with human coaching, dynamic motivation, and enterprise health solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

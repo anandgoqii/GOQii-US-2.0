@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Manrope', sans-serif;
+  --color-brand-orange: #f05a28;
+  --color-brand-orange-hover: #d94e1f;
+  --color-brand-green: #2ecc71;
+  --color-brand-dark: #111827;
+  --color-brand-muted: #6b7280;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #111827;
+}
