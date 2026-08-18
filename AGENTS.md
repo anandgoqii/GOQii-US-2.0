@@ -39,3 +39,17 @@ This project uses **Tailwind CSS v4** through the `@tailwindcss/vite` plugin con
 - Use double quotes for strings containing apostrophes (`"We're here to help"`), or escape them in single-quoted strings. An unescaped apostrophe in a single-quoted string breaks the build.
 - Ensure JSX tags are closed and braces are balanced.
 - Export components as default exports.
+
+## GOQii Master Design System (v1.0)
+
+- **Typography**: Primary typeface is **Poppins** (weights 300, 400, 500, 600, 700, 800) loaded via Google Fonts in `src/index.css`.
+- **Brand Colors**:
+  - Primary Orange: `#f05a28` (`--color-goqii-orange`)
+  - Orange Hover: `#d94e1f` (`--color-goqii-orange-hover`)
+  - Green / Positive: `#2ecc71` (`--color-goqii-green`)
+  - Blue / Info: `#3b82f6` (`--color-goqii-blue`)
+  - Dark Slate: `#111827` (`--color-goqii-dark`)
+  - Muted text / slate: `#64748b` (`--color-goqii-muted`)
+- **Spacing**: Strict 4px base spacing grid (`gap-1`, `gap-2`, `gap-3`, `p-4`, `p-5`, `p-6`).
+- **Visual Style (GOQii 2.0)**: Modern, Human, Premium, Clear, Intelligent, Preventive, Calm, and Purposeful. Avoid generic SaaS tropes, glowing gradients, or non-functional visual noise.
+
