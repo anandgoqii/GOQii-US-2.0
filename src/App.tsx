@@ -1,8 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
+import OurStorySection from './components/OurStorySection'
+import PartnerWithUsModal from './components/PartnerWithUsModal'
+import PrivacyPolicyPage from './components/PrivacyPolicyPage'
+import TermsOfServicePage from './components/TermsOfServicePage'
+import TrustCenterPage from './components/TrustCenterPage'
+import ContactUsPage from './components/ContactUsPage'
 
 const heroPhoto = 'https://appcdn.goqii.com/storeimg/75445_1786343196.jpg'
+const heroPhotoMobile = 'https://appcdn.goqii.com/storeimg/53788_1788428746.jpg'
 const coachAvatar = 'https://images.unsplash.com/photo-1561973027-6bdfea7b3324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=80&h=80&fit=crop&auto=format'
-const manPhonePhoto = 'https://images.unsplash.com/photo-1673214846284-f1a66bb402ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=800&q=80'
+const moreInfoPhoto = 'https://appcdn.goqii.com/storeimg/16134_1787052594.png'
 const womanFitnessPhoto = 'https://images.unsplash.com/photo-1480179087180-d9f0ec044897?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80'
 
 const partnerPhotos = {
@@ -437,7 +444,7 @@ function PeopleBehindGoqiiSection() {
             THE PEOPLE BEHIND GOQii
           </div>
 
-          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-slate-900 tracking-tight leading-tight">
             Built by Experts.<br />
             <span className="text-[#f05a28]">Driven by a Shared Mission.</span>
           </h2>
@@ -582,10 +589,10 @@ function PeopleBehindGoqiiSection() {
             </div>
 
             {/* Name and Designation */}
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight leading-tight mt-3">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 tracking-tight leading-tight mt-3">
               {selectedBio.name}
             </h2>
-            <p className="text-base sm:text-lg font-bold text-[#10b981] mt-1 mb-6">
+            <p className="text-base sm:text-lg font-semibold text-[#10b981] mt-1 mb-6">
               {selectedBio.role}
             </p>
 
@@ -596,7 +603,7 @@ function PeopleBehindGoqiiSection() {
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
-                  <span className="text-[11.5px] font-black tracking-wider text-slate-900 uppercase">
+                  <span className="text-[11.5px] font-bold tracking-wider text-slate-900 uppercase">
                     EXPERTISE
                   </span>
                 </div>
@@ -616,7 +623,7 @@ function PeopleBehindGoqiiSection() {
             {selectedBio.showBioLabel && (
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
-                <span className="text-[11.5px] font-black tracking-wider text-slate-900 uppercase">
+                <span className="text-[11.5px] font-bold tracking-wider text-slate-900 uppercase">
                   BIO
                 </span>
               </div>
@@ -684,10 +691,10 @@ function GoqiiEcosystemSection() {
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200/80 text-[#f05a28] text-xs font-bold uppercase tracking-wider mb-3">
             <span className="w-2 h-2 rounded-full bg-[#f05a28] animate-pulse" />
-            THE GOQii ECOSYSTEM
+            THE PARTNERS BEHIND THE IMPACT
           </div>
 
-          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
+          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-slate-900 tracking-tight leading-[1.15]">
             Better Health <span className="text-[#f05a28]">Doesn't Happen Alone.</span>
           </h2>
 
@@ -696,8 +703,31 @@ function GoqiiEcosystemSection() {
           </p>
         </div>
 
-        {/* Clean Logo Arrangement (All 6 logos in one line, tight spacing, strictly no scroll bar) */}
-        <div className="w-full max-w-4xl mx-auto py-1 overflow-hidden">
+        {/* Mobile View: Prominent Infinite Marquee with Large Logos */}
+        <div className="block sm:hidden w-full relative overflow-hidden py-3">
+          {/* Subtle edge fade gradients */}
+          <div className="pointer-events-none absolute left-0 inset-y-0 w-10 bg-gradient-to-r from-[#fbfcfd] to-transparent z-10" />
+          <div className="pointer-events-none absolute right-0 inset-y-0 w-10 bg-gradient-to-l from-[#fbfcfd] to-transparent z-10" />
+
+          <div className="animate-marquee flex items-center gap-5">
+            {[...ecosystemLogos, ...ecosystemLogos].map((item, idx) => (
+              <div
+                key={`mob-partner-${item.name}-${idx}`}
+                className="flex-shrink-0 flex items-center justify-center h-16 px-6 py-2.5 bg-white rounded-2xl border border-slate-200/80 shadow-[0_2px_8px_rgba(0,0,0,0.03)]"
+              >
+                <img
+                  src={item.src}
+                  alt={item.name}
+                  referrerPolicy="no-referrer"
+                  className="h-10 max-h-10 w-auto max-w-[160px] object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop View: Clean Single-Row Arrangement (All 6 logos in one line) */}
+        <div className="hidden sm:block w-full max-w-4xl mx-auto py-1 overflow-hidden">
           <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 px-2">
             {ecosystemLogos.map((item) => (
               <div
@@ -724,36 +754,31 @@ const enterpriseDropdownItems = [
   {
     title: 'HealthEngage Platform',
     description: 'AI-powered engagement, monitoring, and health insights.',
-    href: '#solutions',
-  },
-  {
-    title: 'For Insurance',
-    description: 'Preventive health engagement that helps reduce risk and claims.',
-    href: '#solutions',
-  },
-  {
-    title: 'For Pharma',
-    description: 'Patient engagement, adherence, and real-world health insights.',
-    href: '#solutions',
-  },
-  {
-    title: 'For Health Care providers',
-    description: 'Continuous patient monitoring and care beyond the hospital.',
-    href: '#solutions',
+    href: 'https://goqii.com/healthengage',
   },
   {
     title: 'For Corporate',
     description: 'Preventive workforce health that improves engagement and productivity.',
-    href: '#solutions',
+    href: 'https://goqii.com/healthengage-corporate',
+  },
+  {
+    title: 'For Health Care providers',
+    description: 'Continuous patient monitoring and care beyond the hospital.',
+    href: 'https://go-qii-connected-care-7c49.vercel.app/',
+  },
+  {
+    title: 'For Pharma',
+    description: 'Patient engagement, adherence, and real-world health insights.',
+    href: 'https://goqii.com/healthengage-pharma',
+  },
+  {
+    title: 'For Insurance',
+    description: 'Preventive health engagement that helps reduce risk and claims.',
+    href: 'https://goqii.com/healthengage-insurance',
   },
 ]
 
 const personalDropdownItems = [
-  {
-    title: 'Insure Plus',
-    description: 'Active lifestyle rewards teamed with wellness policy upgrades.',
-    href: '#personal',
-  },
   {
     title: 'SuperLife',
     description: 'Science-led longevity for a healthier, longer life.',
@@ -772,16 +797,25 @@ const personalDropdownItems = [
 ]
 
 const navLinks = [
-  { label: 'About Us', hasDropdown: false },
   { label: 'Enterprise Solutions', hasDropdown: true },
   { label: 'Personal Solutions', hasDropdown: true },
+  { label: 'Plans', hasDropdown: false },
   { label: 'Project Sanjeevini', hasDropdown: false },
   { label: 'Contact', hasDropdown: false },
 ]
 
-function GoqiiLogo() {
+function GoqiiLogo({ onClick }: { onClick?: () => void }) {
   return (
-    <a href="#" className="flex items-center cursor-pointer">
+    <a
+      href="#"
+      onClick={(e) => {
+        if (onClick) {
+          e.preventDefault()
+          onClick()
+        }
+      }}
+      className="flex items-center cursor-pointer"
+    >
       <img
         src="https://appcdn.goqii.com/storeimg/36455_1779860387.png"
         alt="GOQii"
@@ -959,197 +993,319 @@ function HeroStatRotator() {
 }
 
 function MobilePhoneMockup() {
+  const ethanAvatar = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=120&h=120&q=80"
+  const doctorAvatar = "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=60&h=60&q=80"
+
   return (
-    <div className="relative w-[290px] sm:w-[310px] select-none">
-      {/* Outer Phone Frame */}
-      <div className="bg-[#111827] rounded-[2.8rem] p-2.5 shadow-2xl relative border-[4px] border-slate-700/80">
+    <div className="relative w-[300px] sm:w-[320px] select-none">
+      {/* Outer Phone Frame (iPhone style with dark titanium finish) */}
+      <div className="bg-[#1e293b] rounded-[3.2rem] p-2.5 shadow-2xl relative border-[4px] border-slate-700/80">
         {/* Physical Buttons */}
-        <div className="absolute -left-[7px] top-20 w-[3px] h-8 bg-slate-600 rounded-l-md" />
-        <div className="absolute -left-[7px] top-32 w-[3px] h-8 bg-slate-600 rounded-l-md" />
-        <div className="absolute -right-[7px] top-24 w-[3px] h-12 bg-slate-600 rounded-r-md" />
+        <div className="absolute -left-[6px] top-24 w-[3px] h-7 bg-slate-600 rounded-l-md" />
+        <div className="absolute -left-[6px] top-34 w-[3px] h-9 bg-slate-600 rounded-l-md" />
+        <div className="absolute -left-[6px] top-46 w-[3px] h-9 bg-slate-600 rounded-l-md" />
+        <div className="absolute -right-[6px] top-28 w-[3px] h-13 bg-slate-600 rounded-r-md" />
 
         {/* Screen Enclosure */}
-        <div className="bg-white rounded-[2.3rem] overflow-hidden text-slate-900 font-sans shadow-inner flex flex-col justify-between pt-2.5 pb-2 px-3.5 min-h-[580px] relative">
+        <div className="bg-[#fafafa] rounded-[2.6rem] overflow-hidden text-slate-900 font-sans shadow-inner flex flex-col justify-between pt-2 pb-2 px-2.5 min-h-[620px] relative">
           
           {/* Dynamic Island / Notch */}
-          <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-5 bg-slate-950 rounded-full z-30 flex items-center justify-end px-2 gap-1 shadow-xs">
-            <div className="w-2 h-2 rounded-full bg-slate-900 border border-slate-800" />
-            <div className="w-1.5 h-1.5 rounded-full bg-blue-900/60" />
+          <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-30 flex items-center justify-end px-2.5 gap-1.5 shadow-xs">
+            <div className="w-2 h-2 rounded-full bg-[#1c1c1e] border border-slate-800" />
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-950/80" />
           </div>
 
           <div>
-            {/* Status Bar */}
-            <div className="flex justify-between items-center px-1.5 pt-0.5 pb-2.5 text-slate-900 z-10 relative">
-              <span className="text-[11px] font-bold tracking-tight text-slate-800">9:41</span>
-              <div className="flex gap-1.5 items-center">
+            {/* Top Status Bar: 2:47 with notifications and status icons */}
+            <div className="flex justify-between items-center px-1.5 pt-0.5 pb-2 text-slate-900 z-10 relative text-[10px] font-semibold">
+              <div className="flex items-center gap-1">
+                <span className="font-bold tracking-tight">2:47</span>
+                {/* WhatsApp & notification icons */}
+                <svg className="w-2.5 h-2.5 text-emerald-600 fill-current" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                </svg>
+                <span className="text-[7px] text-slate-500">•••</span>
+              </div>
+
+              <div className="flex items-center gap-1">
+                <span className="text-[7px] font-bold text-slate-600 bg-slate-200/80 px-0.5 rounded-xs">VoLTE 4G+</span>
                 {/* Signal bars */}
-                <svg className="w-3 h-3 text-slate-800" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-2.5 h-2.5 text-slate-800" fill="currentColor" viewBox="0 0 24 24">
                   <rect x="2" y="16" width="3" height="5" rx="0.5" />
                   <rect x="7" y="12" width="3" height="9" rx="0.5" />
                   <rect x="12" y="8" width="3" height="13" rx="0.5" />
                   <rect x="17" y="4" width="3" height="17" rx="0.5" />
                 </svg>
-                {/* Wifi */}
-                <svg className="w-3 h-3 text-slate-800" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.2-2.8c2.3-2.3 6.1-2.3 8.4 0l1.4-1.4c-3.1-3.1-8.1-3.1-11.2 0l1.4 1.4zm-2.8-2.8c3.9-3.9 10.1-3.9 14 0l1.4-1.4c-4.7-4.7-12.1-4.7-16.8 0l1.4 1.4z"/>
-                </svg>
-                {/* Battery */}
-                <svg className="w-3.5 h-3.5 text-slate-800" fill="currentColor" viewBox="0 0 24 24">
-                  <rect x="2" y="7" width="16" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                  <rect x="20" y="10" width="2" height="4" rx="0.5" fill="currentColor" />
-                  <rect x="4" y="9" width="10" height="6" rx="1" fill="currentColor" />
-                </svg>
+                {/* Battery with 37 */}
+                <div className="flex items-center border border-slate-700 rounded-xs px-0.5 py-px text-[7px] font-bold leading-none">
+                  37
+                </div>
               </div>
             </div>
 
-            {/* Top Greeting Header with Notification Bell & Avatar */}
-            <div className="flex justify-between items-center mb-3 mt-0.5 px-1">
-              <div>
-                <p className="text-[11px] text-slate-500 font-medium leading-none">Good Morning,</p>
-                <p className="text-sm font-extrabold text-slate-900 leading-tight mt-0.5">
-                  Jessica
+            {/* Profile Bar: Ethan Miller + Doctor & Coach & Watch */}
+            <div className="flex justify-between items-center mb-2 px-1">
+              <div className="flex items-center gap-2">
+                <img
+                  src={ethanAvatar}
+                  alt="Ethan Miller"
+                  className="w-9 h-9 rounded-full object-cover border-2 border-white shadow-xs"
+                />
+                <div>
+                  <h4 className="text-[12px] font-extrabold text-slate-900 leading-none">
+                    Ethan Miller
+                  </h4>
+                  <div className="flex items-center gap-1 mt-0.5">
+                    <span className="text-[8px] font-black text-blue-600 tracking-wider">››› Elite</span>
+                    <span className="text-[8px] font-bold text-amber-600 bg-amber-50 px-1 rounded-xs">Insure+</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                {/* Doctor */}
+                <div className="flex flex-col items-center">
+                  <img
+                    src={doctorAvatar}
+                    alt="Doctor"
+                    className="w-6 h-6 rounded-full object-cover border border-rose-200 shadow-2xs"
+                  />
+                  <span className="text-[7px] text-slate-500 font-semibold mt-0.5">Doctor</span>
+                </div>
+                {/* Coach */}
+                <div className="flex flex-col items-center">
+                  <div className="w-6 h-6 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 shadow-2xs">
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                  </div>
+                  <span className="text-[7px] text-slate-500 font-semibold mt-0.5">Coach</span>
+                </div>
+                {/* Smartwatch Icon */}
+                <div className="w-7 h-7 rounded-full bg-blue-50/90 border border-blue-200 flex items-center justify-center text-blue-500 shadow-2xs">
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <rect x="6" y="5" width="12" height="14" rx="3" />
+                    <path strokeLinecap="round" d="M9 5V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m-6 14v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Date Pill Strip */}
+            <div className="flex items-center justify-between px-1 mb-2">
+              <button className="w-6 h-6 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700">
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" />
+                </svg>
+              </button>
+              <span className="text-[10px] font-semibold text-slate-400">8</span>
+              <div className="bg-[#1e293b] text-white px-3.5 py-1 rounded-full text-[10px] font-bold shadow-xs">
+                Today, 9 Jun
+              </div>
+              <span className="text-[10px] font-semibold text-slate-400">10</span>
+              <span className="text-[10px] font-semibold text-slate-400">11</span>
+            </div>
+
+            {/* GOQii Age & Health Protection Card (Ice-Blue Textured) */}
+            <div className="bg-gradient-to-r from-sky-100/90 via-blue-50 to-indigo-100/80 rounded-2xl p-2.5 border border-sky-200/60 flex items-center justify-between mb-2 shadow-2xs relative overflow-hidden">
+              {/* Left: Avatar with 5 LAC Protected Shield */}
+              <div className="flex flex-col items-center flex-shrink-0 relative">
+                <img
+                  src={ethanAvatar}
+                  alt="Ethan"
+                  className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-2xs"
+                />
+                <div className="bg-[#0f172a] text-white text-[6.5px] font-black px-1.5 py-0.5 rounded-sm -mt-1.5 border border-blue-400/40 leading-none tracking-tight">
+                  5 LAC
+                </div>
+                <span className="text-[6.5px] font-bold text-slate-800 tracking-tight leading-none mt-0.5">
+                  I am Protected
+                </span>
+              </div>
+
+              {/* Middle: Ethan Miller + GOQii Age */}
+              <div className="flex-1 px-2.5">
+                <p className="text-[11px] font-black text-slate-900 leading-tight">
+                  Ethan Miller
+                </p>
+                <div className="flex items-center gap-1 mt-0.5">
+                  <span className="text-[8px] font-bold text-slate-700">GOQii Age :</span>
+                  <span className="text-[8px] text-emerald-600">▼</span>
+                  <span className="bg-[#7c3aed] text-white text-[7.5px] font-extrabold px-1.5 py-0.5 rounded-sm">
+                    32y 18d
+                  </span>
+                </div>
+                <p className="text-[7.5px] text-slate-600 font-medium mt-0.5 leading-tight">
+                  I follow a healthy lifestyle.
                 </p>
               </div>
-              <div className="flex items-center gap-2">
-                {/* Bell Icon */}
-                <button className="text-slate-600 hover:text-slate-900 transition-colors">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-                  </svg>
-                </button>
-                {/* Jessica Avatar */}
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=80&h=80&fit=crop&auto=format"
-                  alt="Jessica"
-                  className="w-7 h-7 rounded-full object-cover border border-slate-200"
-                />
-              </div>
-            </div>
 
-            {/* Today's Focus Card */}
-            <div className="bg-[#F8FAFC] rounded-2xl p-2.5 border border-slate-100/90 flex items-center justify-between mb-3 shadow-2xs">
-              <div>
-                <span className="text-[10px] font-semibold text-slate-400 block leading-none">Today's Focus</span>
-                <span className="text-xs font-bold text-slate-900 block mt-1 leading-tight">Move More</span>
-                <span className="text-[10px] text-slate-500 font-medium block mt-0.5">6,000 steps goal</span>
-              </div>
-              <div className="w-6 h-6 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center shadow-2xs">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-                </svg>
-              </div>
-            </div>
-
-            {/* Your Progress Section Header */}
-            <div className="flex justify-between items-center mb-1.5 px-0.5">
-              <span className="text-xs font-bold text-slate-900">Your Progress</span>
-              <span className="text-[10px] font-semibold text-slate-400 cursor-pointer hover:text-slate-600">View all</span>
-            </div>
-
-            {/* Progress Card */}
-            <div className="bg-white rounded-2xl p-2.5 border border-slate-100 shadow-2xs mb-3">
-              <div className="flex items-center gap-3">
-                {/* Gauge Ring Left */}
-                <div className="relative w-20 h-20 flex-shrink-0 flex items-center justify-center">
-                  <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-                    <circle cx="50" cy="50" r="38" fill="none" stroke="#f1f5f9" strokeWidth="8" />
-                    <circle
-                      cx="50" cy="50" r="38"
-                      fill="none"
-                      stroke="#22c55e"
-                      strokeWidth="8"
-                      strokeLinecap="round"
-                      strokeDasharray="180 238"
-                      strokeDashoffset="0"
-                    />
-                    <circle
-                      cx="50" cy="50" r="38"
-                      fill="none"
-                      stroke="#f05a28"
-                      strokeWidth="8"
-                      strokeLinecap="round"
-                      strokeDasharray="60 238"
-                      strokeDashoffset="-120"
-                    />
-                  </svg>
-                  {/* Center Score */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                    <span className="text-xl font-extrabold text-slate-900 leading-none">78</span>
-                    <span className="text-[8px] font-semibold text-slate-400 mt-0.5">GOQii Score</span>
-                  </div>
+              {/* Right: SAFE ELITE Badge */}
+              <div className="bg-[#2563eb] text-white rounded-xl p-1.5 flex items-center gap-1.5 shadow-sm flex-shrink-0">
+                {/* SAFE Vertical Indicator */}
+                <div className="flex flex-col gap-0.5">
+                  <span className="w-2.5 h-2.5 bg-red-500 text-[6px] font-black rounded-xs flex items-center justify-center leading-none">S</span>
+                  <span className="w-2.5 h-2.5 bg-amber-400 text-[6px] font-black rounded-xs flex items-center justify-center leading-none text-slate-900">A</span>
+                  <span className="w-2.5 h-2.5 bg-emerald-500 text-[6px] font-black rounded-xs flex items-center justify-center leading-none">F</span>
+                  <span className="w-2.5 h-2.5 bg-blue-400 text-[6px] font-black rounded-xs flex items-center justify-center leading-none">E</span>
                 </div>
-
-                {/* Stats Right */}
-                <div className="flex flex-col justify-center gap-1.5 flex-1 pl-1">
-                  <div>
-                    <p className="text-sm font-black text-slate-900 leading-none">7,246</p>
-                    <p className="text-[9px] text-slate-400 font-medium">Steps</p>
+                {/* Running + Days */}
+                <div className="flex flex-col items-start leading-none">
+                  <span className="text-[7px] font-black tracking-wider uppercase opacity-90">ELITE</span>
+                  <div className="flex items-center gap-0.5 mt-0.5">
+                    <span className="text-[10px]">🏃</span>
+                    <span className="text-xs font-black">58</span>
                   </div>
-                  <div>
-                    <p className="text-sm font-black text-slate-900 leading-none">45</p>
-                    <p className="text-[9px] text-slate-400 font-medium">Active mins</p>
-                  </div>
-                  <div>
-                    <p className="text-sm font-black text-slate-900 leading-none">5/6</p>
-                    <p className="text-[9px] text-slate-400 font-medium">Tasks done</p>
-                  </div>
+                  <span className="text-[6.5px] opacity-80 mt-0.5">days</span>
                 </div>
               </div>
             </div>
 
-            {/* 5 Categories Pills Row */}
-            <div className="grid grid-cols-5 gap-1 mb-3">
-              {[
-                { icon: '🏃', label: 'Activity', bg: 'bg-emerald-50 text-emerald-600 border-emerald-100' },
-                { icon: '🌙', label: 'Sleep', bg: 'bg-blue-50 text-blue-600 border-blue-100' },
-                { icon: '🥗', label: 'Nutrition', bg: 'bg-orange-50 text-orange-600 border-orange-100' },
-                { icon: '🧘', label: 'Mind', bg: 'bg-purple-50 text-purple-600 border-purple-100' },
-                { icon: '❤️', label: 'Vitals', bg: 'bg-rose-50 text-rose-600 border-rose-100' },
-              ].map(cat => (
-                <div key={cat.label} className="flex flex-col items-center gap-0.5">
-                  <div className={`w-8 h-8 rounded-full ${cat.bg} border flex items-center justify-center text-xs shadow-2xs`}>
-                    {cat.icon}
-                  </div>
-                  <span className="text-[8px] font-semibold text-slate-500 leading-none">{cat.label}</span>
+            {/* 8 Key Health Metrics (4 x 2 Grid) */}
+            <div className="grid grid-cols-4 gap-1 mb-2">
+              {/* Heart Rate */}
+              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
+                <span className="text-[7px] font-semibold text-slate-500 leading-none">Heart Rate</span>
+                <div className="my-1 text-red-500">
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
                 </div>
-              ))}
-            </div>
-
-            {/* Upcoming Section */}
-            <div>
-              <div className="flex justify-between items-center mb-1.5 px-0.5">
-                <span className="text-[11px] font-bold text-slate-900">Upcoming</span>
+                <span className="text-[10px] font-black text-slate-900 leading-none">72</span>
+                <span className="text-[7px] text-slate-400 font-medium mt-0.5">bpm</span>
               </div>
 
-              <div className="flex flex-col gap-1.5">
-                {/* Item 1 */}
-                <div className="bg-[#F8FAFC] rounded-xl p-2 flex items-center justify-between border border-slate-100 shadow-2xs">
-                  <div className="flex items-center gap-2">
-                    <img src={coachAvatar} alt="Coach" className="w-6 h-6 rounded-full object-cover border border-slate-200" />
-                    <div>
-                      <p className="text-[10px] font-bold text-slate-900 leading-none">Coaching Call</p>
-                      <p className="text-[8px] text-slate-400 mt-0.5">Today, 6:30 PM</p>
-                    </div>
-                  </div>
-                  <svg className="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m9 5 7 7-7 7" />
+              {/* Activity */}
+              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
+                <span className="text-[7px] font-semibold text-slate-500 leading-none">Activity</span>
+                <div className="my-1 text-emerald-500">
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
                   </svg>
                 </div>
+                <span className="text-[10px] font-black text-slate-900 leading-none">350</span>
+                <span className="text-[7px] text-slate-400 font-medium mt-0.5">kcal</span>
+              </div>
 
-                {/* Item 2 */}
-                <div className="bg-[#F8FAFC] rounded-xl p-2 flex items-center justify-between border border-slate-100 shadow-2xs">
-                  <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-[10px] border border-blue-100">
-                      🏃
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold text-slate-900 leading-none">Strength Training</p>
-                      <p className="text-[8px] text-slate-400 mt-0.5">Today, 7:00 PM</p>
-                    </div>
-                  </div>
-                  <svg className="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="m9 5 7 7-7 7" />
+              {/* Calories */}
+              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
+                <span className="text-[7px] font-semibold text-slate-500 leading-none">Calories</span>
+                <div className="my-1 text-amber-500">
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 2c-.6 3-3 5-3 8 0 3.31 2.69 6 6 6s6-2.69 6-6c0-3.3-2.6-5.8-3.4-6.6-.4-.4-1-.1-1 .4 0 1.5-.9 2.6-2.1 2.6-1.5 0-2.5-1.5-2.5-4.4z"/>
                   </svg>
+                </div>
+                <span className="text-[10px] font-black text-slate-900 leading-none">1,250</span>
+                <span className="text-[7px] text-slate-400 font-medium mt-0.5">kcal</span>
+              </div>
+
+              {/* Body Weight */}
+              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
+                <span className="text-[7px] font-semibold text-slate-500 leading-none">Body Weight</span>
+                <div className="my-1 text-purple-500">
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <rect x="3" y="4" width="18" height="16" rx="3" />
+                    <circle cx="12" cy="10" r="3" />
+                    <path d="M12 9v2l1 1" />
+                  </svg>
+                </div>
+                <span className="text-[10px] font-black text-slate-900 leading-none">70.5</span>
+                <span className="text-[7px] text-slate-400 font-medium mt-0.5">kg</span>
+              </div>
+
+              {/* Body Fat */}
+              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
+                <span className="text-[7px] font-semibold text-slate-500 leading-none">Body Fat</span>
+                <div className="my-1 text-teal-500 font-bold text-[10px]">
+                  %
+                </div>
+                <span className="text-[10px] font-black text-slate-900 leading-none">18.6</span>
+                <span className="text-[7px] text-slate-400 font-medium mt-0.5">%</span>
+              </div>
+
+              {/* Muscle Mass */}
+              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
+                <span className="text-[7px] font-semibold text-slate-500 leading-none">Muscle Mass</span>
+                <div className="my-1 text-rose-500">
+                  <span className="text-[10px]">💪</span>
+                </div>
+                <span className="text-[10px] font-black text-slate-900 leading-none">52.3</span>
+                <span className="text-[7px] text-slate-400 font-medium mt-0.5">kg</span>
+              </div>
+
+              {/* BMI */}
+              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
+                <span className="text-[7px] font-semibold text-slate-500 leading-none">BMI</span>
+                <div className="my-1 text-blue-500">
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <circle cx="12" cy="6" r="3" />
+                    <path strokeLinecap="round" d="M9 12h6m-5 9v-7m4 7v-7" />
+                  </svg>
+                </div>
+                <span className="text-[10px] font-black text-slate-900 leading-none">22.4</span>
+                <span className="text-[6.5px] text-slate-400 font-medium mt-0.5">Normal</span>
+              </div>
+
+              {/* Resting HR */}
+              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
+                <span className="text-[7px] font-semibold text-slate-500 leading-none">Resting HR</span>
+                <div className="my-1 text-purple-600 flex items-center justify-center">
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </div>
+                <span className="text-[10px] font-black text-slate-900 leading-none">56</span>
+                <span className="text-[7px] text-slate-400 font-medium mt-0.5">bpm</span>
+              </div>
+            </div>
+
+            {/* Timestamp Bar */}
+            <div className="flex items-center justify-center gap-1 text-[8px] text-slate-400 mb-2">
+              <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <circle cx="12" cy="12" r="9" />
+                <path strokeLinecap="round" d="M12 6v6l3 3" />
+              </svg>
+              <span>Updated at 02:29 PM</span>
+            </div>
+
+            {/* Daily Habit Trackers (2x2 Grid) */}
+            <div className="grid grid-cols-2 gap-1.5 mb-2">
+              {/* Steps */}
+              <div className="bg-white rounded-xl p-2 border border-slate-100 flex flex-col items-center shadow-2xs">
+                <span className="text-[8px] font-bold text-slate-700">Steps</span>
+                <div className="w-10 h-10 rounded-full bg-amber-50/80 border-2 border-amber-300 flex items-center justify-center my-1 shadow-2xs">
+                  <span className="text-xs">👣</span>
+                </div>
+                <span className="text-[8px] text-slate-600">
+                  <strong className="text-slate-900">0</strong> of 5,000
+                </span>
+              </div>
+
+              {/* Hydration */}
+              <div className="bg-white rounded-xl p-2 border border-slate-100 flex flex-col items-center shadow-2xs">
+                <span className="text-[8px] font-bold text-slate-700">Hydration</span>
+                <div className="w-10 h-10 rounded-full bg-blue-50/80 border-2 border-blue-300 flex items-center justify-center my-1 shadow-2xs">
+                  <span className="text-xs">🥤</span>
+                </div>
+                <span className="text-[8px] text-slate-600">
+                  <strong className="text-slate-900">0.0L</strong> of 3.0L
+                </span>
+              </div>
+
+              {/* Sleep */}
+              <div className="bg-white rounded-xl p-2 border border-slate-100 flex flex-col items-center shadow-2xs">
+                <span className="text-[8px] font-bold text-slate-700">Sleep</span>
+                <div className="w-10 h-10 rounded-full bg-indigo-50/80 border-2 border-indigo-200 flex items-center justify-center my-1 shadow-2xs">
+                  <span className="text-xs">🌙</span>
+                </div>
+              </div>
+
+              {/* Food */}
+              <div className="bg-white rounded-xl p-2 border border-slate-100 flex flex-col items-center shadow-2xs">
+                <span className="text-[8px] font-bold text-slate-700">Food</span>
+                <div className="w-10 h-10 rounded-full bg-rose-50/80 border-2 border-rose-200 flex items-center justify-center my-1 shadow-2xs">
+                  <span className="text-xs">🍽️</span>
                 </div>
               </div>
             </div>
@@ -1157,43 +1313,58 @@ function MobilePhoneMockup() {
           </div>
 
           {/* Bottom App Navigation Bar */}
-          <div className="pt-2 border-t border-slate-100 mt-1">
+          <div className="pt-1.5 border-t border-slate-100 mt-0.5">
             <div className="flex justify-between items-center px-1 text-center">
-              <div className="flex flex-col items-center gap-0.5 text-emerald-600">
+              {/* Home (Active) */}
+              <div className="flex flex-col items-center gap-0.5 text-slate-900">
                 <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 11-1.06 1.06l-.92-.92v6.58A2.25 2.25 0 0117 21.5H7a2.25 2.25 0 01-2.25-2.25v-6.58l-.92.92a.75.75 0 01-1.06-1.06l8.7-8.69z" />
                 </svg>
                 <span className="text-[7px] font-bold">Home</span>
+                <div className="w-3 h-0.5 bg-slate-900 rounded-full mt-px" />
               </div>
+
+              {/* Play */}
               <div className="flex flex-col items-center gap-0.5 text-slate-400">
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                  <rect x="4" y="4" width="16" height="16" rx="4" />
+                  <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" />
                 </svg>
-                <span className="text-[7px] font-medium">Coach</span>
+                <span className="text-[7px] font-medium">Play</span>
               </div>
+
+              {/* Add (+) */}
+              <div className="flex flex-col items-center justify-center">
+                <div className="w-6 h-6 rounded-full border border-slate-300 text-slate-700 flex items-center justify-center">
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Arena */}
               <div className="flex flex-col items-center gap-0.5 text-slate-400">
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z" />
+                  <circle cx="12" cy="5" r="2.5" />
+                  <circle cx="6" cy="17" r="2.5" />
+                  <circle cx="18" cy="17" r="2.5" />
+                  <path strokeLinecap="round" d="m7.5 15 3.5-7.5 3.5 7.5M8 17h8" />
                 </svg>
-                <span className="text-[7px] font-medium">Track</span>
+                <span className="text-[7px] font-medium">Arena</span>
               </div>
+
+              {/* Store */}
               <div className="flex flex-col items-center gap-0.5 text-slate-400">
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.504-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                 </svg>
-                <span className="text-[7px] font-medium">Challenges</span>
-              </div>
-              <div className="flex flex-col items-center gap-0.5 text-slate-400">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                </svg>
-                <span className="text-[7px] font-medium">You</span>
+                <span className="text-[7px] font-medium">Store</span>
               </div>
             </div>
           </div>
 
           {/* Home Indicator */}
-          <div className="w-24 h-1 bg-slate-900 rounded-full mx-auto mt-2 mb-0.5" />
+          <div className="w-24 h-1 bg-slate-900 rounded-full mx-auto mt-1.5 mb-0.5" />
         </div>
       </div>
     </div>
@@ -1201,12 +1372,103 @@ function MobilePhoneMockup() {
 }
 
 export default function App() {
+  const [currentView, setCurrentView] = useState<'home' | 'privacy' | 'terms' | 'trust' | 'contact'>(() => {
+    if (typeof window !== 'undefined') {
+      if (window.location.hash === '#privacy' || window.location.pathname === '/privacy') {
+        return 'privacy'
+      }
+      if (window.location.hash === '#terms' || window.location.hash === '#section-terms-of-service-page' || window.location.pathname === '/terms') {
+        return 'terms'
+      }
+      if (window.location.hash === '#trust' || window.location.hash === '#section-trust-center-page' || window.location.pathname === '/trust') {
+        return 'trust'
+      }
+      if (
+        window.location.hash === '#contact' ||
+        window.location.hash === '#contact-us' ||
+        window.location.hash === '#section-contact-page' ||
+        window.location.pathname === '/contact'
+      ) {
+        return 'contact'
+      }
+    }
+    return 'home'
+  })
   const [mobileOpen, setMobileOpen] = useState(false)
   const [navVisible, setNavVisible] = useState(true)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
+  const [isPartnerModalOpen, setIsPartnerModalOpen] = useState(false)
   const lastScrollY = useRef(0)
   const dropdownTimerRef = useRef<any>(null)
+
+  const navigateToHome = () => {
+    setCurrentView('home')
+    if (
+      window.location.hash === '#privacy' ||
+      window.location.hash === '#terms' ||
+      window.location.hash === '#section-terms-of-service-page' ||
+      window.location.hash === '#trust' ||
+      window.location.hash === '#section-trust-center-page' ||
+      window.location.hash === '#contact' ||
+      window.location.hash === '#contact-us' ||
+      window.location.hash === '#section-contact-page'
+    ) {
+      window.history.pushState(null, '', window.location.pathname)
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const navigateToPrivacy = () => {
+    setCurrentView('privacy')
+    window.location.hash = 'privacy'
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const navigateToTerms = () => {
+    setCurrentView('terms')
+    window.location.hash = 'terms'
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const navigateToTrust = () => {
+    setCurrentView('trust')
+    window.location.hash = 'trust'
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const navigateToContact = () => {
+    setCurrentView('contact')
+    window.location.hash = 'contact'
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#privacy' || window.location.pathname === '/privacy') {
+        setCurrentView('privacy')
+      } else if (window.location.hash === '#terms' || window.location.hash === '#section-terms-of-service-page' || window.location.pathname === '/terms') {
+        setCurrentView('terms')
+      } else if (window.location.hash === '#trust' || window.location.hash === '#section-trust-center-page' || window.location.pathname === '/trust') {
+        setCurrentView('trust')
+      } else if (
+        window.location.hash === '#contact' ||
+        window.location.hash === '#contact-us' ||
+        window.location.hash === '#section-contact-page' ||
+        window.location.pathname === '/contact'
+      ) {
+        setCurrentView('contact')
+      } else if (window.location.hash === '' || window.location.hash === '#home') {
+        setCurrentView('home')
+      }
+    }
+    window.addEventListener('hashchange', handleHashChange)
+    window.addEventListener('popstate', handleHashChange)
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange)
+      window.removeEventListener('popstate', handleHashChange)
+    }
+  }, [])
 
   const handleMouseEnter = (label: string) => {
     if (dropdownTimerRef.current) clearTimeout(dropdownTimerRef.current)
@@ -1244,7 +1506,7 @@ export default function App() {
       {/* ── Navbar (Floating Pill with Scroll Hide/Show) ── */}
       <header className={`w-full sticky top-0 z-50 px-4 sm:px-6 lg:px-12 max-w-[1536px] mx-auto pointer-events-none pt-2 sm:pt-3 transition-all duration-300 ease-in-out ${isHeaderVisible ? 'translate-y-0 opacity-100' : '-translate-y-20 opacity-0'}`}>
         <div className="pointer-events-auto bg-white/95 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-100 rounded-full px-6 sm:px-8 py-3 flex items-center justify-between transition-all duration-300 relative">
-          <GoqiiLogo />
+          <GoqiiLogo onClick={navigateToHome} />
 
           {/* Desktop nav links */}
           <nav className="hidden lg:flex items-center gap-7 xl:gap-10">
@@ -1265,10 +1527,16 @@ export default function App() {
                     onClick={() => {
                       if (link.hasDropdown) {
                         setOpenDropdown(isOpen ? null : link.label)
+                      } else if (link.label === 'Contact') {
+                        navigateToContact()
+                      } else {
+                        if (currentView !== 'home') navigateToHome()
                       }
                     }}
                     className={`flex items-center gap-1.5 text-[14px] font-semibold transition-colors cursor-pointer ${
-                      isOpen ? 'text-slate-900 font-bold' : 'text-slate-700 hover:text-[#f05a28]'
+                      isOpen || (link.label === 'Contact' && currentView === 'contact')
+                        ? 'text-[#f05a28] font-bold'
+                        : 'text-slate-700 hover:text-[#f05a28]'
                     }`}
                   >
                     <span>{link.label}</span>
@@ -1298,7 +1566,14 @@ export default function App() {
                           <a
                             key={item.title}
                             href={item.href}
-                            onClick={() => setOpenDropdown(null)}
+                            target={item.href.startsWith('http') ? '_blank' : undefined}
+                            rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            onClick={() => {
+                              setOpenDropdown(null)
+                              if (currentView !== 'home' && !item.href.startsWith('http')) {
+                                navigateToHome()
+                              }
+                            }}
                             className="group block p-3 rounded-2xl hover:bg-slate-50 transition-colors text-left"
                           >
                             <h4 className="text-[14.5px] font-bold text-slate-900 group-hover:text-[#f05a28] transition-colors leading-snug">
@@ -1320,12 +1595,10 @@ export default function App() {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center">
             <button
-              className="px-6 py-2.5 rounded-full text-[14px] font-bold text-white transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-              style={{
-                background: 'linear-gradient(135deg, #2ecc71 0%, #20c997 50%, #00b4d8 100%)'
-              }}
+              onClick={() => setIsPartnerModalOpen(true)}
+              className="px-6 py-2.5 rounded-full text-[14px] font-bold text-white transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] cursor-pointer bg-[#f05a28] hover:bg-[#d94e1f]"
             >
-              Request a Demo
+              Partner with us
             </button>
           </div>
 
@@ -1352,9 +1625,20 @@ export default function App() {
                     onClick={() => {
                       if (link.hasDropdown) {
                         setMobileExpanded(isExpanded ? null : link.label)
+                      } else {
+                        setMobileOpen(false)
+                        if (link.label === 'Contact') {
+                          navigateToContact()
+                        } else {
+                          if (currentView !== 'home') navigateToHome()
+                        }
                       }
                     }}
-                    className="w-full text-left text-sm font-semibold text-slate-700 py-1 hover:text-[#f05a28] flex justify-between items-center"
+                    className={`w-full text-left text-sm font-semibold py-1 flex justify-between items-center transition-colors ${
+                      link.label === 'Contact' && currentView === 'contact'
+                        ? 'text-[#f05a28] font-bold'
+                        : 'text-slate-700 hover:text-[#f05a28]'
+                    }`}
                   >
                     <span>{link.label}</span>
                     {link.hasDropdown && (
@@ -1377,7 +1661,14 @@ export default function App() {
                         <a
                           key={item.title}
                           href={item.href}
-                          onClick={() => setMobileOpen(false)}
+                          target={item.href.startsWith('http') ? '_blank' : undefined}
+                          rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          onClick={() => {
+                            setMobileOpen(false)
+                            if (currentView !== 'home' && !item.href.startsWith('http')) {
+                              navigateToHome()
+                            }
+                          }}
                           className="block py-1 text-left"
                         >
                           <span className="text-xs font-bold text-slate-900 block">{item.title}</span>
@@ -1390,58 +1681,97 @@ export default function App() {
               )
             })}
             <button
-              className="w-full mt-2 py-3 rounded-full text-sm font-bold text-white shadow-md"
-              style={{
-                background: 'linear-gradient(135deg, #2ecc71 0%, #20c997 50%, #00b4d8 100%)'
+              onClick={() => {
+                setMobileOpen(false)
+                setIsPartnerModalOpen(true)
               }}
+              className="w-full mt-2 py-3 rounded-full text-sm font-bold text-white shadow-md bg-[#f05a28] hover:bg-[#d94e1f] cursor-pointer"
             >
-              Request a Demo
+              Partner with us
             </button>
           </div>
         )}
       </header>
 
-      {/* ── Hero ── */}
-      <section className="relative w-full overflow-hidden bg-white -mt-[68px] sm:-mt-[76px]" style={{ minHeight: '100vh' }}>
-        {/* Background hero photo — full background image */}
+      {currentView === 'privacy' ? (
+        <PrivacyPolicyPage onBack={navigateToHome} />
+      ) : currentView === 'terms' ? (
+        <TermsOfServicePage
+          onBack={navigateToHome}
+          onNavigateToPrivacy={navigateToPrivacy}
+        />
+      ) : currentView === 'trust' ? (
+        <TrustCenterPage
+          onBack={navigateToHome}
+          onNavigateToPrivacy={navigateToPrivacy}
+          onNavigateToTerms={navigateToTerms}
+        />
+      ) : currentView === 'contact' ? (
+        <ContactUsPage onBack={navigateToHome} />
+      ) : (
+        <>
+          {/* ── Hero ── */}
+          <section className="relative w-full overflow-hidden bg-white -mt-[68px] sm:-mt-[76px]" style={{ minHeight: '100vh' }}>
+        {/* Background hero photo — full background image (mobile & desktop) */}
         <div className="absolute inset-0 overflow-hidden">
+          {/* Mobile view banner image */}
+          <img
+            src={heroPhotoMobile}
+            alt="GOQii Preventive Healthcare"
+            className="block sm:hidden w-full h-full object-cover object-center"
+            referrerPolicy="no-referrer"
+          />
+          {/* Subtle mobile dark scrim to ensure text & button legibility while keeping the center image clear */}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/65 via-transparent to-slate-950/60 sm:hidden pointer-events-none" />
+          {/* Desktop & tablet view banner image */}
           <img
             src={heroPhoto}
             alt="GOQii Preventive Healthcare"
-            className="w-full h-full object-cover object-center sm:object-[center_30%]"
+            className="hidden sm:block w-full h-full object-cover object-center sm:object-[center_30%]"
             referrerPolicy="no-referrer"
           />
         </div>
 
         {/* Content container */}
-        <div className="relative z-10 max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 pt-28 sm:pt-36 pb-16 flex flex-col justify-between" style={{ minHeight: '100vh' }}>
-          {/* Main Hero Copy & CTAs */}
-          <div className="max-w-2xl flex flex-col gap-6">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 text-[#f05a28] text-xs font-bold tracking-wider uppercase w-fit border border-orange-100/80">
+        <div className="relative z-10 max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 pt-24 sm:pt-36 pb-8 sm:pb-16 flex flex-col justify-between flex-1" style={{ minHeight: '100vh' }}>
+          {/* Main Hero Copy */}
+          <div className="max-w-2xl flex flex-col gap-4 sm:gap-6">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/15 sm:bg-orange-50 text-orange-400 sm:text-[#f05a28] text-xs font-bold tracking-wider uppercase w-fit border border-orange-400/30 sm:border-orange-100/80 backdrop-blur-xs">
               Preventive Health & Engagement
             </span>
 
-            <h1 style={{ fontFamily: 'Poppins, sans-serif' }} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.18] tracking-tight">
-              Transforming Health.<br />
-              <span style={{ color: '#f05a28' }}>Powered by Dynamic Motivation.</span>
+            <h1 style={{ fontFamily: 'Poppins, sans-serif' }} className="text-2xl xs:text-[1.75rem] sm:text-4xl lg:text-5xl font-bold sm:font-semibold text-white sm:text-slate-900 leading-[1.2] sm:leading-[1.18] tracking-tight">
+              <span className="block">Transforming Health.</span>
+              <span style={{ color: '#f05a28' }} className="block">Powered by Dynamic Motivation.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-xl">
+            <p className="text-sm sm:text-lg text-slate-200 sm:text-slate-600 leading-relaxed font-normal max-w-xl">
               GOQii combines AI, behavioral intelligence, and human expertise to turn health insights into lasting action and measurable outcomes.
             </p>
 
-            {/* Dynamic Rotating Stat Proof Cards */}
-            <HeroStatRotator />
+            {/* Dynamic Rotating Stat Proof Cards (Hidden on mobile so background image remains visible) */}
+            <div className="hidden sm:block">
+              <HeroStatRotator />
+            </div>
+          </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-3.5 pt-1">
+          {/* CTAs: Moved below on mobile with clean space between and open background */}
+          <div className="max-w-2xl mt-auto sm:mt-6 pt-10 sm:pt-0 w-full">
+            <div className="flex flex-row items-center justify-between sm:justify-start gap-4 sm:gap-4 w-full sm:w-auto">
               <button
-                className="px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md cursor-pointer"
+                onClick={() => setIsPartnerModalOpen(true)}
+                className="flex-1 sm:flex-initial px-4 xs:px-6 sm:px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg cursor-pointer text-center justify-center whitespace-nowrap"
                 style={{ background: '#f05a28' }}
               >
                 Request a Demo
               </button>
-              <button className="px-7 py-3.5 rounded-full text-sm font-bold text-slate-800 border border-slate-300 hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all cursor-pointer">
+              <button
+                onClick={() => {
+                  const el = document.getElementById('solutions') || document.querySelector('section:nth-of-type(2)')
+                  el?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="flex-1 sm:flex-initial px-4 xs:px-6 sm:px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold text-white sm:text-slate-800 border border-white/50 sm:border-slate-300 bg-slate-900/40 sm:bg-transparent hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all cursor-pointer text-center justify-center whitespace-nowrap backdrop-blur-sm shadow-md"
+              >
                 Explore Solutions
               </button>
             </div>
@@ -1454,60 +1784,23 @@ export default function App() {
         <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Column: Photo with overlaid vertical pill tags & glowing orange rings */}
-            <div className="lg:col-span-5 relative min-h-[480px] sm:min-h-[540px] lg:min-h-[580px] rounded-3xl overflow-hidden flex items-center justify-center bg-slate-100 shadow-md border border-slate-100/80">
-              {/* Background Photo - Positioned with subject on the left */}
+            {/* Left Column: Graphic Image */}
+            <div className="lg:col-span-5 relative min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] rounded-3xl overflow-hidden flex items-center justify-center bg-[#F8FAFC] shadow-sm border border-slate-100 p-4 sm:p-6">
               <img
-                src={manPhonePhoto}
-                alt="Man sitting on sofa looking at smartphone"
-                className="absolute inset-0 w-full h-full object-cover object-[18%_center]"
+                src={moreInfoPhoto}
+                alt="More Information. Less Action."
+                className="w-full h-full max-h-[480px] object-contain"
+                referrerPolicy="no-referrer"
               />
-
-              {/* Concentric Orange Circular Glow Rings framing the person on the left */}
-              <div className="absolute top-[48%] left-[26%] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] rounded-full border border-orange-500/35 pointer-events-none" />
-              <div className="absolute top-[48%] left-[26%] -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] sm:w-[540px] sm:h-[540px] rounded-full border border-orange-500/20 pointer-events-none" />
-              {/* Glowing orange dots on circle paths */}
-              <div className="absolute top-[24%] left-[44%] w-3 h-3 bg-[#f05a28] rounded-full shadow-[0_0_12px_#f05a28] pointer-events-none" />
-              <div className="absolute bottom-[26%] left-[48%] w-2.5 h-2.5 bg-[#f05a28] rounded-full shadow-[0_0_10px_#f05a28] pointer-events-none" />
-
-              {/* Right soft backdrop gradient for crisp pill readability without obscuring subject */}
-              <div className="absolute inset-y-0 right-0 w-64 sm:w-72 bg-gradient-to-l from-black/25 via-black/10 to-transparent pointer-events-none" />
-
-              {/* Vertical Floating Pill Badges on the Right Side (Clear of the person) */}
-              <div className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 flex flex-col gap-3.5 z-10">
-                {/* Dotted vertical connector line */}
-                <div className="absolute left-[15px] top-4 bottom-4 w-0 border-r-2 border-dashed border-orange-400/80 pointer-events-none" />
-
-                {[
-                  'Too much information',
-                  'Lack of motivation',
-                  'Inconsistent action',
-                  'No sustained results',
-                ].map((label) => (
-                  <div
-                    key={label}
-                    className="relative z-10 flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-3.5 py-2.5 rounded-full shadow-lg border border-slate-100/90 hover:scale-102 transition-transform duration-200"
-                  >
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#f05a28] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
-                      </svg>
-                    </div>
-                    <span className="text-xs sm:text-[12.5px] font-semibold text-slate-800 leading-tight whitespace-nowrap pr-1.5">
-                      {label}
-                    </span>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Right Column: Headings, paragraph, 4 process cards & bottom banner */}
             <div className="lg:col-span-7 flex flex-col justify-center">
               {/* Headings */}
-              <h2 className="text-3xl sm:text-4xl xl:text-[2.65rem] font-bold text-[#0B192C] tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl xl:text-[2.65rem] font-semibold text-[#0B192C] tracking-tight leading-tight">
                 More Information. Less Action.
               </h2>
-              <h2 className="text-3xl sm:text-4xl xl:text-[2.65rem] font-bold text-[#f05a28] tracking-tight leading-tight mt-1">
+              <h2 className="text-3xl sm:text-4xl xl:text-[2.65rem] font-semibold text-[#f05a28] tracking-tight leading-tight mt-1">
                 The Missing Link? Motivation.
               </h2>
 
@@ -1529,7 +1822,7 @@ export default function App() {
                     </svg>
                   </div>
                   <div className="w-6 h-0.5 bg-[#f05a28] rounded-full mb-2" />
-                  <h3 className="text-slate-900 font-bold text-xs sm:text-sm leading-tight mb-1">
+                  <h3 className="text-slate-900 font-semibold text-xs sm:text-sm leading-tight mb-1">
                     Overwhelmed<br />by Information
                   </h3>
                   <p className="text-[11px] sm:text-xs text-slate-500 font-normal leading-normal">
@@ -1551,7 +1844,7 @@ export default function App() {
                     </svg>
                   </div>
                   <div className="w-6 h-0.5 bg-[#f05a28] rounded-full mb-2" />
-                  <h3 className="text-slate-900 font-bold text-xs sm:text-sm leading-tight mb-1">
+                  <h3 className="text-slate-900 font-semibold text-xs sm:text-sm leading-tight mb-1">
                     Lack of<br />Motivation
                   </h3>
                   <p className="text-[11px] sm:text-xs text-slate-500 font-normal leading-normal">
@@ -1573,7 +1866,7 @@ export default function App() {
                     </svg>
                   </div>
                   <div className="w-6 h-0.5 bg-[#f05a28] rounded-full mb-2" />
-                  <h3 className="text-slate-900 font-bold text-xs sm:text-sm leading-tight mb-1">
+                  <h3 className="text-slate-900 font-semibold text-xs sm:text-sm leading-tight mb-1">
                     Inconsistent<br />Action
                   </h3>
                   <p className="text-[11px] sm:text-xs text-slate-500 font-normal leading-normal">
@@ -1595,7 +1888,7 @@ export default function App() {
                     </svg>
                   </div>
                   <div className="w-6 h-0.5 bg-[#f05a28] rounded-full mb-2" />
-                  <h3 className="text-slate-900 font-bold text-xs sm:text-sm leading-tight mb-1">
+                  <h3 className="text-slate-900 font-semibold text-xs sm:text-sm leading-tight mb-1">
                     Short-term<br />Results
                   </h3>
                   <p className="text-[11px] sm:text-xs text-slate-500 font-normal leading-normal">
@@ -1613,9 +1906,9 @@ export default function App() {
                   </svg>
                 </div>
                 <p className="text-sm sm:text-base text-slate-900 leading-snug">
-                  <span className="font-bold">GOQii closes the gap with </span>
-                  <span className="text-[#f05a28] font-extrabold">Dynamic Motivation—</span>
-                  <span className="font-bold">personalized, adaptive, and designed for lasting change.</span>
+                  <span className="font-semibold">GOQii closes the gap with </span>
+                  <span className="text-[#f05a28] font-bold">Dynamic Motivation—</span>
+                  <span className="font-semibold">personalized, adaptive, and designed for lasting change.</span>
                 </p>
               </div>
             </div>
@@ -1633,10 +1926,10 @@ export default function App() {
 
         {/* Section Header */}
         <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 text-center mb-12 lg:mb-16 relative z-10">
-          <h2 className="text-3xl sm:text-4xl lg:text-[2.85rem] font-bold text-[#0B192C] tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-[2.85rem] font-semibold text-[#0B192C] tracking-tight leading-tight">
             GOQii Adapts to You.
           </h2>
-          <h2 className="text-3xl sm:text-4xl lg:text-[2.85rem] font-bold text-[#f05a28] tracking-tight leading-tight mt-1 sm:mt-1.5">
+          <h2 className="text-3xl sm:text-4xl lg:text-[2.85rem] font-semibold text-[#f05a28] tracking-tight leading-tight mt-1 sm:mt-1.5">
             Every Journey. Every Goal. Every Day.
           </h2>
 
@@ -1905,10 +2198,10 @@ export default function App() {
 
             {/* Left Column: Heading + Subtitle + 3 Stats */}
             <div className="lg:col-span-5 flex flex-col justify-center">
-              <h2 className="text-3xl sm:text-4xl xl:text-[3.2rem] font-bold text-[#0B192C] tracking-tight leading-[1.1]">
+              <h2 className="text-3xl sm:text-4xl xl:text-[3.2rem] font-semibold text-[#0B192C] tracking-tight leading-[1.1]">
                 Designed to Adapt.
               </h2>
-              <h2 className="text-3xl sm:text-4xl xl:text-[3.2rem] font-bold text-[#f05a28] tracking-tight leading-[1.1] mt-1 sm:mt-1.5">
+              <h2 className="text-3xl sm:text-4xl xl:text-[3.2rem] font-semibold text-[#f05a28] tracking-tight leading-[1.1] mt-1 sm:mt-1.5">
                 Built to Deliver.
               </h2>
 
@@ -1922,7 +2215,7 @@ export default function App() {
               {/* 3 Key Stats Row */}
               <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-lg">
                 
-                {/* Stat 1: 3M+ Lives Impacted */}
+                {/* Stat 1: 5M+ Lives Impacted */}
                 <div className="flex flex-col items-start">
                   <div className="w-11 h-11 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2.5 shadow-2xs border border-emerald-100/80">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -1930,7 +2223,7 @@ export default function App() {
                     </svg>
                   </div>
                   <span className="text-xl sm:text-2xl font-black text-emerald-600 leading-none">
-                    3M+
+                    5M+
                   </span>
                   <span className="text-xs text-slate-600 font-medium leading-tight mt-1">
                     Lives Impacted
@@ -2421,7 +2714,7 @@ export default function App() {
       {/* ── Section 5: We Partner Across the Health Ecosystem ── */}
       <section className="w-full bg-gray-50 py-16 xl:py-24">
         <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12">
-          <h2 style={{ fontFamily: 'Poppins, sans-serif' }} className="text-4xl xl:text-5xl font-bold text-gray-900 text-center mb-12">
+          <h2 style={{ fontFamily: 'Poppins, sans-serif' }} className="text-4xl xl:text-5xl font-semibold text-gray-900 text-center mb-12">
             We Partner Across the{' '}
             <span style={{ color: '#f05a28' }}>Health Ecosystem</span>
           </h2>
@@ -2501,7 +2794,7 @@ export default function App() {
                   </div>
                 </div>
                 <div className="p-4 flex flex-col gap-1">
-                  <h3 style={{ fontFamily: 'Poppins, sans-serif' }} className="text-base font-bold text-gray-900">{card.title}</h3>
+                  <h3 style={{ fontFamily: 'Poppins, sans-serif' }} className="text-base font-semibold text-gray-900">{card.title}</h3>
                   <p className="text-sm text-gray-600 leading-relaxed">{card.desc}</p>
                 </div>
               </div>
@@ -2518,7 +2811,7 @@ export default function App() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100/80 text-[#f05a28] text-xs font-semibold uppercase tracking-wider mb-2">
               Partnerships & Trust
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B192C] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-[#0B192C] tracking-tight">
               Trusted by <span className="text-[#f05a28]">Global Organizations</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -2541,7 +2834,7 @@ export default function App() {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               Security, Privacy & Governance
             </div>
-            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-[#0B192C] tracking-tight leading-[1.15]">
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-[1.15]">
               Built for Trust.<br />
               <span className="text-[#f05a28]">Designed for Healthcare.</span>
             </h2>
@@ -2571,6 +2864,9 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── Section: OUR STORY (From a Bold Idea to a Global Health Movement) ── */}
+      <OurStorySection onOpenPartnerModal={() => setIsPartnerModalOpen(true)} />
+
       {/* ── Section: THE PEOPLE BEHIND GOQii (Built by Experts. Driven by a Shared Mission.) ── */}
       <PeopleBehindGoqiiSection />
 
@@ -2595,10 +2891,10 @@ export default function App() {
               <span className="w-1.5 h-1.5 rounded-full bg-[#f05a28] animate-pulse" />
               Proven Impact
             </div>
-            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-white tracking-tight leading-tight">
               Real Results. <span className="text-[#f05a28]">Real Change.</span>
             </h2>
-            <p className="text-lg sm:text-xl font-bold text-slate-200 mt-2">
+            <p className="text-lg sm:text-xl font-semibold text-slate-200 mt-2">
               Health Engagement That Delivers Measurable Outcomes.
             </p>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mt-2 max-w-2xl">
@@ -2677,6 +2973,8 @@ export default function App() {
           </div>
         </div>
       </section>
+        </>
+      )}
 
       {/* ── Footer ── */}
       <footer className="w-full bg-white border-t border-slate-100 pt-16 pb-12 text-slate-800" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -2687,8 +2985,6 @@ export default function App() {
             <div className="flex flex-col gap-4">
               <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Personal Solutions</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Personal Care</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Insure Plus</a></li>
                 <li><a href="#" className="hover:text-slate-900 transition-colors">SuperLife</a></li>
                 <li><a href="#" className="hover:text-slate-900 transition-colors">SmartRx</a></li>
                 <li><a href="#" className="hover:text-slate-900 transition-colors">NutriGenius</a></li>
@@ -2699,11 +2995,11 @@ export default function App() {
             <div className="flex flex-col gap-4">
               <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Enterprise</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
-                <li><a href="#" className="hover:text-slate-900 transition-colors">HealthEngage</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">For Insurance</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">For Pharma</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">For Health Care Providers</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">For Corporate</a></li>
+                <li><a href="https://goqii.com/healthengage" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">HealthEngage</a></li>
+                <li><a href="https://goqii.com/healthengage-corporate" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">For Corporate</a></li>
+                <li><a href="https://go-qii-connected-care-7c49.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">For Health Care Providers</a></li>
+                <li><a href="https://goqii.com/healthengage-pharma" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">For Pharma</a></li>
+                <li><a href="https://goqii.com/healthengage-insurance" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">For Insurance</a></li>
               </ul>
             </div>
 
@@ -2720,9 +3016,6 @@ export default function App() {
             <div className="flex flex-col gap-4">
               <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Resources</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
-                <li><a href="#" className="hover:text-slate-900 transition-colors">India Fit Report</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Smart Science</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Smart Guide</a></li>
                 <li><a href="#" className="hover:text-slate-900 transition-colors">Blog</a></li>
               </ul>
             </div>
@@ -2731,9 +3024,23 @@ export default function App() {
             <div className="flex flex-col gap-4">
               <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Company</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
-                <li><a href="#" className="hover:text-slate-900 transition-colors">About Us</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Contact Us</a></li>
+                <li><a href="#our-story" className="hover:text-slate-900 transition-colors">Our Story</a></li>
+                <li>
+                  <a
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      navigateToContact()
+                    }}
+                    className={`transition-colors cursor-pointer ${
+                      currentView === 'contact'
+                        ? 'text-[#f05a28] font-bold underline'
+                        : 'hover:text-slate-900'
+                    }`}
+                  >
+                    Contact Us
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -2742,91 +3049,194 @@ export default function App() {
               <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Support</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
                 <li><a href="#" className="hover:text-slate-900 transition-colors">FAQs</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Startup Guide</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Track Order</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Warranty</a></li>
               </ul>
             </div>
           </div>
 
-          {/* Middle Brand & Tagline + Social Icons Bar */}
-          <div className="border-t border-slate-100 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 max-w-2xl">
-              <GoqiiLogo />
+          {/* Middle Brand & Tagline + App Badges & Social Icons Bar */}
+          <div className="border-t border-slate-100 py-8 flex flex-col xl:flex-row items-start xl:items-center justify-between gap-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 max-w-xl">
+              <GoqiiLogo onClick={navigateToHome} />
               <p className="text-[14px] text-slate-600 leading-normal">
                 Transforming healthcare from reactive treatment to continuous, intelligent prevention.
               </p>
             </div>
 
-            {/* Social Circle Buttons + Scroll to top */}
-            <div className="flex items-center gap-3">
-              {/* X / Twitter */}
-              <a href="#" aria-label="X" className="w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-700 font-bold text-xs">
-                x
-              </a>
-              {/* Facebook */}
-              <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-700 font-bold text-xs">
-                f
-              </a>
-              {/* Instagram */}
-              <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-700">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <rect x="2" y="2" width="20" height="20" rx="5" />
-                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-              </a>
-              {/* LinkedIn */}
-              <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-700">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                </svg>
-              </a>
-              {/* YouTube */}
-              <a href="#" aria-label="YouTube" className="w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-700">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-              </a>
+            {/* App Badges + Social Circle Buttons + Scroll to top */}
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+              {/* App Store & Google Play Badges */}
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://apps.apple.com/in/app/goqii/id868625946"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block transition-transform hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+                  aria-label="Download GOQii on Apple App Store"
+                >
+                  <img
+                    src="https://goqii.com/webApp/uswebsite2025/assets/images/icon-app-store.png"
+                    alt="Download on the App Store"
+                    className="h-[38px] w-auto object-contain rounded-lg"
+                    referrerPolicy="no-referrer"
+                  />
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=qii.go.com.goqii"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block transition-transform hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+                  aria-label="Get GOQii on Google Play"
+                >
+                  <img
+                    src="https://goqii.com/webApp/uswebsite2025/assets/images/icon-play-store.png"
+                    alt="Get it on Google Play"
+                    className="h-[38px] w-auto object-contain rounded-lg"
+                    referrerPolicy="no-referrer"
+                  />
+                </a>
+              </div>
 
-              {/* Scroll to top button */}
-              <button
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                aria-label="Scroll to top"
-                className="w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-700 ml-2 cursor-pointer"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
-                </svg>
-              </button>
+              <div className="hidden sm:block h-6 w-px bg-slate-200" />
+
+              {/* Social Circle Buttons */}
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                {/* Facebook */}
+                <a
+                  href="https://www.facebook.com/GOQiiLife"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow GOQii on Facebook"
+                  className="w-10 h-10 rounded-full bg-slate-100/90 hover:bg-[#1877F2] hover:text-white transition-all flex items-center justify-center text-slate-700 shadow-xs active:scale-95"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+                {/* X / Twitter */}
+                <a
+                  href="https://twitter.com/goqii"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow GOQii on X (Twitter)"
+                  className="w-10 h-10 rounded-full bg-slate-100/90 hover:bg-black hover:text-white transition-all flex items-center justify-center text-slate-700 shadow-xs active:scale-95"
+                >
+                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/company/goqii/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow GOQii on LinkedIn"
+                  className="w-10 h-10 rounded-full bg-slate-100/90 hover:bg-[#0A66C2] hover:text-white transition-all flex items-center justify-center text-slate-700 shadow-xs active:scale-95"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                  </svg>
+                </a>
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/goqiilife"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow GOQii on Instagram"
+                  className="w-10 h-10 rounded-full bg-slate-100/90 hover:bg-[#E4405F] hover:text-white transition-all flex items-center justify-center text-slate-700 shadow-xs active:scale-95"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </a>
+                {/* YouTube */}
+                <a
+                  href="https://www.youtube.com/user/GOQii"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Subscribe to GOQii on YouTube"
+                  className="w-10 h-10 rounded-full bg-slate-100/90 hover:bg-[#FF0000] hover:text-white transition-all flex items-center justify-center text-slate-700 shadow-xs active:scale-95"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </a>
+
+                {/* Scroll to top button */}
+                <button
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  aria-label="Scroll to top"
+                  className="w-10 h-10 rounded-full bg-slate-100/80 hover:bg-slate-200 transition-colors flex items-center justify-center text-slate-700 ml-2 cursor-pointer"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* Bottom Bar: Region, Legal & Copyright */}
+          {/* Bottom Bar: Legal & Copyright */}
           <div className="border-t border-slate-100 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[13px] text-slate-500">
-            <div className="flex flex-col gap-2">
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-slate-800 uppercase tracking-wider text-[11px]">REGION:</span>
-                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">India</a>
-                <span>|</span>
-                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">United States</a>
-                <span>|</span>
-                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">United Kingdom</a>
-              </div>
+            <div>
               <p className="text-[12px] text-slate-400">© 2026 GOQii Technologies Private Limited. All rights reserved.</p>
             </div>
 
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-slate-800 uppercase tracking-wider text-[11px]">LEGAL:</span>
-              <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">Privacy Policy</a>
+              <a
+                href="#privacy"
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigateToPrivacy()
+                }}
+                className={`transition-colors cursor-pointer ${
+                  currentView === 'privacy'
+                    ? 'text-[#f05a28] font-bold underline'
+                    : 'text-slate-600 hover:text-[#f05a28]'
+                }`}
+              >
+                Privacy Policy
+              </a>
               <span>|</span>
-              <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">Terms of Service</a>
+              <a
+                href="#terms"
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigateToTerms()
+                }}
+                className={`transition-colors cursor-pointer ${
+                  currentView === 'terms'
+                    ? 'text-[#f05a28] font-bold underline'
+                    : 'text-slate-600 hover:text-[#f05a28]'
+                }`}
+              >
+                Terms of Service
+              </a>
               <span>|</span>
-              <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">Trust Center</a>
+              <a
+                href="#trust"
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigateToTrust()
+                }}
+                className={`transition-colors cursor-pointer ${
+                  currentView === 'trust'
+                    ? 'text-[#f05a28] font-bold underline'
+                    : 'text-slate-600 hover:text-[#f05a28]'
+                }`}
+              >
+                Trust Center
+              </a>
             </div>
           </div>
         </div>
       </footer>
+
+      {/* ── Partner With GOQii Modal ── */}
+      <PartnerWithUsModal
+        isOpen={isPartnerModalOpen}
+        onClose={() => setIsPartnerModalOpen(false)}
+      />
     </div>
   )
 }
