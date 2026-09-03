@@ -423,6 +423,21 @@ const longevityCouncil: TeamMember[] = [
 function PeopleBehindGoqiiSection() {
   const [activeTab, setActiveTab] = useState<'leadership' | 'board' | 'advisory' | 'longevity'>('leadership')
   const [selectedBio, setSelectedBio] = useState<TeamMember | null>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scrollLeft = () => {
+    scrollRef.current?.scrollBy({ left: -280, behavior: 'smooth' })
+  }
+  const scrollRight = () => {
+    scrollRef.current?.scrollBy({ left: 280, behavior: 'smooth' })
+  }
+
+  const handleTabChange = (id: 'leadership' | 'board' | 'advisory' | 'longevity') => {
+    setActiveTab(id)
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' })
+    }
+  }
 
   const tabs = [
     { id: 'leadership', label: 'LEADERSHIP TEAM', count: leadershipTeam.length, data: leadershipTeam },
@@ -455,13 +470,13 @@ function PeopleBehindGoqiiSection() {
         </div>
 
         {/* Tab Selection Bar (Matching Image 1) */}
-        <div className="flex items-center gap-3 overflow-x-auto no-scrollbar pb-3 mb-10 sm:mb-12">
+        <div className="flex items-center gap-3 overflow-x-auto no-scrollbar pb-3 mb-6 sm:mb-12">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => handleTabChange(tab.id as any)}
                 className={`whitespace-nowrap px-6 py-3 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase transition-all duration-200 flex items-center gap-2.5 cursor-pointer select-none ${
                   isActive
                     ? 'bg-[#0B132B] text-white shadow-md'
@@ -475,16 +490,56 @@ function PeopleBehindGoqiiSection() {
           })}
         </div>
 
-        {/* Cards Grid (5-column layout for leadership cards as in Images 2 & 3) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6">
+        {/* Mobile-Only Horizontal Scroll Controls & Swipe Hint */}
+        <div className="flex sm:hidden items-center justify-between mb-4 px-0.5">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-bold text-slate-600 uppercase tracking-wider">
+              {currentMembers.length} Members
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="text-xs text-slate-400 font-medium inline-flex items-center gap-1">
+              <span>Swipe horizontally</span>
+              <span className="text-slate-400">→</span>
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={scrollLeft}
+              aria-label="Scroll left"
+              className="w-8 h-8 rounded-full bg-white border border-slate-200/90 text-slate-700 flex items-center justify-center shadow-xs active:scale-95 transition-all cursor-pointer hover:bg-slate-50"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={scrollRight}
+              aria-label="Scroll right"
+              className="w-8 h-8 rounded-full bg-white border border-slate-200/90 text-slate-700 flex items-center justify-center shadow-xs active:scale-95 transition-all cursor-pointer hover:bg-slate-50"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Cards Container: Horizontally aligned carousel with snap on mobile, 5-column grid on desktop */}
+        <div
+          ref={scrollRef}
+          className="flex sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible pb-5 sm:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0 no-scrollbar snap-x snap-mandatory scroll-smooth"
+        >
           {currentMembers.map((member) => (
             <div
               key={member.num + member.name}
-              className="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_14px_rgba(0,0,0,0.03)] hover:shadow-xl hover:border-emerald-300 transition-all duration-300 flex flex-col justify-between group"
+              className="w-[78vw] max-w-[280px] shrink-0 sm:w-auto sm:shrink snap-start bg-white rounded-3xl p-4 sm:p-5 border border-slate-200/80 shadow-[0_2px_14px_rgba(0,0,0,0.03)] hover:shadow-xl hover:border-emerald-300 transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Photo container with top-left number badge and hover 'VIEW BIO' overlay */}
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/4.6] bg-slate-100 mb-4 group/img">
+                <div 
+                  className="relative rounded-2xl overflow-hidden aspect-[4/4.6] bg-slate-100 mb-4 group/img cursor-pointer"
+                  onClick={() => setSelectedBio(member)}
+                >
                   {/* Number Badge (01, 02, ...) */}
                   <div className="absolute top-3 left-3 w-7 h-7 rounded-full bg-white/95 backdrop-blur-xs text-slate-900 font-extrabold text-xs flex items-center justify-center shadow-sm z-10">
                     {member.num}
@@ -501,7 +556,6 @@ function PeopleBehindGoqiiSection() {
 
                   {/* Hover Overlay with VIEW BIO Button */}
                   <div
-                    onClick={() => setSelectedBio(member)}
                     className="absolute inset-0 bg-slate-950/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3 z-20 cursor-pointer"
                   >
                     <span className="px-4 py-2 rounded-full bg-white/90 text-slate-900 text-xs font-extrabold tracking-wider uppercase shadow-md hover:bg-white transition-all transform group-hover:scale-100 scale-95">
@@ -1755,26 +1809,18 @@ export default function App() {
             </div>
           </div>
 
-          {/* CTAs: Moved below on mobile with clean space between and open background */}
-          <div className="max-w-2xl mt-auto sm:mt-6 pt-10 sm:pt-0 w-full">
-            <div className="flex flex-row items-center justify-between sm:justify-start gap-4 sm:gap-4 w-full sm:w-auto">
-              <button
-                onClick={() => setIsPartnerModalOpen(true)}
-                className="flex-1 sm:flex-initial px-4 xs:px-6 sm:px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg cursor-pointer text-center justify-center whitespace-nowrap"
-                style={{ background: '#f05a28' }}
-              >
-                Request a Demo
-              </button>
-              <button
-                onClick={() => {
-                  const el = document.getElementById('solutions') || document.querySelector('section:nth-of-type(2)')
-                  el?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="flex-1 sm:flex-initial px-4 xs:px-6 sm:px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold text-white sm:text-slate-800 border border-white/50 sm:border-slate-300 bg-slate-900/40 sm:bg-transparent hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all cursor-pointer text-center justify-center whitespace-nowrap backdrop-blur-sm shadow-md"
-              >
-                Explore Solutions
-              </button>
-            </div>
+          {/* CTA: Explore Solutions */}
+          <div className="max-w-2xl mt-auto sm:mt-6 pt-8 sm:pt-0 w-full">
+            <button
+              onClick={() => {
+                const el = document.getElementById('solutions') || document.querySelector('section:nth-of-type(2)')
+                el?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="w-full sm:w-auto px-7 py-3.5 rounded-full text-sm font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg cursor-pointer text-center inline-flex items-center justify-center whitespace-nowrap"
+              style={{ background: '#f05a28' }}
+            >
+              Explore Solutions
+            </button>
           </div>
         </div>
       </section>
