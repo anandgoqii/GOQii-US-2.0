@@ -5,6 +5,7 @@ import PrivacyPolicyPage from './components/PrivacyPolicyPage'
 import TermsOfServicePage from './components/TermsOfServicePage'
 import TrustCenterPage from './components/TrustCenterPage'
 import ContactUsPage from './components/ContactUsPage'
+import FaqPage from './components/FaqPage'
 
 const heroPhoto = 'https://appcdn.goqii.com/storeimg/75445_1786343196.jpg'
 const heroPhotoMobile = 'https://appcdn.goqii.com/storeimg/53788_1788428746.jpg'
@@ -856,6 +857,7 @@ const navLinks = [
   { label: 'Plans', hasDropdown: false },
   { label: 'Project Sanjeevini', hasDropdown: false },
   { label: 'Contact', hasDropdown: false },
+  { label: 'FAQs', hasDropdown: false },
 ]
 
 function GoqiiLogo({ onClick }: { onClick?: () => void }) {
@@ -1426,28 +1428,7 @@ function MobilePhoneMockup() {
 }
 
 export default function App() {
-  const [currentView, setCurrentView] = useState<'home' | 'privacy' | 'terms' | 'trust' | 'contact'>(() => {
-    if (typeof window !== 'undefined') {
-      if (window.location.hash === '#privacy' || window.location.pathname === '/privacy') {
-        return 'privacy'
-      }
-      if (window.location.hash === '#terms' || window.location.hash === '#section-terms-of-service-page' || window.location.pathname === '/terms') {
-        return 'terms'
-      }
-      if (window.location.hash === '#trust' || window.location.hash === '#section-trust-center-page' || window.location.pathname === '/trust') {
-        return 'trust'
-      }
-      if (
-        window.location.hash === '#contact' ||
-        window.location.hash === '#contact-us' ||
-        window.location.hash === '#section-contact-page' ||
-        window.location.pathname === '/contact'
-      ) {
-        return 'contact'
-      }
-    }
-    return 'home'
-  })
+  const [currentView, setCurrentView] = useState<'home' | 'privacy' | 'terms' | 'trust' | 'contact' | 'faq'>('home')
   const [mobileOpen, setMobileOpen] = useState(false)
   const [navVisible, setNavVisible] = useState(true)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
@@ -1466,7 +1447,10 @@ export default function App() {
       window.location.hash === '#section-trust-center-page' ||
       window.location.hash === '#contact' ||
       window.location.hash === '#contact-us' ||
-      window.location.hash === '#section-contact-page'
+      window.location.hash === '#section-contact-page' ||
+      window.location.hash === '#faqs' ||
+      window.location.hash === '#faq' ||
+      window.location.hash === '#section-faq-page'
     ) {
       window.history.pushState(null, '', window.location.pathname)
     }
@@ -1497,9 +1481,29 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const navigateToFaq = () => {
+    setCurrentView('faq')
+    window.location.hash = 'faqs'
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   useEffect(() => {
+    // Ensure initial load always starts on Home and clears lingering #privacy hash
+    if (typeof window !== 'undefined') {
+      if (
+        window.location.hash === '#privacy' ||
+        window.location.hash === 'privacy' ||
+        window.location.pathname === '/privacy'
+      ) {
+        if (window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname === '/privacy' ? '/' : window.location.pathname)
+        }
+        setCurrentView('home')
+      }
+    }
+
     const handleHashChange = () => {
-      if (window.location.hash === '#privacy' || window.location.pathname === '/privacy') {
+      if (window.location.hash === '#privacy') {
         setCurrentView('privacy')
       } else if (window.location.hash === '#terms' || window.location.hash === '#section-terms-of-service-page' || window.location.pathname === '/terms') {
         setCurrentView('terms')
@@ -1512,6 +1516,14 @@ export default function App() {
         window.location.pathname === '/contact'
       ) {
         setCurrentView('contact')
+      } else if (
+        window.location.hash === '#faqs' ||
+        window.location.hash === '#faq' ||
+        window.location.hash === '#section-faq-page' ||
+        window.location.pathname === '/faqs' ||
+        window.location.pathname === '/faq'
+      ) {
+        setCurrentView('faq')
       } else if (window.location.hash === '' || window.location.hash === '#home') {
         setCurrentView('home')
       }
@@ -1583,12 +1595,16 @@ export default function App() {
                         setOpenDropdown(isOpen ? null : link.label)
                       } else if (link.label === 'Contact') {
                         navigateToContact()
+                      } else if (link.label === 'FAQs') {
+                        navigateToFaq()
                       } else {
                         if (currentView !== 'home') navigateToHome()
                       }
                     }}
                     className={`flex items-center gap-1.5 text-[14px] font-semibold transition-colors cursor-pointer ${
-                      isOpen || (link.label === 'Contact' && currentView === 'contact')
+                      isOpen ||
+                      (link.label === 'Contact' && currentView === 'contact') ||
+                      (link.label === 'FAQs' && currentView === 'faq')
                         ? 'text-[#f05a28] font-bold'
                         : 'text-slate-700 hover:text-[#f05a28]'
                     }`}
@@ -1683,13 +1699,16 @@ export default function App() {
                         setMobileOpen(false)
                         if (link.label === 'Contact') {
                           navigateToContact()
+                        } else if (link.label === 'FAQs') {
+                          navigateToFaq()
                         } else {
                           if (currentView !== 'home') navigateToHome()
                         }
                       }
                     }}
                     className={`w-full text-left text-sm font-semibold py-1 flex justify-between items-center transition-colors ${
-                      link.label === 'Contact' && currentView === 'contact'
+                      (link.label === 'Contact' && currentView === 'contact') ||
+                      (link.label === 'FAQs' && currentView === 'faq')
                         ? 'text-[#f05a28] font-bold'
                         : 'text-slate-700 hover:text-[#f05a28]'
                     }`}
@@ -1762,6 +1781,8 @@ export default function App() {
         />
       ) : currentView === 'contact' ? (
         <ContactUsPage onBack={navigateToHome} />
+      ) : currentView === 'faq' ? (
+        <FaqPage onBack={navigateToHome} onNavigateToContact={navigateToContact} />
       ) : (
         <>
           {/* ── Hero ── */}
@@ -3094,7 +3115,22 @@ export default function App() {
             <div className="flex flex-col gap-4">
               <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Support</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
-                <li><a href="#" className="hover:text-slate-900 transition-colors">FAQs</a></li>
+                <li>
+                  <a
+                    href="#faqs"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      navigateToFaq()
+                    }}
+                    className={`transition-colors cursor-pointer ${
+                      currentView === 'faq'
+                        ? 'text-[#f05a28] font-bold underline'
+                        : 'hover:text-slate-900'
+                    }`}
+                  >
+                    FAQs
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -3134,7 +3170,7 @@ export default function App() {
                   aria-label="Get GOQii on Google Play"
                 >
                   <img
-                    src="https://goqii.com/webApp/uswebsite2025/assets/images/icon-play-store.png"
+                    src="https://appcdn.goqii.com/storeimg/45358_1724147165.png"
                     alt="Get it on Google Play"
                     className="h-[38px] w-auto object-contain rounded-lg"
                     referrerPolicy="no-referrer"
@@ -3229,6 +3265,21 @@ export default function App() {
 
             <div className="flex items-center gap-2">
               <span className="font-extrabold text-slate-800 uppercase tracking-wider text-[11px]">LEGAL:</span>
+              <a
+                href="#faqs"
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigateToFaq()
+                }}
+                className={`transition-colors cursor-pointer ${
+                  currentView === 'faq'
+                    ? 'text-[#f05a28] font-bold underline'
+                    : 'text-slate-600 hover:text-[#f05a28]'
+                }`}
+              >
+                FAQs
+              </a>
+              <span>|</span>
               <a
                 href="#privacy"
                 onClick={(e) => {
