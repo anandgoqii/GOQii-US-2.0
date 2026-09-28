@@ -35,10 +35,10 @@ export default function ConnectedWaySection() {
 
         {/* Headline matching website typography */}
         <div className="relative text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl xl:text-[2.65rem] font-semibold text-[#0B192C] tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-tight">
             Meet a more connected way
           </h2>
-          <h2 className="text-3xl sm:text-4xl xl:text-[2.65rem] font-semibold text-[#f05a28] tracking-tight leading-tight mt-1 sm:mt-1.5">
+          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#f05a28] tracking-tight leading-tight mt-1 sm:mt-1.5">
             to manage your health.
           </h2>
 

@@ -9,9 +9,11 @@ import FaqPage from './components/FaqPage'
 import HealthPuzzleSection from './components/HealthPuzzleSection'
 import BodyInSilosSection from './components/BodyInSilosSection'
 import ConnectedWaySection from './components/ConnectedWaySection'
+import AliveOsSection from './components/AliveOsSection'
 
 const heroPhoto = 'https://appcdn.goqii.com/storeimg/75445_1786343196.jpg'
 const heroPhotoMobile = 'https://appcdn.goqii.com/storeimg/53788_1788428746.jpg'
+const heroBannerLogo = 'https://appcdn.goqii.com/storeimg/45528_1790592365.png'
 const coachAvatar = 'https://images.unsplash.com/photo-1561973027-6bdfea7b3324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=80&h=80&fit=crop&auto=format'
 const womanFitnessPhoto = 'https://images.unsplash.com/photo-1480179087180-d9f0ec044897?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600&q=80'
 
@@ -25,27 +27,27 @@ const partnerPhotos = {
 const runnersBg = 'https://images.unsplash.com/photo-1513593771513-7b58b6c4af38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1800&q=80'
 
 const trustedLogos = [
-  { id: 1, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted1.png', alt: 'Trusted Partner 1' },
-  { id: 2, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted2.png', alt: 'Trusted Partner 2' },
-  { id: 3, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted3.png', alt: 'Trusted Partner 3' },
-  { id: 4, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted4.png', alt: 'Trusted Partner 4' },
-  { id: 5, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted5.png', alt: 'Trusted Partner 5' },
-  { id: 6, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted6.png', alt: 'Trusted Partner 6' },
-  { id: 7, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted7.png', alt: 'Trusted Partner 7' },
-  { id: 8, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted8.png', alt: 'Trusted Partner 8' },
-  { id: 9, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted9.png', alt: 'Trusted Partner 9' },
-  { id: 10, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted10.png', alt: 'Trusted Partner 10' },
-  { id: 11, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted11.png', alt: 'Trusted Partner 11' },
-  { id: 12, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted12.png', alt: 'Trusted Partner 12' },
+  { id: 1, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted1.png', alt: 'Trusted Partner 1' },
+  { id: 2, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted2.png', alt: 'Trusted Partner 2' },
+  { id: 3, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted3.png', alt: 'Trusted Partner 3' },
+  { id: 4, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted4.png', alt: 'Trusted Partner 4' },
+  { id: 5, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted5.png', alt: 'Trusted Partner 5' },
+  { id: 6, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted6.png', alt: 'Trusted Partner 6' },
+  { id: 7, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted7.png', alt: 'Trusted Partner 7' },
+  { id: 8, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted8.png', alt: 'Trusted Partner 8' },
+  { id: 9, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted9.png', alt: 'Trusted Partner 9' },
+  { id: 10, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted10.png', alt: 'Trusted Partner 10' },
+  { id: 11, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted11.png', alt: 'Trusted Partner 11' },
+  { id: 12, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-trusted12.png', alt: 'Trusted Partner 12' },
 ]
 
 const complianceLogos = [
-  { id: 1, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-partner1.png', alt: 'Compliance Partner 1' },
-  { id: 2, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-partner2.png', alt: 'Compliance Partner 2' },
-  { id: 3, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-partner3.png', alt: 'Compliance Partner 3' },
-  { id: 4, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-partner4.png', alt: 'Compliance Partner 4' },
-  { id: 5, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-partner5.png', alt: 'Compliance Partner 5' },
-  { id: 6, src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-partner6.png', alt: 'Compliance Partner 6' },
+  { id: 1, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-partner1.png', alt: 'Compliance Partner 1' },
+  { id: 2, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-partner2.png', alt: 'Compliance Partner 2' },
+  { id: 3, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-partner3.png', alt: 'Compliance Partner 3' },
+  { id: 4, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-partner4.png', alt: 'Compliance Partner 4' },
+  { id: 5, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-partner5.png', alt: 'Compliance Partner 5' },
+  { id: 6, src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-partner6.png', alt: 'Compliance Partner 6' },
 ]
 
 function TrustedOrganizationsCarousel() {
@@ -716,27 +718,27 @@ function GoqiiEcosystemSection() {
   const ecosystemLogos = [
     {
       name: 'Universal Health Token',
-      src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner1.png',
+      src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner1.png',
     },
     {
       name: 'Modality',
-      src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner2.png',
+      src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner2.png',
     },
     {
       name: 'Harvard Business Publishing',
-      src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner3.png',
+      src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner3.png',
     },
     {
       name: 'IDC',
-      src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner4.png',
+      src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner4.png',
     },
     {
       name: 'DeviceWorld',
-      src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner5.png',
+      src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner5.png',
     },
     {
       name: 'Swiss Re',
-      src: 'https://goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner6.png',
+      src: 'https://insight.goqii.com/webApp/uswebsite2025/assets/images/img-slide-partner6.png',
     },
   ]
 
@@ -751,7 +753,7 @@ function GoqiiEcosystemSection() {
             THE PARTNERS BEHIND THE IMPACT
           </div>
 
-          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-slate-900 tracking-tight leading-[1.15]">
+          <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-slate-900 tracking-tight leading-tight">
             Better Health <span className="text-[#f05a28]">Doesn't Happen Alone.</span>
           </h2>
 
@@ -858,8 +860,6 @@ const navLinks = [
   { label: 'Personal Solutions', hasDropdown: true },
   { label: 'Plans', hasDropdown: false },
   { label: 'Project Sanjeevini', hasDropdown: false },
-  { label: 'Contact', hasDropdown: false },
-  { label: 'FAQs', hasDropdown: false },
 ]
 
 function GoqiiLogo({ onClick }: { onClick?: () => void }) {
@@ -881,172 +881,6 @@ function GoqiiLogo({ onClick }: { onClick?: () => void }) {
         referrerPolicy="no-referrer"
       />
     </a>
-  )
-}
-
-const heroStats = [
-  {
-    category: 'Government Supported Care',
-    stat: '90%',
-    title: 'Patient Satisfaction',
-    description: 'Improved patient experience and satisfaction in government programs.',
-    bgColor: 'bg-emerald-50',
-    textColor: 'text-emerald-600',
-    borderColor: 'border-emerald-200/80',
-    dotColor: 'bg-emerald-500',
-    iconBg: 'bg-emerald-500 text-white',
-    icon: (
-      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.5m-15 10.5V10.5M3 21h18M4.5 10.5h15" />
-      </svg>
-    ),
-  },
-  {
-    category: 'Enterprise Wellness',
-    stat: '85%',
-    title: 'Reduced Absenteeism',
-    description: 'Stronger employee engagement leads to healthier teams and improved productivity.',
-    bgColor: 'bg-blue-50',
-    textColor: 'text-blue-600',
-    borderColor: 'border-blue-200/80',
-    dotColor: 'bg-blue-600',
-    iconBg: 'bg-blue-600 text-white',
-    icon: (
-      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.25v4.5a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25v-4.5M3.75 9h16.5A1.5 1.5 0 0 1 21.75 10.5v1.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5v-1.5A1.5 1.5 0 0 1 3.75 9Zm5.25-3a2.25 2.25 0 0 1 2.25-2.25h1.5A2.25 2.25 0 0 1 15 6v3H9V6Z" />
-      </svg>
-    ),
-  },
-  {
-    category: 'Public Health Engagement',
-    stat: '30%',
-    title: 'Increase in Engagement',
-    description: 'Better preventive health engagement across communities and population programs.',
-    bgColor: 'bg-purple-50',
-    textColor: 'text-purple-600',
-    borderColor: 'border-purple-200/80',
-    dotColor: 'bg-purple-600',
-    iconBg: 'bg-purple-600 text-white',
-    icon: (
-      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.999-3.199a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
-      </svg>
-    ),
-  },
-  {
-    category: 'Chronic Care Management',
-    stat: '28%',
-    title: 'Increase in Digital Adherence',
-    description: 'Better treatment adherence through continuous motivation and personalized support.',
-    bgColor: 'bg-orange-50',
-    textColor: 'text-[#f05a28]',
-    borderColor: 'border-orange-200/80',
-    dotColor: 'bg-[#f05a28]',
-    iconBg: 'bg-[#f05a28] text-white',
-    icon: (
-      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.5 12h2l1.5-3 2 6 1.5-3h1.5" />
-      </svg>
-    ),
-  },
-]
-
-function HeroStatRotator() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
-
-  useEffect(() => {
-    if (isPaused) return
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % heroStats.length)
-    }, 4500)
-    return () => clearInterval(timer)
-  }, [isPaused])
-
-  const current = heroStats[currentIndex]
-
-  return (
-    <div
-      className="relative max-w-lg bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-4.5 border border-slate-100/90 shadow-md hover:shadow-lg transition-all duration-300 select-none"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      {/* Top Category Badge + Navigation Controls */}
-      <div className="flex items-center justify-between mb-2.5">
-        <div className="flex items-center gap-2">
-          {/* Category Icon Badge */}
-          <div className={`w-6 h-6 rounded-full flex items-center justify-center ${current.iconBg} shadow-2xs transition-colors duration-300`}>
-            {current.icon}
-          </div>
-          <span className={`text-xs font-bold ${current.textColor} tracking-tight transition-colors duration-300`}>
-            {current.category}
-          </span>
-        </div>
-
-        {/* Next / Prev Controls */}
-        <div className="flex items-center gap-1">
-          <button
-            onClick={() => setCurrentIndex((prev) => (prev - 1 + heroStats.length) % heroStats.length)}
-            aria-label="Previous impact"
-            className="w-5 h-5 rounded-full bg-slate-50 hover:bg-slate-100 text-slate-400 hover:text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
-          >
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-            </svg>
-          </button>
-          <button
-            onClick={() => setCurrentIndex((prev) => (prev + 1) % heroStats.length)}
-            aria-label="Next impact"
-            className="w-5 h-5 rounded-full bg-slate-50 hover:bg-slate-100 text-slate-400 hover:text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
-          >
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* Main Stat & Content Area */}
-      <div key={currentIndex} className="flex items-start gap-3.5 transition-all duration-300">
-        <div>
-          <span style={{ fontFamily: 'Poppins, sans-serif' }} className={`text-3xl sm:text-4xl font-black ${current.textColor} leading-none block tracking-tight transition-colors duration-300`}>
-            {current.stat}
-          </span>
-        </div>
-
-        <div className="flex-1 min-w-0">
-          <p className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-            {current.title}
-          </p>
-          <div className={`w-6 h-0.5 ${current.dotColor} rounded-full my-1 transition-colors duration-300`} />
-          <p className="text-xs text-slate-500 font-normal leading-relaxed">
-            {current.description}
-          </p>
-        </div>
-      </div>
-
-      {/* Bottom Pagination Indicators */}
-      <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-slate-100/90">
-        <div className="flex items-center gap-1.5">
-          {heroStats.map((item, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentIndex(idx)}
-              aria-label={`Go to impact ${idx + 1}`}
-              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                idx === currentIndex
-                  ? `w-6 ${item.dotColor}`
-                  : 'w-1.5 bg-slate-200 hover:bg-slate-300'
-              }`}
-            />
-          ))}
-        </div>
-        <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
-          Impact ({currentIndex + 1}/4)
-        </span>
-      </div>
-    </div>
   )
 }
 
@@ -1826,9 +1660,16 @@ export default function App() {
               GOQii combines AI, behavioral intelligence, and human expertise to turn health insights into lasting action and measurable outcomes.
             </p>
 
-            {/* Dynamic Rotating Stat Proof Cards (Hidden on mobile so background image remains visible) */}
-            <div className="hidden sm:block">
-              <HeroStatRotator />
+            {/* Home Banner Partner / Certification Logo */}
+            <div className="pt-1">
+              <div className="inline-block p-2 sm:p-0 rounded-xl bg-white/90 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none">
+                <img
+                  src={heroBannerLogo}
+                  alt="Partner Logo"
+                  className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
             </div>
           </div>
 
@@ -1856,6 +1697,9 @@ export default function App() {
 
       {/* ── Section 3: Meet a more connected way to manage your health (Replaces GOQii Adapts to You) ── */}
       <ConnectedWaySection />
+
+      {/* ── Section 3.5: The Intelligence Layer - ALIVE O.S. ── */}
+      <AliveOsSection />
 
       {/* ── Section 4: Designed to Adapt. Built to Deliver. ── */}
       <section className="w-full bg-[#F8FAFC] py-16 xl:py-24 relative overflow-hidden" style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -1898,10 +1742,10 @@ export default function App() {
 
             {/* Left Column: Heading + Subtitle + 3 Stats */}
             <div className="lg:col-span-5 flex flex-col justify-center">
-              <h2 className="text-3xl sm:text-4xl xl:text-[3.2rem] font-semibold text-[#0B192C] tracking-tight leading-[1.1]">
+              <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-tight">
                 Designed to Adapt.
               </h2>
-              <h2 className="text-3xl sm:text-4xl xl:text-[3.2rem] font-semibold text-[#f05a28] tracking-tight leading-[1.1] mt-1 sm:mt-1.5">
+              <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#f05a28] tracking-tight leading-tight mt-1 sm:mt-1.5">
                 Built to Deliver.
               </h2>
 
@@ -2414,9 +2258,9 @@ export default function App() {
       {/* ── Section 5: We Partner Across the Health Ecosystem ── */}
       <section className="w-full bg-gray-50 py-16 xl:py-24">
         <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12">
-          <h2 style={{ fontFamily: 'Poppins, sans-serif' }} className="text-4xl xl:text-5xl font-semibold text-gray-900 text-center mb-12">
+          <h2 style={{ fontFamily: 'Poppins, sans-serif' }} className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-tight text-center mb-12">
             We Partner Across the{' '}
-            <span style={{ color: '#f05a28' }}>Health Ecosystem</span>
+            <span className="text-[#f05a28]">Health Ecosystem</span>
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
@@ -2511,7 +2355,7 @@ export default function App() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100/80 text-[#f05a28] text-xs font-semibold uppercase tracking-wider mb-2">
               Partnerships & Trust
             </div>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-[#0B192C] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-tight">
               Trusted by <span className="text-[#f05a28]">Global Organizations</span>
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -2534,7 +2378,7 @@ export default function App() {
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               Security, Privacy & Governance
             </div>
-            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-[1.15]">
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-tight">
               Built for Trust.<br />
               <span className="text-[#f05a28]">Designed for Healthcare.</span>
             </h2>
@@ -2598,7 +2442,7 @@ export default function App() {
               Health Engagement That Delivers Measurable Outcomes.
             </p>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mt-2 max-w-2xl">
-              From chronic care and employee health to population programs, GOQii turns intelligent engagement into measurable impact.
+              From chronic care and employee health to public health programs, GOQii turns intelligent engagement into measurable impact.
             </p>
           </div>
 
@@ -2606,35 +2450,35 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 xl:gap-6">
             {[
               {
-                tag: 'Card 01 — Payers & Health Plans',
+                tag: 'Payers & Health Plans',
                 num: '34%',
                 label: 'Reduction in ER Visits',
                 desc: 'GOQii-powered engagement helped reduce ER visits and associated claims.',
                 color: '#f05a28',
               },
               {
-                tag: 'Card 02 — Chronic Care',
+                tag: 'Chronic Care',
                 num: '90%',
                 label: 'Patient Satisfaction',
                 desc: 'High patient satisfaction across NHS-backed care programs.',
                 color: '#3b82f6',
               },
               {
-                tag: 'Card 03 — Employers',
+                tag: 'Employers',
                 num: '85%',
                 label: 'Lower Absenteeism',
                 desc: 'Improved employee engagement contributed to reduced absenteeism.',
                 color: '#10b981',
               },
               {
-                tag: 'Card 04 — Digital Adherence',
+                tag: 'Digital Adherence',
                 num: '28%',
                 label: 'Increase in Adherence',
                 desc: 'Digital engagement helped strengthen adherence in chronic disease management.',
                 color: '#a855f7',
               },
               {
-                tag: 'Card 05 — Population Health',
+                tag: 'Public Health',
                 num: '30%',
                 label: 'Higher Preventive Engagement',
                 desc: 'GOQii-led programs increased participation in preventive health.',
@@ -2679,8 +2523,8 @@ export default function App() {
       {/* ── Footer ── */}
       <footer className="w-full bg-white border-t border-slate-100 pt-16 pb-12 text-slate-800" style={{ fontFamily: 'Poppins, sans-serif' }}>
         <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12">
-          {/* Top 6 Link Columns */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-16">
+          {/* Top Link Columns */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-16">
             {/* 1. PERSONAL SOLUTIONS */}
             <div className="flex flex-col gap-4">
               <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Personal Solutions</h4>
@@ -2712,19 +2556,10 @@ export default function App() {
               </ul>
             </div>
 
-            {/* 4. RESOURCES */}
-            <div className="flex flex-col gap-4">
-              <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Resources</h4>
-              <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Blog</a></li>
-              </ul>
-            </div>
-
-            {/* 5. COMPANY */}
+            {/* 4. COMPANY */}
             <div className="flex flex-col gap-4">
               <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Company</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
-                <li><a href="#our-story" className="hover:text-slate-900 transition-colors">Our Story</a></li>
                 <li>
                   <a
                     href="#contact"
@@ -2744,7 +2579,7 @@ export default function App() {
               </ul>
             </div>
 
-            {/* 6. SUPPORT */}
+            {/* 5. SUPPORT */}
             <div className="flex flex-col gap-4">
               <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Support</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
@@ -2789,7 +2624,7 @@ export default function App() {
                   aria-label="Download GOQii on Apple App Store"
                 >
                   <img
-                    src="https://goqii.com/webApp/uswebsite2025/assets/images/icon-app-store.png"
+                    src="https://insight.goqii.com/webApp/uswebsite2025/assets/images/icon-app-store.png"
                     alt="Download on the App Store"
                     className="h-[38px] w-auto object-contain rounded-lg"
                     referrerPolicy="no-referrer"

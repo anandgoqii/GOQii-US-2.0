@@ -19,7 +19,7 @@ const INDUSTRY_OPTIONS = [
 const PARTNERSHIP_INTERESTS = [
   { id: 'engagement', label: 'Health Engagement Programs', desc: 'Sustained daily habit & motivation tools' },
   { id: 'employee', label: 'Employee Health & Engagement', desc: 'Workplace wellbeing & team challenges' },
-  { id: 'population', label: 'Population Health', desc: 'At-scale preventative risk reduction' },
+  { id: 'population', label: 'Public Health', desc: 'At-scale preventative risk reduction' },
   { id: 'chronic', label: 'Chronic Care Management', desc: 'Coached biomarker & chronic disease support' },
   { id: 'tech', label: 'Digital Health / Technology Integration', desc: 'SDK, API & connected device ecosystem' },
   { id: 'research', label: 'Research & Innovation', desc: 'Clinical validation, trials & studies' },

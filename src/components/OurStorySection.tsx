@@ -154,7 +154,7 @@ export default function OurStorySection({ onOpenPartnerModal }: OurStorySectionP
             </div>
 
             {/* Main Heading */}
-            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-[1.18] mb-6">
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-tight mb-6">
               From a Bold Idea to a{' '}
               <span className="text-[#f05a28]">Global Health Movement.</span>
             </h2>

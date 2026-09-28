@@ -23,10 +23,10 @@ export default function HealthPuzzleSection() {
             </div>
 
             {/* Main Headline - font-semibold, matching website typography and brand color */}
-            <h2 className="text-3xl sm:text-4xl xl:text-[2.65rem] font-semibold text-[#0B192C] tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-tight">
               You don&apos;t have a<br />health problem.
             </h2>
-            <h2 className="text-3xl sm:text-4xl xl:text-[2.65rem] font-semibold text-[#f05a28] tracking-tight leading-tight mt-1 sm:mt-1.5">
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#f05a28] tracking-tight leading-tight mt-1 sm:mt-1.5">
               You have a health puzzle.
             </h2>
 

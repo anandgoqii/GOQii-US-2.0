@@ -8,16 +8,18 @@ interface HealthPillar {
   color: string
   badgeBg: string
   image: string
+  icon: string
 }
 
 const pillars: HealthPillar[] = [
   {
-    id: 'movement',
-    title: 'Movement',
-    description: 'Regular activity builds strength, improves mood and keeps you healthy longer.',
-    color: '#f05a28',
-    badgeBg: 'bg-[#f05a28]',
-    image: 'https://images.unsplash.com/photo-1502224562085-639556652f33?w=300&auto=format&fit=crop&q=80',
+    id: 'sleep',
+    title: 'Sleep',
+    description: "A good night's sleep fuels your energy, focus and mood.",
+    color: '#3b82f6',
+    badgeBg: 'bg-[#3b82f6]',
+    image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=300&auto=format&fit=crop&q=80',
+    icon: '🌙',
   },
   {
     id: 'nutrition',
@@ -26,14 +28,16 @@ const pillars: HealthPillar[] = [
     color: '#10b981',
     badgeBg: 'bg-[#10b981]',
     image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300&auto=format&fit=crop&q=80',
+    icon: '🥗',
   },
   {
-    id: 'sleep',
-    title: 'Sleep',
-    description: "A good night's sleep fuels your energy, focus and mood.",
-    color: '#3b82f6',
-    badgeBg: 'bg-[#3b82f6]',
-    image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=300&auto=format&fit=crop&q=80',
+    id: 'movement',
+    title: 'Movement',
+    description: 'Regular activity builds strength, improves mood and keeps you healthy longer.',
+    color: '#f05a28',
+    badgeBg: 'bg-[#f05a28]',
+    image: 'https://images.unsplash.com/photo-1502224562085-639556652f33?w=300&auto=format&fit=crop&q=80',
+    icon: '⚡',
   },
   {
     id: 'stress',
@@ -42,6 +46,7 @@ const pillars: HealthPillar[] = [
     color: '#f43f5e',
     badgeBg: 'bg-[#f43f5e]',
     image: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=300&auto=format&fit=crop&q=80',
+    icon: '🧘',
   },
   {
     id: 'data',
@@ -50,6 +55,7 @@ const pillars: HealthPillar[] = [
     color: '#8b5cf6',
     badgeBg: 'bg-[#8b5cf6]',
     image: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=300&auto=format&fit=crop&q=80',
+    icon: '📊',
   },
 ]
 
@@ -58,389 +64,340 @@ export default function BodyInSilosSection() {
 
   return (
     <section
-      className="w-full relative min-h-[720px] lg:min-h-[820px] xl:min-h-[860px] bg-slate-50 overflow-hidden select-none"
+      id="body-in-silos"
+      className="w-full bg-[#FAFBFD] py-14 sm:py-20 lg:py-24 relative overflow-hidden select-none border-t border-slate-100"
       style={{ fontFamily: 'Poppins, sans-serif' }}
     >
-      {/* ══════════════════════════════════════════════════════════════════ */}
-      {/* 1. FULL-WIDTH BACKGROUND IMAGE & OVERLAYS                        */}
-      {/* ══════════════════════════════════════════════════════════════════ */}
-      <div className="absolute inset-0 z-0">
-        {/* Background photo of the woman on the right side of the frame */}
-        <img
-          src={connectedWomanBg}
-          alt="Connected health background"
-          className="w-full h-full object-cover object-[80%_25%] sm:object-[82%_25%] lg:object-[84%_25%] xl:object-[85%_25%]"
-          referrerPolicy="no-referrer"
-        />
-
-        {/* Clean left-side gradient fade so text on left is super crisp and legible */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 via-35% sm:via-white/90 lg:via-white/80 to-transparent w-full lg:w-[48%] pointer-events-none" />
-
-        {/* Soft edge blending top & bottom */}
-        <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-white to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent pointer-events-none" />
-      </div>
+      {/* Subtle ambient background glow */}
+      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-orange-50/40 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-blue-50/40 rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* ══════════════════════════════════════════════════════════════════ */}
-      {/* 2. SECTION CONTAINER & LEFT COLUMN (THE REALIZATION NARRATIVE)    */}
+      {/* 2-COLUMN BALANCED RESPONSIVE GRID (FLAWLESS AT ALL RESOLUTIONS)   */}
       {/* ══════════════════════════════════════════════════════════════════ */}
-      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10 min-h-[720px] lg:min-h-[820px] xl:min-h-[860px] flex items-center">
-        
-        {/* Left narrative content block */}
-        <div className="w-full lg:w-[42%] xl:w-[38%] py-12 lg:py-16 flex flex-col justify-center">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
           
-          {/* Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-[#f05a28] text-xs font-semibold uppercase tracking-wider mb-3.5 self-start shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-[#f05a28] animate-pulse" />
-            THE REALIZATION
-          </div>
-
-          {/* Main Headline */}
-          <h2 className="text-3xl sm:text-4xl xl:text-[2.65rem] font-semibold text-[#0B192C] tracking-tight leading-tight">
-            Your body doesn&apos;t work
-          </h2>
-          <h2 className="text-3xl sm:text-4xl xl:text-[2.65rem] font-semibold text-[#f05a28] tracking-tight leading-tight mt-1 sm:mt-1.5">
-            in silos.
-          </h2>
-
-          {/* Accent Bar */}
-          <div className="w-10 h-1 bg-[#f05a28] rounded-full my-3.5" />
-
-          {/* Narrative copy */}
-          <div className="space-y-2 text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-md">
-            <p>Every part of your health is connected.</p>
-            <p>When one area changes, it affects the others.</p>
-            <p>That&apos;s why looking at just one metric isn&apos;t enough.</p>
-          </div>
-
-          {/* Punchline */}
-          <p className="mt-5 text-base sm:text-lg font-semibold text-slate-900 leading-snug max-w-md">
-            So your health journey should connect them too.
-          </p>
-
-          {/* Sub-divider & Tagline matching website style */}
-          <div className="mt-6 pt-5 border-t border-slate-200/80 flex flex-col gap-1">
-            <span className="text-xs font-semibold tracking-[0.2em] text-[#f05a28] uppercase">
-              DIFFERENT PIECES &bull; ONE CONNECTED YOU
-            </span>
-          </div>
-
-          {/* A Healthier You Badge matching website style */}
-          <div className="mt-4 inline-flex items-center gap-3 self-start px-4 py-2.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#f05a28] animate-pulse" />
-            <div className="text-[11px] font-semibold text-slate-600 tracking-wider uppercase leading-tight">
-              A HEALTHIER YOU &bull; A BRIGHTER TOMORROW
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ══════════════════════════════════════════════════════════════════ */}
-      {/* 3. DESKTOP ORBIT SYSTEM: CIRCLE & CARDS DIRECTLY AROUND THE GIRL  */}
-      {/* ══════════════════════════════════════════════════════════════════ */}
-      {/* Centered directly over the woman on the right side of the section */}
-      <div className="hidden lg:block absolute right-2 xl:right-10 2xl:right-20 top-[49%] -translate-y-1/2 w-[720px] h-[720px] pointer-events-none z-20">
-        
-        {/* SVG ORBIT CIRCLE & CONNECTING SPOKES */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          viewBox="0 0 720 720"
-          fill="none"
-        >
-          {/* Main Orbit Circle (dashed ring around the girl) */}
-          <circle
-            cx="360"
-            cy="360"
-            r="230"
-            stroke="#ffffff"
-            strokeWidth="2.2"
-            strokeDasharray="6 6"
-            strokeOpacity="0.9"
-            className="filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.18)]"
-          />
-
-          {/* Secondary subtle halo ring */}
-          <circle
-            cx="360"
-            cy="360"
-            r="270"
-            stroke="#ffffff"
-            strokeWidth="1"
-            strokeDasharray="4 8"
-            strokeOpacity="0.4"
-          />
-
-          {/* Radial connector lines from central emblem to each pillar node */}
-          {/* Sleep (Top) */}
-          <line x1="360" y1="360" x2="360" y2="130" stroke="#3b82f6" strokeWidth="1.5" strokeDasharray="3 3" strokeOpacity="0.8" />
-          {/* Nutrition (Upper-Left) */}
-          <line x1="360" y1="360" x2="175" y2="230" stroke="#10b981" strokeWidth="1.5" strokeDasharray="3 3" strokeOpacity="0.8" />
-          {/* Movement (Lower-Left) */}
-          <line x1="360" y1="360" x2="175" y2="490" stroke="#f05a28" strokeWidth="1.5" strokeDasharray="3 3" strokeOpacity="0.8" />
-          {/* Stress (Upper-Right) */}
-          <line x1="360" y1="360" x2="545" y2="230" stroke="#f43f5e" strokeWidth="1.5" strokeDasharray="3 3" strokeOpacity="0.8" />
-          {/* Data (Lower-Right) */}
-          <line x1="360" y1="360" x2="545" y2="490" stroke="#8b5cf6" strokeWidth="1.5" strokeDasharray="3 3" strokeOpacity="0.8" />
-
-          {/* Colored Node Dots positioned along the orbit ring */}
-          <circle cx="360" cy="130" r="4.5" fill="#3b82f6" stroke="#ffffff" strokeWidth="1.5" />
-          <circle cx="175" cy="230" r="4.5" fill="#10b981" stroke="#ffffff" strokeWidth="1.5" />
-          <circle cx="175" cy="490" r="4.5" fill="#f05a28" stroke="#ffffff" strokeWidth="1.5" />
-          <circle cx="545" cy="230" r="4.5" fill="#f43f5e" stroke="#ffffff" strokeWidth="1.5" />
-          <circle cx="545" cy="490" r="4.5" fill="#8b5cf6" stroke="#ffffff" strokeWidth="1.5" />
-
-          {/* Intermediate decorative colorful orbit dots */}
-          <circle cx="270" cy="145" r="3" fill="#10b981" stroke="#ffffff" strokeWidth="1" />
-          <circle cx="450" cy="145" r="3" fill="#f43f5e" stroke="#ffffff" strokeWidth="1" />
-          <circle cx="130" cy="360" r="3" fill="#10b981" stroke="#ffffff" strokeWidth="1" />
-          <circle cx="590" cy="360" r="3" fill="#8b5cf6" stroke="#ffffff" strokeWidth="1" />
-        </svg>
-
-        {/* ── CENTRAL EMBLEM: "Your Health Connected" (Positioned on the girl's chest) ── */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
-          <div className="relative w-28 h-28 rounded-full border border-dashed border-white/90 flex flex-col items-center justify-center backdrop-blur-[4px] bg-slate-900/30 shadow-[0_0_30px_rgba(255,255,255,0.45)] transition-transform hover:scale-105 duration-300">
-            {/* 4 Cardinal Dots */}
-            <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-white shadow-xs" />
-            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-white shadow-xs" />
-            <span className="absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 rounded-full bg-white shadow-xs" />
-            <span className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 rounded-full bg-white shadow-xs" />
+          {/* ────────────────────────────────────────────────────────────── */}
+          {/* 1. LEFT COLUMN: THE REALIZATION NARRATIVE                      */}
+          {/* ────────────────────────────────────────────────────────────── */}
+          <div className="lg:col-span-5 flex flex-col justify-center pr-0 lg:pr-4">
             
-            {/* Text inside emblem */}
-            <div className="text-center text-white px-2">
-              <span className="block text-[12px] font-medium tracking-wide drop-shadow-md leading-tight">Your</span>
-              <span className="block text-[13px] font-semibold tracking-wide drop-shadow-md leading-tight">Health</span>
-              <span className="inline-block text-[11px] font-bold tracking-wide text-[#f05a28] bg-white/95 px-2 py-0.5 rounded-full mt-0.5 shadow-xs">
-                Connected
-              </span>
+            {/* Eyebrow Pill */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-[#f05a28] text-xs font-semibold uppercase tracking-wider mb-3.5 self-start shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-[#f05a28] animate-pulse" />
+              THE REALIZATION
             </div>
-          </div>
-        </div>
 
-        {/* ── 1. MOVEMENT PILLAR (Lower-Left) ── */}
-        <div
-          className="absolute left-[18px] top-[460px] pointer-events-auto flex items-start gap-2.5 transition-all duration-300 hover:scale-105 cursor-pointer"
-          onMouseEnter={() => setActiveNode('movement')}
-          onMouseLeave={() => setActiveNode(null)}
-        >
-          {/* Photo & Badge */}
-          <div className="relative flex-shrink-0">
-            <img
-              src={pillars[0].image}
-              alt="Movement"
-              className={`w-14 h-14 rounded-full object-cover border-2 shadow-lg transition-all duration-300 ${
-                activeNode === 'movement' ? 'border-[#f05a28] ring-4 ring-[#f05a28]/30 scale-105' : 'border-white'
-              }`}
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#f05a28] text-white flex items-center justify-center shadow-md">
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.4}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
+            {/* Main Headline */}
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-tight">
+              Your body doesn&apos;t work
+            </h2>
+            <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#f05a28] tracking-tight leading-tight mt-1 sm:mt-1.5">
+              in silos.
+            </h2>
+
+            {/* Accent Bar */}
+            <div className="w-10 h-1 bg-[#f05a28] rounded-full my-3.5" />
+
+            {/* Narrative copy */}
+            <div className="space-y-2 text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-md">
+              <p>Every part of your health is connected.</p>
+              <p>When one area changes, it affects the others.</p>
+              <p>That&apos;s why looking at just one metric isn&apos;t enough.</p>
             </div>
-          </div>
 
-          {/* White Content Card */}
-          <div className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 shadow-[0_12px_28px_rgba(0,0,0,0.12)] border border-white/90 w-[170px]">
-            <div className="text-[12.5px] font-semibold text-slate-900 leading-tight">Movement</div>
-            <p className="text-[10px] text-slate-600 font-normal leading-snug mt-0.5">
-              Regular activity builds strength, improves mood and keeps you healthy longer.
-            </p>
-          </div>
-        </div>
-
-        {/* ── 2. NUTRITION PILLAR (Upper-Left) ── */}
-        <div
-          className="absolute left-[18px] top-[145px] pointer-events-auto flex flex-col items-start gap-1.5 transition-all duration-300 hover:scale-105 cursor-pointer"
-          onMouseEnter={() => setActiveNode('nutrition')}
-          onMouseLeave={() => setActiveNode(null)}
-        >
-          {/* Photo & Badge */}
-          <div className="relative flex-shrink-0 self-center">
-            <img
-              src={pillars[1].image}
-              alt="Nutrition"
-              className={`w-14 h-14 rounded-full object-cover border-2 shadow-lg transition-all duration-300 ${
-                activeNode === 'nutrition' ? 'border-[#10b981] ring-4 ring-[#10b981]/30 scale-105' : 'border-white'
-              }`}
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#10b981] text-white flex items-center justify-center shadow-md">
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.4}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-              </svg>
-            </div>
-          </div>
-
-          {/* White Content Card */}
-          <div className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 shadow-[0_12px_28px_rgba(0,0,0,0.12)] border border-white/90 w-[170px]">
-            <div className="text-[12.5px] font-semibold text-slate-900 leading-tight">Nutrition</div>
-            <p className="text-[10px] text-slate-600 font-normal leading-snug mt-0.5">
-              What you eat influences your metabolism and overall health.
-            </p>
-          </div>
-        </div>
-
-        {/* ── 3. SLEEP PILLAR (Top-Center) ── */}
-        <div
-          className="absolute left-[270px] top-[12px] pointer-events-auto flex items-center gap-2.5 transition-all duration-300 hover:scale-105 cursor-pointer"
-          onMouseEnter={() => setActiveNode('sleep')}
-          onMouseLeave={() => setActiveNode(null)}
-        >
-          {/* Photo & Badge */}
-          <div className="relative flex-shrink-0">
-            <img
-              src={pillars[2].image}
-              alt="Sleep"
-              className={`w-14 h-14 rounded-full object-cover border-2 shadow-lg transition-all duration-300 ${
-                activeNode === 'sleep' ? 'border-[#3b82f6] ring-4 ring-[#3b82f6]/30 scale-105' : 'border-white'
-              }`}
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#3b82f6] text-white flex items-center justify-center shadow-md">
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.4}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-              </svg>
-            </div>
-          </div>
-
-          {/* White Content Card */}
-          <div className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 shadow-[0_12px_28px_rgba(0,0,0,0.12)] border border-white/90 w-[175px]">
-            <div className="text-[12.5px] font-semibold text-slate-900 leading-tight">Sleep</div>
-            <p className="text-[10px] text-slate-600 font-normal leading-snug mt-0.5">
-              A good night&apos;s sleep fuels your energy, focus and mood.
-            </p>
-          </div>
-        </div>
-
-        {/* ── 4. STRESS PILLAR (Upper-Right) ── */}
-        <div
-          className="absolute left-[510px] top-[145px] pointer-events-auto flex items-center gap-2.5 transition-all duration-300 hover:scale-105 cursor-pointer"
-          onMouseEnter={() => setActiveNode('stress')}
-          onMouseLeave={() => setActiveNode(null)}
-        >
-          {/* Photo & Badge */}
-          <div className="relative flex-shrink-0">
-            <img
-              src={pillars[3].image}
-              alt="Stress"
-              className={`w-14 h-14 rounded-full object-cover border-2 shadow-lg transition-all duration-300 ${
-                activeNode === 'stress' ? 'border-[#f43f5e] ring-4 ring-[#f43f5e]/30 scale-105' : 'border-white'
-              }`}
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#f43f5e] text-white flex items-center justify-center shadow-md">
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.4}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.516 0c.85.493 1.508 1.333 1.508 2.316V18" />
-              </svg>
-            </div>
-          </div>
-
-          {/* White Content Card */}
-          <div className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 shadow-[0_12px_28px_rgba(0,0,0,0.12)] border border-white/90 w-[175px]">
-            <div className="text-[12.5px] font-semibold text-slate-900 leading-tight">Stress</div>
-            <p className="text-[10px] text-slate-600 font-normal leading-snug mt-0.5">
-              Your mental well-being impacts recovery, hormones and overall balance.
-            </p>
-          </div>
-        </div>
-
-        {/* ── 5. YOUR DATA PILLAR (Lower-Right) ── */}
-        <div
-          className="absolute left-[510px] top-[460px] pointer-events-auto flex items-center gap-2.5 transition-all duration-300 hover:scale-105 cursor-pointer"
-          onMouseEnter={() => setActiveNode('data')}
-          onMouseLeave={() => setActiveNode(null)}
-        >
-          {/* Photo & Badge */}
-          <div className="relative flex-shrink-0">
-            <img
-              src={pillars[4].image}
-              alt="Your Data"
-              className={`w-14 h-14 rounded-full object-cover border-2 shadow-lg transition-all duration-300 ${
-                activeNode === 'data' ? 'border-[#8b5cf6] ring-4 ring-[#8b5cf6]/30 scale-105' : 'border-white'
-              }`}
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-[#8b5cf6] text-white flex items-center justify-center shadow-md">
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.4}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-              </svg>
-            </div>
-          </div>
-
-          {/* White Content Card */}
-          <div className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 shadow-[0_12px_28px_rgba(0,0,0,0.12)] border border-white/90 w-[175px]">
-            <div className="text-[12.5px] font-semibold text-slate-900 leading-tight">Your Data</div>
-            <p className="text-[10px] text-slate-600 font-normal leading-snug mt-0.5">
-              Brings it all together to show the bigger picture and help you make better decisions.
-            </p>
-          </div>
-        </div>
-
-      </div>
-
-      {/* ══════════════════════════════════════════════════════════════════ */}
-      {/* 4. BOTTOM-RIGHT CALLOUT PEBBLE (Matching Website Style)          */}
-      {/* ══════════════════════════════════════════════════════════════════ */}
-      <div className="hidden lg:block absolute bottom-6 right-8 z-20 pointer-events-none">
-        <div className="relative bg-white/95 backdrop-blur-md px-5 py-4 rounded-3xl shadow-[0_10px_25px_rgba(0,0,0,0.08)] border border-slate-200/90 max-w-[280px]">
-          <div className="flex items-start gap-3">
-            <div className="w-1 h-10 bg-[#f05a28] rounded-full flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="text-slate-900 text-xs sm:text-sm font-semibold leading-snug">
-                So your health journey should connect them too.
-              </p>
-              <span className="text-[10px] font-semibold text-[#f05a28] uppercase tracking-wider block mt-1">
-                GOQii CONNECTED HEALTH
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ══════════════════════════════════════════════════════════════════ */}
-      {/* 5. MOBILE & TABLET FALLBACK (< lg)                                */}
-      {/* ══════════════════════════════════════════════════════════════════ */}
-      <div className="lg:hidden relative z-10 px-4 pb-12">
-        <div className="bg-white/95 backdrop-blur-md p-4 rounded-3xl border border-slate-200/90 shadow-lg">
-          
-          <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-100">
-            <span className="text-xs font-semibold text-[#0B192C]">Connected Health Ecosystem</span>
-            <span className="text-[11px] font-bold text-[#f05a28] uppercase tracking-wider">5 Pillars</span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-            {pillars.map((pillar) => (
-              <div
-                key={pillar.id}
-                className="flex items-start gap-2.5 p-2 rounded-xl bg-slate-50/80 border border-slate-100"
-              >
-                <img
-                  src={pillar.image}
-                  alt={pillar.title}
-                  className="w-10 h-10 rounded-full object-cover border border-white shadow-2xs flex-shrink-0"
-                  referrerPolicy="no-referrer"
-                />
-                <div>
-                  <span className="text-xs font-semibold text-slate-900 block" style={{ color: pillar.color }}>
-                    {pillar.title}
-                  </span>
-                  <p className="text-[10px] text-slate-600 leading-snug">
-                    {pillar.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom punchline on mobile */}
-          <div className="mt-3 pt-2 text-center border-t border-slate-100">
-            <p className="text-xs font-medium text-slate-800">
+            {/* Punchline */}
+            <p className="mt-5 text-base sm:text-lg font-semibold text-slate-900 leading-snug max-w-md">
               So your health journey should connect them too.
             </p>
+
+            {/* Sub-divider & Tagline matching website style */}
+            <div className="mt-6 pt-5 border-t border-slate-200/80 flex flex-col gap-1">
+              <span className="text-xs font-semibold tracking-[0.2em] text-[#f05a28] uppercase">
+                DIFFERENT PIECES &bull; ONE CONNECTED YOU
+              </span>
+            </div>
+
+            {/* A Healthier You Badge matching website style */}
+            <div className="mt-4 inline-flex items-center gap-3 self-start px-4 py-2.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#f05a28] animate-pulse" />
+              <div className="text-[11px] font-semibold text-slate-600 tracking-wider uppercase leading-tight">
+                A HEALTHIER YOU &bull; A BRIGHTER TOMORROW
+              </div>
+            </div>
+
+            {/* Interactive Pillar Selector Tabs */}
+            <div className="mt-6 flex flex-wrap gap-2">
+              {pillars.map((pillar) => (
+                <button
+                  key={pillar.id}
+                  onClick={() => setActiveNode(activeNode === pillar.id ? null : pillar.id)}
+                  onMouseEnter={() => setActiveNode(pillar.id)}
+                  onMouseLeave={() => setActiveNode(null)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all cursor-pointer flex items-center gap-1.5 ${
+                    activeNode === pillar.id
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-sm scale-105'
+                      : 'bg-white text-slate-700 border-slate-200 hover:border-slate-300'
+                  }`}
+                >
+                  <span className="text-xs">{pillar.icon}</span>
+                  <span>{pillar.title}</span>
+                </button>
+              ))}
+            </div>
+
           </div>
+
+          {/* ────────────────────────────────────────────────────────────── */}
+          {/* 2. RIGHT COLUMN: VISUAL STAGE (NO OVERLAP ON GIRL IN ANY RES)   */}
+          {/* ────────────────────────────────────────────────────────────── */}
+          <div className="lg:col-span-7 w-full">
+            <div className="relative min-h-[580px] sm:min-h-[620px] lg:min-h-[640px] xl:min-h-[680px] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-xl border border-slate-200/90 select-none">
+              
+              {/* Background Photo: Woman looking toward horizon on the RIGHT side */}
+              <img
+                src={connectedWomanBg}
+                alt="Connected health journey"
+                className="absolute inset-0 w-full h-full object-cover object-[78%_20%] sm:object-[80%_25%]"
+                referrerPolicy="no-referrer"
+              />
+
+              {/* Gentle Vignette Overlays: Keeps woman clear & provides crisp contrast on the left */}
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/35 via-45% to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-black/20 pointer-events-none" />
+
+              {/* ── DESKTOP/TABLET: SVG Constellation Connections in Open Space ── */}
+              <svg
+                className="hidden sm:block absolute inset-0 w-full h-full pointer-events-none z-10"
+                viewBox="0 0 700 680"
+                fill="none"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  {/* Subtle glows for connector lines */}
+                  <linearGradient id="line-sleep" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0.3" />
+                  </linearGradient>
+                  <linearGradient id="line-nutrition" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0.3" />
+                  </linearGradient>
+                  <linearGradient id="line-movement" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#f05a28" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0.3" />
+                  </linearGradient>
+                  <linearGradient id="line-stress" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#f43f5e" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0.3" />
+                  </linearGradient>
+                  <linearGradient id="line-data" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#ffffff" stopOpacity="0.3" />
+                  </linearGradient>
+                </defs>
+
+                {/* Central Hub anchor point: (330, 340) in open air between left cards and girl */}
+                {/* 1. Sleep Connector */}
+                <path d="M 230 75 C 280 120, 310 220, 330 340" stroke="url(#line-sleep)" strokeWidth="1.8" strokeDasharray="4 4" strokeOpacity="0.75" />
+                
+                {/* 2. Nutrition Connector */}
+                <path d="M 180 190 C 230 220, 280 280, 330 340" stroke="url(#line-nutrition)" strokeWidth="1.8" strokeDasharray="4 4" strokeOpacity="0.75" />
+                
+                {/* 3. Movement Connector */}
+                <path d="M 180 340 L 330 340" stroke="url(#line-movement)" strokeWidth="1.8" strokeDasharray="4 4" strokeOpacity="0.75" />
+                
+                {/* 4. Stress Connector */}
+                <path d="M 180 490 C 230 460, 280 400, 330 340" stroke="url(#line-stress)" strokeWidth="1.8" strokeDasharray="4 4" strokeOpacity="0.75" />
+                
+                {/* 5. Your Data Connector */}
+                <path d="M 240 605 C 280 570, 310 460, 330 340" stroke="url(#line-data)" strokeWidth="1.8" strokeDasharray="4 4" strokeOpacity="0.75" />
+
+                {/* Gentle curved aura path toward the woman (without covering her) */}
+                <path d="M 330 340 C 400 340, 450 310, 480 290" stroke="#ffffff" strokeWidth="1.5" strokeDasharray="3 3" strokeOpacity="0.4" />
+                <circle cx="480" cy="290" r="3.5" fill="#f05a28" stroke="#ffffff" strokeWidth="1.2" />
+
+                {/* Anchor dot on central nexus */}
+                <circle cx="330" cy="340" r="5" fill="#ffffff" className="filter drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+              </svg>
+
+              {/* ── CENTRAL CONNECTED NEXUS BADGE (IN OPEN SPACE, NEVER ON GIRL) ── */}
+              <div className="hidden sm:block absolute left-[44%] xl:left-[46%] top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 pointer-events-auto">
+                <div className="relative px-3.5 py-3 rounded-2xl border border-white/40 bg-slate-900/60 backdrop-blur-md shadow-[0_8px_24px_rgba(0,0,0,0.3)] flex flex-col items-center text-center transition-transform hover:scale-105 duration-200">
+                  <div className="flex items-center gap-1 mb-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#f05a28]" />
+                  </div>
+                  <span className="text-[10px] font-semibold text-white/90 tracking-wide">Your Health</span>
+                  <span className="text-[10px] font-bold text-[#f05a28] uppercase tracking-wider bg-white/95 px-2 py-0.5 rounded-full mt-0.5 shadow-2xs">
+                    Connected
+                  </span>
+                </div>
+              </div>
+
+              {/* ══════════════════════════════════════════════════════════ */}
+              {/* DESKTOP & TABLET FLOATING CARDS (sm: and above)           */}
+              {/* Placed exclusively in open space — NEVER on the girl       */}
+              {/* ══════════════════════════════════════════════════════════ */}
+              <div className="hidden sm:block">
+                {/* ── CARD 1: SLEEP (Top Center-Left, in clear sky) ── */}
+                <div
+                  className={`absolute left-[16%] xl:left-[20%] top-[4%] z-20 pointer-events-auto transition-all duration-200 cursor-pointer ${
+                    activeNode === 'sleep' ? 'scale-105 ring-2 ring-[#3b82f6]' : 'hover:scale-102'
+                  }`}
+                  onMouseEnter={() => setActiveNode('sleep')}
+                  onMouseLeave={() => setActiveNode(null)}
+                >
+                  <div className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-lg border border-white/90 max-w-[210px] flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-sm flex-shrink-0 border border-blue-100 shadow-2xs">
+                      🌙
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-semibold text-slate-900">Sleep</span>
+                        <span className="text-[9px] font-bold text-blue-600 uppercase tracking-tight">Recovery</span>
+                      </div>
+                      <p className="text-[10px] text-slate-600 font-normal leading-snug mt-0.5">
+                        A good night&apos;s sleep fuels energy, focus and mood.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── CARD 2: NUTRITION (Upper Left, in open vista) ── */}
+                <div
+                  className={`absolute left-[3%] top-[20%] z-20 pointer-events-auto transition-all duration-200 cursor-pointer ${
+                    activeNode === 'nutrition' ? 'scale-105 ring-2 ring-[#10b981]' : 'hover:scale-102'
+                  }`}
+                  onMouseEnter={() => setActiveNode('nutrition')}
+                  onMouseLeave={() => setActiveNode(null)}
+                >
+                  <div className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-lg border border-white/90 max-w-[205px] flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm flex-shrink-0 border border-emerald-100 shadow-2xs">
+                      🥗
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-semibold text-slate-900">Nutrition</span>
+                        <span className="text-[9px] font-bold text-emerald-600 uppercase tracking-tight">Fuel</span>
+                      </div>
+                      <p className="text-[10px] text-slate-600 font-normal leading-snug mt-0.5">
+                        What you eat influences metabolism and overall balance.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── CARD 3: MOVEMENT (Mid Left, in open vista) ── */}
+                <div
+                  className={`absolute left-[2%] top-[42%] z-20 pointer-events-auto transition-all duration-200 cursor-pointer ${
+                    activeNode === 'movement' ? 'scale-105 ring-2 ring-[#f05a28]' : 'hover:scale-102'
+                  }`}
+                  onMouseEnter={() => setActiveNode('movement')}
+                  onMouseLeave={() => setActiveNode(null)}
+                >
+                  <div className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-lg border border-white/90 max-w-[205px] flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-orange-50 text-[#f05a28] flex items-center justify-center text-sm flex-shrink-0 border border-orange-100 shadow-2xs">
+                      ⚡
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-semibold text-slate-900">Movement</span>
+                        <span className="text-[9px] font-bold text-[#f05a28] uppercase tracking-tight">Vitality</span>
+                      </div>
+                      <p className="text-[10px] text-slate-600 font-normal leading-snug mt-0.5">
+                        Daily activity builds strength and maintains longevity.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── CARD 4: STRESS (Lower Left, in open vista) ── */}
+                <div
+                  className={`absolute left-[3%] top-[64%] z-20 pointer-events-auto transition-all duration-200 cursor-pointer ${
+                    activeNode === 'stress' ? 'scale-105 ring-2 ring-[#f43f5e]' : 'hover:scale-102'
+                  }`}
+                  onMouseEnter={() => setActiveNode('stress')}
+                  onMouseLeave={() => setActiveNode(null)}
+                >
+                  <div className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-lg border border-white/90 max-w-[205px] flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center text-sm flex-shrink-0 border border-rose-100 shadow-2xs">
+                      🧘
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-semibold text-slate-900">Stress</span>
+                        <span className="text-[9px] font-bold text-rose-600 uppercase tracking-tight">Mind</span>
+                      </div>
+                      <p className="text-[10px] text-slate-600 font-normal leading-snug mt-0.5">
+                        Mental well-being impacts recovery and hormone balance.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── CARD 5: YOUR DATA (Bottom Center-Left, clear from feet) ── */}
+                <div
+                  className={`absolute left-[16%] xl:left-[20%] bottom-[4%] z-20 pointer-events-auto transition-all duration-200 cursor-pointer ${
+                    activeNode === 'data' ? 'scale-105 ring-2 ring-[#8b5cf6]' : 'hover:scale-102'
+                  }`}
+                  onMouseEnter={() => setActiveNode('data')}
+                  onMouseLeave={() => setActiveNode(null)}
+                >
+                  <div className="bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-lg border border-white/90 max-w-[215px] flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center text-sm flex-shrink-0 border border-purple-100 shadow-2xs">
+                      📊
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-semibold text-slate-900">Your Data</span>
+                        <span className="text-[9px] font-bold text-purple-600 uppercase tracking-tight">Holistic</span>
+                      </div>
+                      <p className="text-[10px] text-slate-600 font-normal leading-snug mt-0.5">
+                        Brings it together to guide better daily decisions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ── MOBILE ONLY OVERLAY (< sm) ── */}
+              <div className="sm:hidden absolute inset-x-3 bottom-3 z-20 pointer-events-auto">
+                <div className="bg-slate-900/85 backdrop-blur-md rounded-2xl p-3 border border-white/20 text-white shadow-xl">
+                  <div className="flex items-center justify-between mb-2 pb-1.5 border-b border-white/10">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#f05a28] animate-pulse" />
+                      <span className="text-xs font-semibold">Your Health Connected</span>
+                    </div>
+                    <span className="text-[10px] text-orange-400 font-semibold uppercase">5 Pillars</span>
+                  </div>
+                  <div className="grid grid-cols-1 gap-1.5">
+                    {pillars.slice(0, 3).map((p) => (
+                      <div key={p.id} className="flex items-center gap-2 text-[11px] text-white/90">
+                        <span className="text-xs">{p.icon}</span>
+                        <span className="font-semibold text-white">{p.title}:</span>
+                        <span className="text-white/70 truncate">{p.description}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* ── BOTTOM-RIGHT REASSURANCE PILL (Anchored neatly at bottom right) ── */}
+              <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 z-20 pointer-events-none">
+                <div className="bg-slate-950/70 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-white/90 text-[10px] font-medium tracking-wide flex items-center gap-1.5 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-[#f05a28] animate-pulse" />
+                  <span>One Connected You</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
-
     </section>
   )
 }
