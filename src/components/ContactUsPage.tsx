@@ -1,57 +1,17 @@
 import React, { useState } from 'react';
+import { ArrowLeft, Mail, MapPin, Building, LifeBuoy, Send, CheckCircle2 } from 'lucide-react';
 
 interface ContactUsPageProps {
   onBack: () => void;
+  onOpenPartnerModal?: () => void;
 }
 
-const OFFICES = [
-  {
-    id: 'us-hq',
-    title: 'Headquarters',
-    company: 'GOQii',
-    addressLines: ['120, Wood Avenue South, Suite 300', 'Iselin, NJ 08830.'],
-    image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80',
-    alt: 'Golden Gate Bridge - GOQii US Headquarters',
-    tag: 'Global HQ',
-  },
-  {
-    id: 'uk-office',
-    title: 'UK Office',
-    company: 'GOQii UK Limited',
-    addressLines: ['29 West Way, Hove, England, BN3 8LS.'],
-    image: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80',
-    alt: 'Tower Bridge London - GOQii UK Office',
-    tag: 'Europe & UK',
-  },
-  {
-    id: 'india-office',
-    title: 'India Office',
-    company: 'GOQii Technologies Pvt. Ltd.',
-    addressLines: ['101 Satyam Tower Govandi East', 'Mumbai 400088 India.'],
-    image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80',
-    alt: 'Gateway of India Mumbai - GOQii India Office',
-    tag: 'R&D & Asia Operations',
-  },
-];
-
-const INQUIRY_TOPICS = [
-  'General Inquiry',
-  'Enterprise Wellness & Corporate Programs',
-  'Personal Coaching & Preventive Health',
-  'Healthcare & Insurance Partnerships',
-  'Product, Device & App Support',
-  'Press & Media',
-];
-
-export default function ContactUsPage({ onBack }: ContactUsPageProps) {
+export default function ContactUsPage({ onBack, onOpenPartnerModal }: ContactUsPageProps) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [organization, setOrganization] = useState('');
-  const [topic, setTopic] = useState(INQUIRY_TOPICS[0]);
+  const [inquiryType, setInquiryType] = useState<'business' | 'support' | 'general'>('business');
   const [message, setMessage] = useState('');
-  const [consent, setConsent] = useState(true);
-
+  const [consent, setConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -59,28 +19,29 @@ export default function ContactUsPage({ onBack }: ContactUsPageProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName.trim() || !email.trim() || !message.trim()) {
-      setErrorMessage('Please fill in all required fields (Name, Email, and Message).');
+      setErrorMessage('Please fill in your name, email, and message.');
+      return;
+    }
+    if (!consent) {
+      setErrorMessage("Please agree to GOQii's Privacy Policy to submit your message.");
       return;
     }
 
     setErrorMessage('');
     setIsSubmitting(true);
-
-    // Simulate reliable submission
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 900);
+    }, 700);
   };
 
-  const handleResetForm = () => {
+  const handleReset = () => {
     setFullName('');
     setEmail('');
-    setPhone('');
-    setOrganization('');
-    setTopic(INQUIRY_TOPICS[0]);
     setMessage('');
+    setConsent(false);
     setIsSubmitted(false);
+    setErrorMessage('');
   };
 
   return (
@@ -88,330 +49,300 @@ export default function ContactUsPage({ onBack }: ContactUsPageProps) {
       className="w-full bg-[#f8fafc] text-slate-900 selection:bg-[#f05a28]/20 min-h-screen pt-4 sm:pt-6"
       style={{ fontFamily: 'Poppins, sans-serif' }}
     >
-      {/* ── Sub-header / Breadcrumb Navigation Bar ── */}
+      {/* ── Breadcrumb Navigation ── */}
       <div className="bg-white border-y border-slate-100/90 shadow-2xs mb-8 sm:mb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
           <button
             onClick={onBack}
             className="inline-flex items-center gap-2 text-[13px] font-semibold text-slate-600 hover:text-[#f05a28] transition-colors cursor-pointer group"
           >
-            <svg
-              className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-slate-500 group-hover:text-[#f05a28]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-              />
-            </svg>
+            <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-slate-500 group-hover:text-[#f05a28]" />
             <span>Back to Home</span>
           </button>
 
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#2ecc71] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#f05a28] animate-pulse" />
             <span className="text-[12px] font-semibold text-slate-500">
-              Global Support &amp; Locations
+              Contact GOQii
             </span>
           </div>
         </div>
       </div>
 
-      {/* ── Main Container ── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        {/* Title Header Section */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-50 border border-orange-200/80 text-[#f05a28] text-[11px] font-bold tracking-widest uppercase mb-3">
-            <svg
-              className="w-3.5 h-3.5 text-[#f05a28]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-              />
-            </svg>
-            <span>Get in Touch</span>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        
+        {/* Header Block */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-[#f05a28] text-xs font-semibold uppercase tracking-wider mb-4 shadow-2xs">
+            <Mail className="w-3.5 h-3.5" />
+            GET IN TOUCH
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            CONTACT US
+
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight mb-4">
+            Let&apos;s talk about better health.
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl mx-auto font-medium">
-            Connect with our global offices or reach out to our dedicated healthcare and partnership specialists.
+
+          <div className="w-10 h-1 bg-[#f05a28] rounded-full mx-auto my-3.5" />
+
+          <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+            Whether you&apos;re exploring a partnership, looking for support, or want to learn more about GOQii, we&apos;d love to hear from you.
           </p>
         </div>
 
-        {/* ── 3 Office Cards Grid (matching attached image) ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
-          {OFFICES.map((office) => (
-            <div
-              key={office.id}
-              className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col group"
-            >
-              {/* Card Image */}
-              <div className="relative w-full aspect-[16/10] overflow-hidden rounded-2xl mb-5 bg-slate-100">
-                <img
-                  src={office.image}
-                  alt={office.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <span className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
-                  {office.tag}
-                </span>
+        {/* ── 3 Core Contact Cards ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          
+          {/* Card 1: Business Inquiries */}
+          <div className="bg-white rounded-3xl p-7 border border-slate-200/80 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-orange-50 text-[#f05a28] border border-orange-100 flex items-center justify-center mb-5">
+                <Building className="w-6 h-6" />
               </div>
-
-              {/* Office Details */}
-              <div className="flex-1 flex flex-col">
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-1 tracking-tight">
-                  {office.title}
-                </h2>
-                <p className="text-[15px] sm:text-base font-semibold text-slate-800 mb-2">
-                  {office.company}
-                </p>
-                <div className="text-xs sm:text-sm text-slate-600 leading-relaxed space-y-0.5">
-                  {office.addressLines.map((line, idx) => (
-                    <p key={idx}>{line}</p>
-                  ))}
-                </div>
+              <h2 className="text-xl font-bold text-slate-900 mb-2">
+                Business Inquiries
+              </h2>
+              <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                For employers, health plans, insurance partners, healthcare providers, and enterprise collaborations.
+              </p>
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs font-semibold text-slate-800 mb-6 flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#f05a28] shrink-0" />
+                <a href="mailto:usbeta@goqii.com" className="hover:text-[#f05a28] transition-colors break-all">
+                  usbeta@goqii.com
+                </a>
               </div>
             </div>
-          ))}
+
+            <div className="flex flex-col gap-2 pt-2">
+              <button
+                type="button"
+                onClick={onOpenPartnerModal ? onOpenPartnerModal : () => { window.location.href = 'mailto:usbeta@goqii.com?subject=Partnership%20Inquiry%20-%20GOQii'; }}
+                className="w-full py-3 px-5 rounded-full bg-[#f05a28] hover:bg-[#d94e1f] text-white font-bold text-sm transition-all shadow-sm hover:shadow text-center cursor-pointer"
+              >
+                Partner with GOQii
+              </button>
+            </div>
+          </div>
+
+          {/* Card 2: Customer Support */}
+          <div className="bg-white rounded-3xl p-7 border border-slate-200/80 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center mb-5">
+                <LifeBuoy className="w-6 h-6" />
+              </div>
+              <h2 className="text-xl font-bold text-slate-900 mb-2">
+                Customer Support
+              </h2>
+              <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                For existing members, device setup, app sync questions, subscription assistance, and coaching queries.
+              </p>
+              <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 text-xs font-semibold text-slate-800 mb-6 flex items-center gap-2">
+                <Mail className="w-4 h-4 text-blue-600 shrink-0" />
+                <a href="mailto:support@goqii.com" className="hover:text-blue-600 transition-colors break-all">
+                  support@goqii.com
+                </a>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2 pt-2">
+              <a
+                href="mailto:support@goqii.com?subject=GOQii%20Member%20Support%20Request"
+                className="w-full py-3 px-5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm transition-all shadow-sm hover:shadow text-center cursor-pointer block"
+              >
+                Contact Support
+              </a>
+            </div>
+          </div>
+
+          {/* Card 3: US Location */}
+          <div className="bg-white rounded-3xl p-7 border border-slate-200/80 shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow">
+            <div>
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center mb-5">
+                <MapPin className="w-6 h-6" />
+              </div>
+              <h2 className="text-xl font-bold text-slate-900 mb-2">
+                US Location
+              </h2>
+              <p className="text-sm text-slate-600 leading-relaxed mb-4">
+                Serving US enterprise and population health clients nationwide.
+              </p>
+              <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-100 text-xs font-medium text-slate-800 space-y-1 mb-6">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>Menlo Park, California</span>
+                </div>
+                <div className="text-slate-500">United States</div>
+              </div>
+            </div>
+
+            <div className="pt-2">
+              <span className="text-xs text-slate-500 block text-center">
+                Operating across US Eastern &amp; Pacific time zones
+              </span>
+            </div>
+          </div>
+
         </div>
 
-        {/* ── Contact Form Section ── */}
-        <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xs">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-10">
-              <span className="inline-block text-xs font-extrabold text-[#f05a28] tracking-widest uppercase mb-2">
-                Online Inquiry
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Send Us a Message
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-600 mt-2">
-                Have questions regarding enterprise deployment, coaching programs, or integrations? Fill out the form below and our team will get back to you promptly.
+        {/* ── Dedicated Message Form Section ── */}
+        <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-xs max-w-3xl mx-auto">
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-1">
+              Send a Message
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500">
+              Fill out the form below and our team will get back to you promptly.
+            </p>
+          </div>
+
+          {isSubmitted ? (
+            <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-8 text-center animate-fadeIn">
+              <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto mb-3" />
+              <h3 className="text-lg font-bold text-slate-900 mb-1">Thank You!</h3>
+              <p className="text-sm text-slate-600 max-w-md mx-auto mb-6">
+                Your message has been received. A GOQii representative will respond to your inquiry shortly.
               </p>
+              <button
+                type="button"
+                onClick={handleReset}
+                className="px-6 py-2.5 rounded-full text-xs font-bold text-emerald-800 bg-white border border-emerald-300 hover:bg-emerald-100/50 transition-colors cursor-pointer"
+              >
+                Send Another Message
+              </button>
             </div>
-
-            {isSubmitted ? (
-              <div className="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-8 sm:p-10 text-center animate-fadeIn">
-                <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+              {errorMessage && (
+                <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-xs text-red-600 font-medium">
+                  {errorMessage}
                 </div>
-                <h3 className="text-xl font-bold text-emerald-900 mb-2">
-                  Message Sent Successfully!
-                </h3>
-                <p className="text-sm text-emerald-800 max-w-md mx-auto leading-relaxed mb-6">
-                  Thank you, <span className="font-semibold">{fullName}</span>. We have received your inquiry and will reach out to <span className="font-semibold">{email}</span> within 24 business hours.
-                </p>
-                <button
-                  onClick={handleResetForm}
-                  className="px-6 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-semibold transition-all shadow-xs cursor-pointer"
-                >
-                  Send Another Message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {errorMessage && (
-                  <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm font-medium flex items-center gap-2.5">
-                    <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                    </svg>
-                    <span>{errorMessage}</span>
-                  </div>
-                )}
+              )}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Full Name */}
-                  <div>
-                    <label className="block text-xs sm:text-sm font-semibold text-slate-800 mb-1.5">
-                      Full Name <span className="text-[#f05a28]">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      placeholder="e.g. Sarah Jenkins"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#f05a28]/30 focus:border-[#f05a28] transition-all"
-                    />
-                  </div>
-
-                  {/* Email Address */}
-                  <div>
-                    <label className="block text-xs sm:text-sm font-semibold text-slate-800 mb-1.5">
-                      Work / Personal Email <span className="text-[#f05a28]">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="sarah@example.com"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#f05a28]/30 focus:border-[#f05a28] transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {/* Phone Number */}
-                  <div>
-                    <label className="block text-xs sm:text-sm font-semibold text-slate-800 mb-1.5">
-                      Phone Number <span className="text-slate-400 font-normal">(Optional)</span>
-                    </label>
-                    <input
-                      type="tel"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="+1 (555) 000-0000"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#f05a28]/30 focus:border-[#f05a28] transition-all"
-                    />
-                  </div>
-
-                  {/* Organization / Company */}
-                  <div>
-                    <label className="block text-xs sm:text-sm font-semibold text-slate-800 mb-1.5">
-                      Organization / Company <span className="text-slate-400 font-normal">(Optional)</span>
-                    </label>
-                    <input
-                      type="text"
-                      value={organization}
-                      onChange={(e) => setOrganization(e.target.value)}
-                      placeholder="e.g. Acme Health Corp"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#f05a28]/30 focus:border-[#f05a28] transition-all"
-                    />
-                  </div>
-                </div>
-
-                {/* Topic / Inquiry Type */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs sm:text-sm font-semibold text-slate-800 mb-1.5">
-                    Inquiry Topic
+                  <label className="block text-xs font-semibold text-slate-800 mb-1.5">
+                    Your Full Name <span className="text-red-500">*</span>
                   </label>
-                  <select
-                    value={topic}
-                    onChange={(e) => setTopic(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#f05a28]/30 focus:border-[#f05a28] transition-all"
-                  >
-                    {INQUIRY_TOPICS.map((t) => (
-                      <option key={t} value={t}>
-                        {t}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Message Textarea */}
-                <div>
-                  <label className="block text-xs sm:text-sm font-semibold text-slate-800 mb-1.5">
-                    Your Message <span className="text-[#f05a28]">*</span>
-                  </label>
-                  <textarea
-                    required
-                    rows={4}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Tell us about your organization, program requirements, or questions..."
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-900 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#f05a28]/30 focus:border-[#f05a28] transition-all resize-y"
-                  />
-                </div>
-
-                {/* Consent Checkbox */}
-                <div className="flex items-start gap-3 pt-1">
                   <input
-                    type="checkbox"
-                    id="consent"
-                    checked={consent}
-                    onChange={(e) => setConsent(e.target.checked)}
-                    className="w-4 h-4 rounded border-slate-300 text-[#f05a28] focus:ring-[#f05a28] mt-0.5"
+                    type="text"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder="e.g. Sarah Jenkins"
+                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#f05a28] focus:ring-2 focus:ring-orange-100 transition-all"
                   />
-                  <label htmlFor="consent" className="text-xs text-slate-600 leading-relaxed cursor-pointer select-none">
-                    I agree that GOQii may store and process my information in accordance with the Privacy Policy to respond to my request.
-                  </label>
                 </div>
 
-                {/* Submit Button */}
-                <div className="pt-2">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-800 mb-1.5">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="e.g. sarah@company.com"
+                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#f05a28] focus:ring-2 focus:ring-orange-100 transition-all"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-800 mb-1.5">
+                  Inquiry Type
+                </label>
+                <div className="grid grid-cols-3 gap-2">
                   <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#f05a28] hover:bg-[#d94e1f] text-white text-sm font-bold transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.99] cursor-pointer inline-flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                    type="button"
+                    onClick={() => setInquiryType('business')}
+                    className={`py-2 px-3 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+                      inquiryType === 'business'
+                        ? 'bg-orange-50 border-[#f05a28] text-[#f05a28]'
+                        : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
+                    }`}
                   >
-                    {isSubmitting ? (
-                      <>
-                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                        </svg>
-                        <span>Sending message...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Submit Inquiry</span>
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                        </svg>
-                      </>
-                    )}
+                    Business / Partnership
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setInquiryType('support')}
+                    className={`py-2 px-3 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+                      inquiryType === 'support'
+                        ? 'bg-orange-50 border-[#f05a28] text-[#f05a28]'
+                        : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
+                    }`}
+                  >
+                    Customer Support
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setInquiryType('general')}
+                    className={`py-2 px-3 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+                      inquiryType === 'general'
+                        ? 'bg-orange-50 border-[#f05a28] text-[#f05a28]'
+                        : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
+                    }`}
+                  >
+                    General Inquiries
                   </button>
                 </div>
-              </form>
-            )}
-          </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-800 mb-1.5">
+                  Message <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  rows={4}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Tell us about your organization, inquiry, or question..."
+                  className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#f05a28] focus:ring-2 focus:ring-orange-100 transition-all"
+                />
+              </div>
+
+              {/* Privacy Consent Checkbox */}
+              <div className="pt-1">
+                <label className="flex items-start gap-2.5 cursor-pointer select-none bg-orange-50/40 p-3 rounded-xl border border-orange-100">
+                  <input
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    className="mt-0.5 w-4 h-4 rounded text-[#f05a28] focus:ring-orange-400 cursor-pointer accent-[#f05a28]"
+                  />
+                  <span className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">
+                    I agree to GOQii&apos;s{' '}
+                    <a
+                      href="https://goqii.com/us-en/privacypolicy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-[#f05a28] font-semibold underline hover:text-[#d94e1f]"
+                    >
+                      Privacy Policy
+                    </a>{' '}
+                    and consent to the processing of my information for the purpose of responding to my inquiry.{' '}
+                    <span className="text-red-500">*</span>
+                  </span>
+                </label>
+              </div>
+
+              <div className="pt-2 flex items-center justify-between">
+                <span className="text-[11px] text-slate-400">
+                  <span className="text-red-500">*</span> Required fields
+                </span>
+                <button
+                  type="submit"
+                  disabled={isSubmitting || !consent}
+                  className="px-7 py-3 rounded-full text-xs sm:text-sm font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md cursor-pointer flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ background: '#f05a28' }}
+                >
+                  <Send className="w-4 h-4" />
+                  <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                </button>
+              </div>
+            </form>
+          )}
         </div>
 
-        {/* Additional Help & Support Cards */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-2xs">
-            <h4 className="text-sm font-bold text-slate-900 mb-1">Customer &amp; App Support</h4>
-            <p className="text-xs text-slate-500 leading-relaxed mb-3">
-              Need assistance with your GOQii device, app tracking, or coach sessions?
-            </p>
-            <a
-              href="mailto:support@goqii.com"
-              className="text-xs font-semibold text-[#f05a28] hover:underline inline-flex items-center gap-1"
-            >
-              support@goqii.com &rarr;
-            </a>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-2xs">
-            <h4 className="text-sm font-bold text-slate-900 mb-1">Corporate &amp; Enterprise</h4>
-            <p className="text-xs text-slate-500 leading-relaxed mb-3">
-              Custom workforce wellness, insurance risk stratification, and group plans.
-            </p>
-            <a
-              href="mailto:enterprise@goqii.com"
-              className="text-xs font-semibold text-[#f05a28] hover:underline inline-flex items-center gap-1"
-            >
-              enterprise@goqii.com &rarr;
-            </a>
-          </div>
-
-          <div className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-2xs">
-            <h4 className="text-sm font-bold text-slate-900 mb-1">Press &amp; Media</h4>
-            <p className="text-xs text-slate-500 leading-relaxed mb-3">
-              For interviews, research publications, and press inquiries.
-            </p>
-            <a
-              href="mailto:pr@goqii.com"
-              className="text-xs font-semibold text-[#f05a28] hover:underline inline-flex items-center gap-1"
-            >
-              pr@goqii.com &rarr;
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   );

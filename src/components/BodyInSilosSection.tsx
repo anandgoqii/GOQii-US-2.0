@@ -91,25 +91,46 @@ export default function BodyInSilosSection() {
 
             {/* Main Headline */}
             <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-tight">
-              Your body doesn&apos;t work
+              Better outcomes need
             </h2>
             <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#f05a28] tracking-tight leading-tight mt-1 sm:mt-1.5">
-              in silos.
+              a connected view.
             </h2>
 
             {/* Accent Bar */}
             <div className="w-10 h-1 bg-[#f05a28] rounded-full my-3.5" />
 
             {/* Narrative copy */}
-            <div className="space-y-2 text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-md">
-              <p>Every part of your health is connected.</p>
-              <p>When one area changes, it affects the others.</p>
-              <p>That&apos;s why looking at just one metric isn&apos;t enough.</p>
+            <div className="grid grid-cols-2 gap-2 text-sm sm:text-base text-slate-700 font-medium leading-relaxed max-w-md mt-4">
+              <p className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                <span>Sleep.</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#f05a28]" />
+                <span>Movement.</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span>Nutrition.</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                <span>Risk.</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                <span>Clinical signals.</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
+                <span>Behavior.</span>
+              </p>
             </div>
 
             {/* Punchline */}
             <p className="mt-5 text-base sm:text-lg font-semibold text-slate-900 leading-snug max-w-md">
-              So your health journey should connect them too.
+              They influence each other.
             </p>
 
             {/* Sub-divider & Tagline matching website style */}

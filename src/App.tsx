@@ -809,10 +809,22 @@ function GoqiiEcosystemSection() {
   )
 }
 
-const enterpriseDropdownItems = [
+interface DropdownItem {
+  title: string
+  description: string
+  href: string
+  action?: 'faq' | 'trust' | 'contact'
+}
+
+const solutionsDropdownItems: DropdownItem[] = [
+  {
+    title: 'Personal Health',
+    description: 'Preventive healthcare combining coaching, AI vitals, and habit tracking.',
+    href: '#introducing-goqii',
+  },
   {
     title: 'HealthEngage Platform',
-    description: 'AI-powered engagement, monitoring, and health insights.',
+    description: 'AI-powered engagement, monitoring, and population health insights.',
     href: 'https://goqii.com/healthengage',
   },
   {
@@ -821,7 +833,7 @@ const enterpriseDropdownItems = [
     href: 'https://goqii.com/healthengage-corporate',
   },
   {
-    title: 'For Health Care providers',
+    title: 'For Healthcare Providers',
     description: 'Continuous patient monitoring and care beyond the hospital.',
     href: 'https://go-qii-connected-care-7c49.vercel.app/',
   },
@@ -837,35 +849,43 @@ const enterpriseDropdownItems = [
   },
 ]
 
-const personalDropdownItems = [
+const resourcesDropdownItems: DropdownItem[] = [
   {
-    title: 'SuperLife',
-    description: 'Science-led longevity for a healthier, longer life.',
-    href: '#personal',
+    title: 'FAQs',
+    description: 'Answers to frequently asked questions about GOQii and our platform.',
+    href: '#faqs',
+    action: 'faq',
   },
   {
-    title: 'SmartRx',
-    description: 'Doctor-led, personalized weight management.',
-    href: '#personal',
+    title: 'Trust Center',
+    description: 'Our commitments to privacy, data security, and responsible health tech.',
+    href: '#trust',
+    action: 'trust',
   },
   {
-    title: 'NutriGenius',
-    description: 'AI-powered food recognition and smart nutrition tracking.',
-    href: '#personal',
+    title: 'Insights & Blog',
+    description: 'Latest research, articles, and updates on preventive health.',
+    href: 'https://goqii.com/blog',
+  },
+  {
+    title: 'Contact Us',
+    description: 'Get in touch for business inquiries, support, or general questions.',
+    href: '#contact',
+    action: 'contact',
   },
 ]
 
 const navLinks = [
-  { label: 'Enterprise Solutions', hasDropdown: true },
-  { label: 'Personal Solutions', hasDropdown: true },
-  { label: 'Plans', hasDropdown: false },
-  { label: 'Project Sanjeevini', hasDropdown: false },
+  { label: 'Solutions', hasDropdown: true },
+  { label: 'Technology', hasDropdown: false, href: '#alive-os' },
+  { label: 'About', hasDropdown: false, href: '#our-story' },
+  { label: 'Resources', hasDropdown: true },
 ]
 
 function GoqiiLogo({ onClick }: { onClick?: () => void }) {
   return (
     <a
-      href="#"
+      href="/"
       onClick={(e) => {
         if (onClick) {
           e.preventDefault()
@@ -873,6 +893,7 @@ function GoqiiLogo({ onClick }: { onClick?: () => void }) {
         }
       }}
       className="flex items-center cursor-pointer"
+      aria-label="GOQii Home"
     >
       <img
         src="https://appcdn.goqii.com/storeimg/36455_1779860387.png"
@@ -1413,10 +1434,13 @@ export default function App() {
           {/* Desktop nav links */}
           <nav className="hidden lg:flex items-center gap-7 xl:gap-10">
             {navLinks.map(link => {
-              const isEnterprise = link.label === 'Enterprise Solutions'
-              const isPersonal = link.label === 'Personal Solutions'
+              const isSolutions = link.label === 'Solutions'
+              const isResources = link.label === 'Resources'
               const isOpen = openDropdown === link.label
-              const items = isEnterprise ? enterpriseDropdownItems : isPersonal ? personalDropdownItems : []
+              const items = isSolutions ? solutionsDropdownItems : isResources ? resourcesDropdownItems : []
+              const isLinkActive =
+                (link.label === 'Solutions' && isOpen) ||
+                (link.label === 'Resources' && (isOpen || currentView === 'faq' || currentView === 'trust' || currentView === 'contact'))
 
               return (
                 <div
@@ -1429,18 +1453,28 @@ export default function App() {
                     onClick={() => {
                       if (link.hasDropdown) {
                         setOpenDropdown(isOpen ? null : link.label)
-                      } else if (link.label === 'Contact') {
-                        navigateToContact()
-                      } else if (link.label === 'FAQs') {
-                        navigateToFaq()
-                      } else {
-                        if (currentView !== 'home') navigateToHome()
+                      } else if (link.label === 'Technology') {
+                        if (currentView !== 'home') {
+                          setCurrentView('home')
+                          setTimeout(() => {
+                            document.getElementById('alive-os')?.scrollIntoView({ behavior: 'smooth' })
+                          }, 100)
+                        } else {
+                          document.getElementById('alive-os')?.scrollIntoView({ behavior: 'smooth' })
+                        }
+                      } else if (link.label === 'About') {
+                        if (currentView !== 'home') {
+                          setCurrentView('home')
+                          setTimeout(() => {
+                            document.getElementById('our-story')?.scrollIntoView({ behavior: 'smooth' })
+                          }, 100)
+                        } else {
+                          document.getElementById('our-story')?.scrollIntoView({ behavior: 'smooth' })
+                        }
                       }
                     }}
                     className={`flex items-center gap-1.5 text-[14px] font-semibold transition-colors cursor-pointer ${
-                      isOpen ||
-                      (link.label === 'Contact' && currentView === 'contact') ||
-                      (link.label === 'FAQs' && currentView === 'faq')
+                      isLinkActive
                         ? 'text-[#f05a28] font-bold'
                         : 'text-slate-700 hover:text-[#f05a28]'
                     }`}
@@ -1461,8 +1495,8 @@ export default function App() {
                     )}
                   </button>
 
-                  {/* Solutions Custom Dropdown */}
-                  {(isEnterprise || isPersonal) && isOpen && (
+                  {/* Dropdown Menu */}
+                  {link.hasDropdown && isOpen && (
                     <div
                       className="absolute top-full -left-6 mt-3 w-[360px] bg-white rounded-3xl p-3 sm:p-4 shadow-[0_20px_50px_rgba(0,0,0,0.14)] border border-slate-100 z-50 animate-fadeIn select-none"
                       style={{ fontFamily: 'Poppins, sans-serif' }}
@@ -1474,10 +1508,29 @@ export default function App() {
                             href={item.href}
                             target={item.href.startsWith('http') ? '_blank' : undefined}
                             rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                            onClick={() => {
+                            onClick={(e) => {
                               setOpenDropdown(null)
-                              if (currentView !== 'home' && !item.href.startsWith('http')) {
-                                navigateToHome()
+                              if (item.action === 'faq') {
+                                e.preventDefault()
+                                navigateToFaq()
+                              } else if (item.action === 'trust') {
+                                e.preventDefault()
+                                navigateToTrust()
+                              } else if (item.action === 'contact') {
+                                e.preventDefault()
+                                navigateToContact()
+                              } else if (item.href === '#introducing-goqii') {
+                                e.preventDefault()
+                                if (currentView !== 'home') {
+                                  setCurrentView('home')
+                                  setTimeout(() => {
+                                    document.getElementById('introducing-goqii')?.scrollIntoView({ behavior: 'smooth' })
+                                  }, 100)
+                                } else {
+                                  document.getElementById('introducing-goqii')?.scrollIntoView({ behavior: 'smooth' })
+                                }
+                              } else if (!item.href.startsWith('http')) {
+                                if (currentView !== 'home') navigateToHome()
                               }
                             }}
                             className="group block p-3 rounded-2xl hover:bg-slate-50 transition-colors text-left"
@@ -1504,7 +1557,7 @@ export default function App() {
               onClick={() => setIsPartnerModalOpen(true)}
               className="px-6 py-2.5 rounded-full text-[14px] font-bold text-white transition-all duration-200 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] cursor-pointer bg-[#f05a28] hover:bg-[#d94e1f]"
             >
-              Partner with us
+              Partner with GOQii
             </button>
           </div>
 
@@ -1520,10 +1573,13 @@ export default function App() {
         {mobileOpen && (
           <div className="pointer-events-auto lg:hidden mt-2 bg-white/98 backdrop-blur-md rounded-2xl border border-slate-100 shadow-xl px-6 py-5 flex flex-col gap-3">
             {navLinks.map(link => {
-              const isEnterprise = link.label === 'Enterprise Solutions'
-              const isPersonal = link.label === 'Personal Solutions'
+              const isSolutions = link.label === 'Solutions'
+              const isResources = link.label === 'Resources'
               const isExpanded = mobileExpanded === link.label
-              const items = isEnterprise ? enterpriseDropdownItems : isPersonal ? personalDropdownItems : []
+              const items = isSolutions ? solutionsDropdownItems : isResources ? resourcesDropdownItems : []
+              const isLinkActive =
+                (link.label === 'Solutions' && isExpanded) ||
+                (link.label === 'Resources' && (isExpanded || currentView === 'faq' || currentView === 'trust' || currentView === 'contact'))
 
               return (
                 <div key={link.label} className="border-b border-slate-50 pb-2">
@@ -1533,18 +1589,29 @@ export default function App() {
                         setMobileExpanded(isExpanded ? null : link.label)
                       } else {
                         setMobileOpen(false)
-                        if (link.label === 'Contact') {
-                          navigateToContact()
-                        } else if (link.label === 'FAQs') {
-                          navigateToFaq()
-                        } else {
-                          if (currentView !== 'home') navigateToHome()
+                        if (link.label === 'Technology') {
+                          if (currentView !== 'home') {
+                            setCurrentView('home')
+                            setTimeout(() => {
+                              document.getElementById('alive-os')?.scrollIntoView({ behavior: 'smooth' })
+                            }, 100)
+                          } else {
+                            document.getElementById('alive-os')?.scrollIntoView({ behavior: 'smooth' })
+                          }
+                        } else if (link.label === 'About') {
+                          if (currentView !== 'home') {
+                            setCurrentView('home')
+                            setTimeout(() => {
+                              document.getElementById('our-story')?.scrollIntoView({ behavior: 'smooth' })
+                            }, 100)
+                          } else {
+                            document.getElementById('our-story')?.scrollIntoView({ behavior: 'smooth' })
+                          }
                         }
                       }
                     }}
                     className={`w-full text-left text-sm font-semibold py-1 flex justify-between items-center transition-colors ${
-                      (link.label === 'Contact' && currentView === 'contact') ||
-                      (link.label === 'FAQs' && currentView === 'faq')
+                      isLinkActive
                         ? 'text-[#f05a28] font-bold'
                         : 'text-slate-700 hover:text-[#f05a28]'
                     }`}
@@ -1563,8 +1630,8 @@ export default function App() {
                     )}
                   </button>
 
-                  {/* Solutions Items in Mobile */}
-                  {(isEnterprise || isPersonal) && isExpanded && (
+                  {/* Dropdown Items in Mobile */}
+                  {link.hasDropdown && isExpanded && (
                     <div className="mt-2 pl-3 flex flex-col gap-2 bg-slate-50/70 rounded-xl p-3 border border-slate-100">
                       {items.map(item => (
                         <a
@@ -1572,10 +1639,29 @@ export default function App() {
                           href={item.href}
                           target={item.href.startsWith('http') ? '_blank' : undefined}
                           rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          onClick={() => {
+                          onClick={(e) => {
                             setMobileOpen(false)
-                            if (currentView !== 'home' && !item.href.startsWith('http')) {
-                              navigateToHome()
+                            if (item.action === 'faq') {
+                              e.preventDefault()
+                              navigateToFaq()
+                            } else if (item.action === 'trust') {
+                              e.preventDefault()
+                              navigateToTrust()
+                            } else if (item.action === 'contact') {
+                              e.preventDefault()
+                              navigateToContact()
+                            } else if (item.href === '#introducing-goqii') {
+                              e.preventDefault()
+                              if (currentView !== 'home') {
+                                setCurrentView('home')
+                                setTimeout(() => {
+                                  document.getElementById('introducing-goqii')?.scrollIntoView({ behavior: 'smooth' })
+                                }, 100)
+                              } else {
+                                document.getElementById('introducing-goqii')?.scrollIntoView({ behavior: 'smooth' })
+                              }
+                            } else if (!item.href.startsWith('http')) {
+                              if (currentView !== 'home') navigateToHome()
                             }
                           }}
                           className="block py-1 text-left"
@@ -1596,7 +1682,7 @@ export default function App() {
               }}
               className="w-full mt-2 py-3 rounded-full text-sm font-bold text-white shadow-md bg-[#f05a28] hover:bg-[#d94e1f] cursor-pointer"
             >
-              Partner with us
+              Partner with GOQii
             </button>
           </div>
         )}
@@ -1614,11 +1700,19 @@ export default function App() {
           onBack={navigateToHome}
           onNavigateToPrivacy={navigateToPrivacy}
           onNavigateToTerms={navigateToTerms}
+          onNavigateToContact={navigateToContact}
         />
       ) : currentView === 'contact' ? (
-        <ContactUsPage onBack={navigateToHome} />
+        <ContactUsPage
+          onBack={navigateToHome}
+          onOpenPartnerModal={() => setIsPartnerModalOpen(true)}
+        />
       ) : currentView === 'faq' ? (
-        <FaqPage onBack={navigateToHome} onNavigateToContact={navigateToContact} />
+        <FaqPage
+          onBack={navigateToHome}
+          onNavigateToContact={navigateToContact}
+          onOpenPartnerModal={() => setIsPartnerModalOpen(true)}
+        />
       ) : (
         <>
           {/* ── Hero ── */}
@@ -2523,43 +2617,122 @@ export default function App() {
       {/* ── Footer ── */}
       <footer className="w-full bg-white border-t border-slate-100 pt-16 pb-12 text-slate-800" style={{ fontFamily: 'Poppins, sans-serif' }}>
         <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-12">
-          {/* Top Link Columns */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-16">
-            {/* 1. PERSONAL SOLUTIONS */}
+          {/* Top Link Columns - Grouped strictly by Design Review */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            {/* 1. SOLUTIONS */}
             <div className="flex flex-col gap-4">
-              <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Personal Solutions</h4>
+              <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Solutions</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
-                <li><a href="#" className="hover:text-slate-900 transition-colors">SuperLife</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">SmartRx</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">NutriGenius</a></li>
+                <li>
+                  <a
+                    href="#introducing-goqii"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      if (currentView !== 'home') {
+                        setCurrentView('home')
+                        setTimeout(() => {
+                          document.getElementById('introducing-goqii')?.scrollIntoView({ behavior: 'smooth' })
+                        }, 100)
+                      } else {
+                        document.getElementById('introducing-goqii')?.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    }}
+                    className="hover:text-slate-900 transition-colors"
+                  >
+                    Personal Health
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://goqii.com/healthengage"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-slate-900 transition-colors"
+                  >
+                    Enterprise Health
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://goqii.com/healthengage"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-slate-900 transition-colors"
+                  >
+                    HealthEngage
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#alive-os"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      if (currentView !== 'home') {
+                        setCurrentView('home')
+                        setTimeout(() => {
+                          document.getElementById('alive-os')?.scrollIntoView({ behavior: 'smooth' })
+                        }, 100)
+                      } else {
+                        document.getElementById('alive-os')?.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    }}
+                    className="hover:text-slate-900 transition-colors"
+                  >
+                    ALIVE O.S.
+                  </a>
+                </li>
               </ul>
             </div>
 
-            {/* 2. ENTERPRISE */}
+            {/* 2. RESOURCES */}
             <div className="flex flex-col gap-4">
-              <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Enterprise</h4>
+              <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Resources</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
-                <li><a href="https://goqii.com/healthengage" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">HealthEngage</a></li>
-                <li><a href="https://goqii.com/healthengage-corporate" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">For Corporate</a></li>
-                <li><a href="https://go-qii-connected-care-7c49.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">For Health Care Providers</a></li>
-                <li><a href="https://goqii.com/healthengage-pharma" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">For Pharma</a></li>
-                <li><a href="https://goqii.com/healthengage-insurance" target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 transition-colors">For Insurance</a></li>
-              </ul>
-            </div>
-
-            {/* 3. INNOVATION */}
-            <div className="flex flex-col gap-4">
-              <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Innovation</h4>
-              <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
-                <li><a href="#" className="hover:text-slate-900 transition-colors">Sanjeevini</a></li>
-                <li><a href="#" className="hover:text-slate-900 transition-colors">UHT</a></li>
-              </ul>
-            </div>
-
-            {/* 4. COMPANY */}
-            <div className="flex flex-col gap-4">
-              <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Company</h4>
-              <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
+                <li>
+                  <a
+                    href="#our-story"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      if (currentView !== 'home') {
+                        setCurrentView('home')
+                        setTimeout(() => {
+                          document.getElementById('our-story')?.scrollIntoView({ behavior: 'smooth' })
+                        }, 100)
+                      } else {
+                        document.getElementById('our-story')?.scrollIntoView({ behavior: 'smooth' })
+                      }
+                    }}
+                    className="hover:text-slate-900 transition-colors"
+                  >
+                    About GOQii
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#faqs"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      navigateToFaq()
+                    }}
+                    className={`transition-colors cursor-pointer ${
+                      currentView === 'faq'
+                        ? 'text-[#f05a28] font-bold underline'
+                        : 'hover:text-slate-900'
+                    }`}
+                  >
+                    FAQs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://goqii.com/blog"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-slate-900 transition-colors"
+                  >
+                    Insights / Resources
+                  </a>
+                </li>
                 <li>
                   <a
                     href="#contact"
@@ -2579,32 +2752,75 @@ export default function App() {
               </ul>
             </div>
 
-            {/* 5. SUPPORT */}
+            {/* 3. TRUST & LEGAL */}
             <div className="flex flex-col gap-4">
-              <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Support</h4>
+              <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Trust &amp; Legal</h4>
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
                 <li>
                   <a
-                    href="#faqs"
+                    href="https://goqii.com/us-en/privacypolicy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-slate-900 transition-colors"
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://coach.goqii.com/us-en/terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-slate-900 transition-colors"
+                  >
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#trust"
                     onClick={(e) => {
                       e.preventDefault()
-                      navigateToFaq()
+                      navigateToTrust()
                     }}
                     className={`transition-colors cursor-pointer ${
-                      currentView === 'faq'
+                      currentView === 'trust'
                         ? 'text-[#f05a28] font-bold underline'
                         : 'hover:text-slate-900'
                     }`}
                   >
-                    FAQs
+                    Trust Center
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* 4. CONNECT */}
+            <div className="flex flex-col gap-4">
+              <h4 className="text-[12px] font-bold tracking-widest text-slate-900 uppercase">Connect</h4>
+              <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
+                <li>
+                  <a
+                    href="mailto:usbeta@goqii.com"
+                    className="hover:text-slate-900 transition-colors"
+                  >
+                    Business Inquiries
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:support@goqii.com"
+                    className="hover:text-slate-900 transition-colors"
+                  >
+                    Customer Support
                   </a>
                 </li>
               </ul>
             </div>
           </div>
 
-          {/* Middle Brand & Tagline + App Badges & Social Icons Bar */}
-          <div className="border-t border-slate-100 py-8 flex flex-col xl:flex-row items-start xl:items-center justify-between gap-6">
+          {/* Middle Brand & Tagline + Social Icons Bar */}
+          <div className="border-t border-slate-100 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 max-w-xl">
               <GoqiiLogo onClick={navigateToHome} />
               <p className="text-[14px] text-slate-600 leading-normal">
@@ -2612,44 +2828,8 @@ export default function App() {
               </p>
             </div>
 
-            {/* App Badges + Social Circle Buttons + Scroll to top */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-              {/* App Store & Google Play Badges */}
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://apps.apple.com/in/app/goqii/id868625946"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block transition-transform hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
-                  aria-label="Download GOQii on Apple App Store"
-                >
-                  <img
-                    src="https://insight.goqii.com/webApp/uswebsite2025/assets/images/icon-app-store.png"
-                    alt="Download on the App Store"
-                    className="h-[38px] w-auto object-contain rounded-lg"
-                    referrerPolicy="no-referrer"
-                  />
-                </a>
-                <a
-                  href="https://play.google.com/store/apps/details?id=qii.go.com.goqii"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block transition-transform hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
-                  aria-label="Get GOQii on Google Play"
-                >
-                  <img
-                    src="https://appcdn.goqii.com/storeimg/45358_1724147165.png"
-                    alt="Get it on Google Play"
-                    className="h-[38px] w-auto object-contain rounded-lg"
-                    referrerPolicy="no-referrer"
-                  />
-                </a>
-              </div>
-
-              <div className="hidden sm:block h-6 w-px bg-slate-200" />
-
-              {/* Social Circle Buttons */}
-              <div className="flex items-center gap-2.5 sm:gap-3">
+            {/* Social Circle Buttons + Scroll to top */}
+            <div className="flex items-center gap-2.5 sm:gap-3">
                 {/* Facebook */}
                 <a
                   href="https://www.facebook.com/GOQiiLife"
@@ -2723,7 +2903,6 @@ export default function App() {
                 </button>
               </div>
             </div>
-          </div>
 
           {/* Bottom Bar: Legal & Copyright */}
           <div className="border-t border-slate-100 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[13px] text-slate-500">
@@ -2731,7 +2910,7 @@ export default function App() {
               <p className="text-[12px] text-slate-400">© 2026 GOQii Technologies Private Limited. All rights reserved.</p>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <span className="font-extrabold text-slate-800 uppercase tracking-wider text-[11px]">LEGAL:</span>
               <a
                 href="#faqs"
@@ -2749,31 +2928,34 @@ export default function App() {
               </a>
               <span>|</span>
               <a
-                href="#privacy"
+                href="#contact"
                 onClick={(e) => {
                   e.preventDefault()
-                  navigateToPrivacy()
+                  navigateToContact()
                 }}
                 className={`transition-colors cursor-pointer ${
-                  currentView === 'privacy'
+                  currentView === 'contact'
                     ? 'text-[#f05a28] font-bold underline'
                     : 'text-slate-600 hover:text-[#f05a28]'
                 }`}
+              >
+                Contact
+              </a>
+              <span>|</span>
+              <a
+                href="https://goqii.com/us-en/privacypolicy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 hover:text-[#f05a28] transition-colors"
               >
                 Privacy Policy
               </a>
               <span>|</span>
               <a
-                href="#terms"
-                onClick={(e) => {
-                  e.preventDefault()
-                  navigateToTerms()
-                }}
-                className={`transition-colors cursor-pointer ${
-                  currentView === 'terms'
-                    ? 'text-[#f05a28] font-bold underline'
-                    : 'text-slate-600 hover:text-[#f05a28]'
-                }`}
+                href="https://coach.goqii.com/us-en/terms"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 hover:text-[#f05a28] transition-colors"
               >
                 Terms of Service
               </a>

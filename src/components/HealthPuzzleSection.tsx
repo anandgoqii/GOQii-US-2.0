@@ -24,27 +24,38 @@ export default function HealthPuzzleSection() {
 
             {/* Main Headline - font-semibold, matching website typography and brand color */}
             <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#0B192C] tracking-tight leading-tight">
-              You don&apos;t have a<br />health problem.
+              Health is connected.
             </h2>
             <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-[#f05a28] tracking-tight leading-tight mt-1 sm:mt-1.5">
-              You have a health puzzle.
+              Healthcare often isn&apos;t.
             </h2>
 
             {/* Accent Bar */}
             <div className="w-10 h-1 bg-[#f05a28] rounded-full my-3.5" />
 
-            {/* Narrative bullets with generous spacing */}
-            <div className="mt-4 space-y-2 text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl">
-              <p>You track your steps in one place.</p>
-              <p>Your health reports live somewhere else.</p>
-              <p>Your food is another conversation.</p>
-              <p>Your sleep is another metric.</p>
-              <p>And advice comes from everywhere.</p>
+            {/* Narrative items */}
+            <div className="mt-4 space-y-1.5 text-sm sm:text-base text-slate-700 font-medium leading-relaxed max-w-xl">
+              <p className="flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#f05a28]" />
+                <span>Data.</span>
+              </p>
+              <p className="flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#f05a28]" />
+                <span>Diagnostics.</span>
+              </p>
+              <p className="flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#f05a28]" />
+                <span>Behavior.</span>
+              </p>
+              <p className="flex items-center gap-2.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#f05a28]" />
+                <span>Guidance.</span>
+              </p>
             </div>
 
             {/* Punchline */}
             <p className="mt-5 text-base sm:text-lg font-semibold text-slate-900 leading-snug">
-              But your body experiences all of it together.
+              Too often, they exist in separate systems.
             </p>
 
             {/* Sub-divider & Tagline */}

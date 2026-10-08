@@ -162,7 +162,7 @@ export default function PartnerWithUsModal({ isOpen, onClose }: PartnerWithUsMod
   const validateStep4 = () => {
     const newErrors: Record<string, string> = {};
     if (!consent) {
-      newErrors.consent = 'Please agree to the privacy policy & contact terms';
+      newErrors.consent = "Please agree to GOQii's Privacy Policy to submit your inquiry.";
     }
 
     setErrors(newErrors);
@@ -696,7 +696,18 @@ export default function PartnerWithUsModal({ isOpen, onClose }: PartnerWithUsMod
                           className="mt-0.5 w-4 h-4 rounded text-[#f05a28] focus:ring-orange-400 cursor-pointer accent-[#f05a28]"
                         />
                         <span className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">
-                          I agree to be contacted by GOQii regarding my partnership inquiry and understand that my information will be handled according to GOQii&apos;s Privacy Policy. <span className="text-red-500">*</span>
+                          I agree to GOQii&apos;s{' '}
+                          <a
+                            href="https://goqii.com/us-en/privacypolicy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-[#f05a28] font-semibold underline hover:text-[#d94e1f]"
+                          >
+                            Privacy Policy
+                          </a>{' '}
+                          and consent to the processing of my information for the purpose of responding to my inquiry.{' '}
+                          <span className="text-red-500">*</span>
                         </span>
                       </label>
                       {errors.consent && (
@@ -736,8 +747,8 @@ export default function PartnerWithUsModal({ isOpen, onClose }: PartnerWithUsMod
                 ) : (
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="px-7 py-3 rounded-full text-xs sm:text-sm font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md cursor-pointer flex items-center gap-2 disabled:opacity-70 group"
+                    disabled={isSubmitting || !consent}
+                    className="px-7 py-3 rounded-full text-xs sm:text-sm font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98] shadow-md cursor-pointer flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
                     style={{ background: '#f05a28' }}
                   >
                     {isSubmitting ? (
