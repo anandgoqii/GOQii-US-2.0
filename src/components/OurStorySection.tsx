@@ -62,10 +62,10 @@ const MILESTONES: Milestone[] = [
       iconColor: 'text-blue-600',
     },
     details: {
-      highlight: 'Dynamic Motivation & Clinical Device Integration',
-      stats: '5M+',
-      statsLabel: 'Health Goals Tracked Daily',
-      takeaway: 'Expanded beyond simple fitness into comprehensive chronic care management, integrated diagnostics, and real-time behavioral nudges.',
+      highlight: 'Diagnostic Innovation & Qualcomm Tricorder XPRIZE Finalist',
+      stats: 'Global Finalist',
+      statsLabel: 'Qualcomm Tricorder XPRIZE (Sanjeevini)',
+      takeaway: 'Selected as a global finalist in the Qualcomm Tricorder XPRIZE competition with Sanjeevini, developing pioneering non-invasive mobile diagnostic and health telemetry concepts that helped inform GOQii’s integrated health intelligence platform.',
     },
   },
   {
@@ -73,7 +73,7 @@ const MILESTONES: Milestone[] = [
     step: '03 — Global Impact',
     period: 'Global Impact',
     title: 'Health at Scale',
-    subtitle: 'Population Health & Clinical Validation',
+    subtitle: 'Population Health & Institutional Programs',
     desc: 'Expanding health engagement across populations and organizations.',
     theme: {
       badgeBg: 'bg-emerald-50',
@@ -84,10 +84,10 @@ const MILESTONES: Milestone[] = [
       iconColor: 'text-emerald-600',
     },
     details: {
-      highlight: 'NHS Clinical Backing & Enterprise Programs',
-      stats: '90%',
-      statsLabel: 'Member Satisfaction across NHS Programs',
-      takeaway: 'Partnered across health plans, large employers, and NHS healthcare systems with clinically validated adherence outcomes.',
+      highlight: 'Enterprise & Population Health Programs',
+      stats: 'Scale',
+      statsLabel: 'Population Health Deployments',
+      takeaway: 'Partnered across health plans, large employers, and international healthcare partners with focus on sustained engagement and preventive lifestyle adherence.',
     },
   },
   {

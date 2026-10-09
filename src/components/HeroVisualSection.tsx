@@ -59,17 +59,20 @@ export default function HeroVisualSection({ onOpenPartnerModal }: HeroVisualSect
               </button>
             </div>
 
-            {/* Approved Partner / Certification Logo */}
-            <div className="pt-2 border-t border-slate-100/90 flex items-center gap-3">
-              <span className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">
-                Recognized by
+            {/* Enterprise Focus Pillars */}
+            <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-slate-500 font-medium">
+              <span className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#f05a28]" />
+                Human Coaching
               </span>
-              <img
-                src={heroBannerLogo}
-                alt="Partner and certification recognition"
-                className="h-9 sm:h-10 w-auto object-contain opacity-85 hover:opacity-100 transition-opacity"
-                referrerPolicy="no-referrer"
-              />
+              <span className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                Continuous Biometrics
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                Adaptive Motivation
+              </span>
             </div>
           </div>
 

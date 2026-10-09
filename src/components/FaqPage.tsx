@@ -113,7 +113,7 @@ const FAQ_ITEMS: FaqItem[] = [
       '• Powering ALIVE O.S. Insights: Computing personalized wellness trends, habit streaks, and preventive risk flags.',
       '• Aggregated & De-identified Reporting: For enterprise clients, only anonymized, aggregate-level participation metrics are shared (individual employee health data is never shared with employers).',
       '• Zero Unauthorized Monetization: GOQii never sells personal health data to data brokers or third parties.',
-      'For more details, please review our official Privacy Policy at goqii.com/us-en/privacypolicy.',
+      'For more details, please review our official Privacy Policy.',
     ],
   },
 

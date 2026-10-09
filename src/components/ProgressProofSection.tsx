@@ -1,8 +1,8 @@
 export default function ProgressProofSection() {
   const proofPanels = [
     {
-      metric: '84%',
-      metricLabel: 'Sustained Habit Retention',
+      metric: 'Consistent',
+      metricLabel: 'Daily Habit Retention',
       quote: '“Having a coach check my sleep and vitals every week changed how I build my daily routine.”',
       photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=700&q=80',
       alt: 'Member enjoying an active and healthy morning',
@@ -10,8 +10,8 @@ export default function ProgressProofSection() {
       color: 'text-emerald-600',
     },
     {
-      metric: '1.2M+',
-      metricLabel: 'Active Coaching Interactions',
+      metric: 'Continuous',
+      metricLabel: 'Coaching Support',
       quote: '“The insights are continuous, not once-a-year. It keeps our members actively engaged in preventive care.”',
       photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=700&q=80',
       alt: 'Adult discussing preventive health progress',
@@ -19,12 +19,12 @@ export default function ProgressProofSection() {
       color: 'text-[#f05a28]',
     },
     {
-      metric: '90%',
-      metricLabel: 'Member Satisfaction',
+      metric: 'Positive',
+      metricLabel: 'Member Feedback',
       quote: '“Actionable guidance instead of an overwhelming pile of numbers. That makes all the difference.”',
       photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=700&q=80',
       alt: 'Professional sharing positive feedback on health journey',
-      tag: 'Verified Feedback',
+      tag: 'Member Experience',
       color: 'text-blue-600',
     },
   ]

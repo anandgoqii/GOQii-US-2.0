@@ -15,19 +15,19 @@ export default function TrustSecuritySection({
 }: TrustSecurityProps) {
   const trustPillars = [
     {
-      title: 'HIPAA Compliant Infrastructure',
-      desc: 'Industry-standard safeguards to protect electronic Protected Health Information (ePHI).',
-      badge: 'HIPAA Audited',
+      title: 'Health Data Safeguards',
+      desc: 'Industry-standard administrative, physical, and technical safeguards designed to protect sensitive health data.',
+      badge: 'Protected Health Data',
     },
     {
-      title: 'ISO/IEC 27001 Certified',
-      desc: 'Rigorous information security management systems independently audited and certified.',
-      badge: 'ISO 27001',
+      title: 'Information Security Standards',
+      desc: 'Rigorous information security management practices governing policies, systems, and operational controls.',
+      badge: 'Security Frameworks',
     },
     {
-      title: 'SOC 2 Type II Aligned',
-      desc: 'Stringent operational controls ensuring data security, confidentiality, and availability.',
-      badge: 'SOC 2 Aligned',
+      title: 'Operational Governance',
+      desc: 'Stringent internal controls ensuring system resilience, confidentiality, and operational accountability.',
+      badge: 'Audited Controls',
     },
     {
       title: 'End-to-End Encryption',

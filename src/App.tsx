@@ -153,7 +153,7 @@ const leadershipTeam: TeamMember[] = [
     company: 'GOQII INC.',
     tags: ['BRAND & MARKETING', 'UK MARKET', 'CONSUMER HEALTH'],
     img: 'https://appcdn.goqii.com/storeimg/42684_1781265347.png',
-    bio: "Abhishek leads GOQii's UK operations and has been instrumental in building the brand's presence in one of the world's most demanding health markets. He brings over seven years at Nike across India, the USA, and the UK — spanning senior product and consumer roles — along with deep expertise in brand development, product marketing, PR, and social media. As Co-Founder and CMO from 2013, then COO, and now CEO of GOQii UK, he has grown the business from a startup into a recognised NHS-aligned health platform. A strong believer in sustainability and social impact, he has collaborated with global non-profits on key social projects. An ardent football fan, travel photographer, and long-distance motorbike rider.",
+    bio: "Abhishek leads GOQii's UK operations and has been instrumental in building the brand's presence in one of the world's most demanding health markets. He brings over seven years at Nike across India, the USA, and the UK — spanning senior product and consumer roles — along with deep expertise in brand development, product marketing, PR, and social media. As Co-Founder and CMO from 2013, then COO, and now CEO of GOQii UK, he has grown the business from a startup into a recognized preventive health platform. A strong believer in sustainability and social impact, he has collaborated with global non-profits on key social projects. An ardent football fan, travel photographer, and long-distance motorbike rider.",
     credentials: 'Co-Founder · CEO GOQii UK · Nike · IIM Calcutta',
   },
   {
@@ -161,10 +161,10 @@ const leadershipTeam: TeamMember[] = [
     name: 'Champ Alreja',
     role: 'Co-Founder & Chief Business Officer',
     company: 'GOQII INC.',
-    tags: ['PREVENTIVE HEALTH', 'HEALTH STORE', 'APAC'],
+    tags: ['PREVENTIVE HEALTH', 'HEALTH PLATFORM', 'APAC'],
     img: 'https://appcdn.goqii.com/storeimg/29324_1781260039.png',
-    bio: "Radical in thought, meticulous in execution. Champ co-founded GOQii in 2014, bringing hardware engineering, behavioural product thinking, and commercial instinct to the company's growth. Before GOQii, he founded HitPlay — a gadget and consumer tech company built from scratch before Flipkart, before Amazon, at 24 with no playbook and no funding. As a product designer and inventor, he built GOQii's first lines of wearables from 2013 — at a time when the only comparable device was the original Fitbit Flex, which had no screen and no real-time feedback. His devices did. His career began as a Sound Engineer, giving him a ground-up understanding of how people interact with technology. He also conceived and built the GOQii Health Store — a scientifically designed rewards and retention engine grounded in behavioural economics and game theory, now one of the platform's most distinctive moats. Leads global BD and APAC expansion across Hong Kong, Singapore, and the Asia Pacific. A competitive tennis player who has built health discipline the same way he builds companies — one consistent rep at a time.",
-    credentials: 'Co-Founder · Wearables Pioneer · Health Store Architect',
+    bio: "Radical in thought, meticulous in execution. Champ co-founded GOQii in 2014, bringing hardware engineering, behavioral product thinking, and commercial instinct to the company's growth. Before GOQii, he founded HitPlay — a gadget and consumer tech company built from scratch before Flipkart, before Amazon, at 24 with no playbook and no funding. As a product designer and inventor, he built GOQii's first lines of wearables from 2013 — at a time when the only comparable device was the original Fitbit Flex, which had no screen and no real-time feedback. His devices did. His career began as a Sound Engineer, giving him a ground-up understanding of how people interact with technology. He also conceived and built the GOQii Health Rewards Engine — a scientifically designed rewards and retention engine grounded in behavioral economics and game theory, now one of the platform's most distinctive moats. Leads global BD and APAC expansion across Hong Kong, Singapore, and the Asia Pacific. A competitive tennis player who has built health discipline the same way he builds companies — one consistent rep at a time.",
+    credentials: 'Co-Founder · Wearables Pioneer · Health Platform & Habit Architect',
   },
   {
     num: '05',
@@ -173,7 +173,7 @@ const leadershipTeam: TeamMember[] = [
     company: 'GOQII INC.',
     tags: ['CONSUMER ENGAGEMENT', 'BRAND STRATEGY', 'DIGITAL MARKETING'],
     img: 'https://appcdn.goqii.com/storeimg/55864_1781259937.png',
-    bio: "A passion for brands, mountains, and startups is what drives KK. At GOQii, he is Chief Customer Officer and leads overall marketing strategy and consumer engagement — building systems that help people make healthier choices and sustain them over time. His career began in advertising across networks including Publicis, Leo Burnett, and WPP (Mindshare), before he founded Media2win in 2004 — a digital agency that grew into one of India's top digital firms and won multiple industry awards. That brought him to GOQii, where he works at the intersection of technology, data, coaching, and behavioural science. Also a Core Team member at Universal Health Token (UHT), focused on marketing. Outside work, he scales 6000+ metre peaks in the Himalayas every year and runs multiple marathons — proof that he lives the preventive health philosophy he champions.",
+    bio: "A passion for brands, mountains, and startups is what drives KK. At GOQii, he is Chief Customer Officer and leads overall marketing strategy and consumer engagement — building systems that help people make healthier choices and sustain them over time. His career began in advertising across networks including Publicis, Leo Burnett, and WPP (Mindshare), before he founded Media2win in 2004 — a digital agency that grew into one of India's top digital firms and won multiple industry awards. That brought him to GOQii, where he works at the intersection of technology, data, coaching, and behavioral science. Also a Core Team member at Universal Health Token (UHT), focused on marketing. Outside work, he scales 6,000+ meter peaks in the Himalayas every year and runs multiple marathons — proof that he lives the preventive health philosophy he champions.",
     credentials: 'CCO · Media2win Founder · UHT Core Team · Mindshare / WPP',
   },
   {
@@ -309,7 +309,7 @@ const advisoryBoard: TeamMember[] = [
     company: 'ANIMOCA BRANDS',
     tags: ['WEB3', 'STARTUPS', 'ASIA'],
     img: 'https://appcdn.goqii.com/storeimg/58694_1781251928.png',
-    bio: "Nearly 30 years building and backing technology businesses across Asia — from Web 1.0 through Web3. Co-founded or served as senior executive at 8 startups; 3 exited to publicly listed companies. Mentored and invested through HAX, Orbit/Chinaccelerator, and 500 Startups. Clinical Professor of Entrepreneurship at Peking University's Guanghua International MBA programme. A rare connector bridging Silicon Valley, China, and Southeast Asia.",
+    bio: "Nearly 30 years building and backing technology businesses across Asia — from Web 1.0 through Web3. Co-founded or served as senior executive at 8 startups; 3 exited to publicly listed companies. Mentored and invested through HAX, Orbit/Chinaccelerator, and 500 Startups. Clinical Professor of Entrepreneurship at Peking University's Guanghua International MBA program. A rare connector bridging Silicon Valley, China, and Southeast Asia.",
     credentials: '8 startups founded or led | Bali • HK • Beijing',
   },
   {
@@ -813,7 +813,7 @@ interface DropdownItem {
   title: string
   description: string
   href: string
-  action?: 'faq' | 'trust' | 'contact'
+  action?: 'faq' | 'trust' | 'contact' | 'partner'
 }
 
 const solutionsDropdownItems: DropdownItem[] = [
@@ -825,27 +825,32 @@ const solutionsDropdownItems: DropdownItem[] = [
   {
     title: 'HealthEngage Platform',
     description: 'AI-powered engagement, monitoring, and population health insights.',
-    href: 'https://goqii.com/healthengage',
+    href: '#solutions',
+    action: 'partner',
   },
   {
-    title: 'For Corporate',
+    title: 'For Employers & Corporate',
     description: 'Preventive workforce health that improves engagement and productivity.',
-    href: 'https://goqii.com/healthengage-corporate',
+    href: '#solutions',
+    action: 'partner',
   },
   {
     title: 'For Healthcare Providers',
-    description: 'Continuous patient monitoring and care beyond the hospital.',
-    href: 'https://go-qii-connected-care-7c49.vercel.app/',
+    description: 'Continuous patient monitoring and care beyond clinical visits.',
+    href: '#solutions',
+    action: 'partner',
   },
   {
-    title: 'For Pharma',
+    title: 'For Health Plans & Insurers',
+    description: 'Proactive member health engagement that helps manage risk.',
+    href: '#solutions',
+    action: 'partner',
+  },
+  {
+    title: 'For Life Sciences & Partners',
     description: 'Patient engagement, adherence, and real-world health insights.',
-    href: 'https://goqii.com/healthengage-pharma',
-  },
-  {
-    title: 'For Insurance',
-    description: 'Preventive health engagement that helps reduce risk and claims.',
-    href: 'https://goqii.com/healthengage-insurance',
+    href: '#solutions',
+    action: 'partner',
   },
 ]
 
@@ -863,9 +868,10 @@ const resourcesDropdownItems: DropdownItem[] = [
     action: 'trust',
   },
   {
-    title: 'Insights & Blog',
-    description: 'Latest research, articles, and updates on preventive health.',
-    href: 'https://goqii.com/blog',
+    title: 'Insights & Articles',
+    description: 'Research, clinical perspectives, and updates on preventive health.',
+    href: '#contact',
+    action: 'contact',
   },
   {
     title: 'Contact Us',
@@ -902,385 +908,6 @@ function GoqiiLogo({ onClick }: { onClick?: () => void }) {
         referrerPolicy="no-referrer"
       />
     </a>
-  )
-}
-
-function MobilePhoneMockup() {
-  const ethanAvatar = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=120&h=120&q=80"
-  const doctorAvatar = "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=60&h=60&q=80"
-
-  return (
-    <div className="relative w-[300px] sm:w-[320px] select-none">
-      {/* Outer Phone Frame (iPhone style with dark titanium finish) */}
-      <div className="bg-[#1e293b] rounded-[3.2rem] p-2.5 shadow-2xl relative border-[4px] border-slate-700/80">
-        {/* Physical Buttons */}
-        <div className="absolute -left-[6px] top-24 w-[3px] h-7 bg-slate-600 rounded-l-md" />
-        <div className="absolute -left-[6px] top-34 w-[3px] h-9 bg-slate-600 rounded-l-md" />
-        <div className="absolute -left-[6px] top-46 w-[3px] h-9 bg-slate-600 rounded-l-md" />
-        <div className="absolute -right-[6px] top-28 w-[3px] h-13 bg-slate-600 rounded-r-md" />
-
-        {/* Screen Enclosure */}
-        <div className="bg-[#fafafa] rounded-[2.6rem] overflow-hidden text-slate-900 font-sans shadow-inner flex flex-col justify-between pt-2 pb-2 px-2.5 min-h-[620px] relative">
-          
-          {/* Dynamic Island / Notch */}
-          <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-30 flex items-center justify-end px-2.5 gap-1.5 shadow-xs">
-            <div className="w-2 h-2 rounded-full bg-[#1c1c1e] border border-slate-800" />
-            <div className="w-1.5 h-1.5 rounded-full bg-blue-950/80" />
-          </div>
-
-          <div>
-            {/* Top Status Bar: 2:47 with notifications and status icons */}
-            <div className="flex justify-between items-center px-1.5 pt-0.5 pb-2 text-slate-900 z-10 relative text-[10px] font-semibold">
-              <div className="flex items-center gap-1">
-                <span className="font-bold tracking-tight">2:47</span>
-                {/* WhatsApp & notification icons */}
-                <svg className="w-2.5 h-2.5 text-emerald-600 fill-current" viewBox="0 0 24 24">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
-                </svg>
-                <span className="text-[7px] text-slate-500">•••</span>
-              </div>
-
-              <div className="flex items-center gap-1">
-                <span className="text-[7px] font-bold text-slate-600 bg-slate-200/80 px-0.5 rounded-xs">VoLTE 4G+</span>
-                {/* Signal bars */}
-                <svg className="w-2.5 h-2.5 text-slate-800" fill="currentColor" viewBox="0 0 24 24">
-                  <rect x="2" y="16" width="3" height="5" rx="0.5" />
-                  <rect x="7" y="12" width="3" height="9" rx="0.5" />
-                  <rect x="12" y="8" width="3" height="13" rx="0.5" />
-                  <rect x="17" y="4" width="3" height="17" rx="0.5" />
-                </svg>
-                {/* Battery with 37 */}
-                <div className="flex items-center border border-slate-700 rounded-xs px-0.5 py-px text-[7px] font-bold leading-none">
-                  37
-                </div>
-              </div>
-            </div>
-
-            {/* Profile Bar: Ethan Miller + Doctor & Coach & Watch */}
-            <div className="flex justify-between items-center mb-2 px-1">
-              <div className="flex items-center gap-2">
-                <img
-                  src={ethanAvatar}
-                  alt="Ethan Miller"
-                  className="w-9 h-9 rounded-full object-cover border-2 border-white shadow-xs"
-                />
-                <div>
-                  <h4 className="text-[12px] font-extrabold text-slate-900 leading-none">
-                    Ethan Miller
-                  </h4>
-                  <div className="flex items-center gap-1 mt-0.5">
-                    <span className="text-[8px] font-black text-blue-600 tracking-wider">››› Elite</span>
-                    <span className="text-[8px] font-bold text-amber-600 bg-amber-50 px-1 rounded-xs">Insure+</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2">
-                {/* Doctor */}
-                <div className="flex flex-col items-center">
-                  <img
-                    src={doctorAvatar}
-                    alt="Doctor"
-                    className="w-6 h-6 rounded-full object-cover border border-rose-200 shadow-2xs"
-                  />
-                  <span className="text-[7px] text-slate-500 font-semibold mt-0.5">Doctor</span>
-                </div>
-                {/* Coach */}
-                <div className="flex flex-col items-center">
-                  <div className="w-6 h-6 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 shadow-2xs">
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                    </svg>
-                  </div>
-                  <span className="text-[7px] text-slate-500 font-semibold mt-0.5">Coach</span>
-                </div>
-                {/* Smartwatch Icon */}
-                <div className="w-7 h-7 rounded-full bg-blue-50/90 border border-blue-200 flex items-center justify-center text-blue-500 shadow-2xs">
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <rect x="6" y="5" width="12" height="14" rx="3" />
-                    <path strokeLinecap="round" d="M9 5V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m-6 14v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            {/* Date Pill Strip */}
-            <div className="flex items-center justify-between px-1 mb-2">
-              <button className="w-6 h-6 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700">
-                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <rect x="3" y="4" width="18" height="18" rx="2" />
-                  <path d="M16 2v4M8 2v4M3 10h18" />
-                </svg>
-              </button>
-              <span className="text-[10px] font-semibold text-slate-400">8</span>
-              <div className="bg-[#1e293b] text-white px-3.5 py-1 rounded-full text-[10px] font-bold shadow-xs">
-                Today, 9 Jun
-              </div>
-              <span className="text-[10px] font-semibold text-slate-400">10</span>
-              <span className="text-[10px] font-semibold text-slate-400">11</span>
-            </div>
-
-            {/* GOQii Age & Health Protection Card (Ice-Blue Textured) */}
-            <div className="bg-gradient-to-r from-sky-100/90 via-blue-50 to-indigo-100/80 rounded-2xl p-2.5 border border-sky-200/60 flex items-center justify-between mb-2 shadow-2xs relative overflow-hidden">
-              {/* Left: Avatar with 5 LAC Protected Shield */}
-              <div className="flex flex-col items-center flex-shrink-0 relative">
-                <img
-                  src={ethanAvatar}
-                  alt="Ethan"
-                  className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-2xs"
-                />
-                <div className="bg-[#0f172a] text-white text-[6.5px] font-black px-1.5 py-0.5 rounded-sm -mt-1.5 border border-blue-400/40 leading-none tracking-tight">
-                  5 LAC
-                </div>
-                <span className="text-[6.5px] font-bold text-slate-800 tracking-tight leading-none mt-0.5">
-                  I am Protected
-                </span>
-              </div>
-
-              {/* Middle: Ethan Miller + GOQii Age */}
-              <div className="flex-1 px-2.5">
-                <p className="text-[11px] font-black text-slate-900 leading-tight">
-                  Ethan Miller
-                </p>
-                <div className="flex items-center gap-1 mt-0.5">
-                  <span className="text-[8px] font-bold text-slate-700">GOQii Age :</span>
-                  <span className="text-[8px] text-emerald-600">▼</span>
-                  <span className="bg-[#7c3aed] text-white text-[7.5px] font-extrabold px-1.5 py-0.5 rounded-sm">
-                    32y 18d
-                  </span>
-                </div>
-                <p className="text-[7.5px] text-slate-600 font-medium mt-0.5 leading-tight">
-                  I follow a healthy lifestyle.
-                </p>
-              </div>
-
-              {/* Right: SAFE ELITE Badge */}
-              <div className="bg-[#2563eb] text-white rounded-xl p-1.5 flex items-center gap-1.5 shadow-sm flex-shrink-0">
-                {/* SAFE Vertical Indicator */}
-                <div className="flex flex-col gap-0.5">
-                  <span className="w-2.5 h-2.5 bg-red-500 text-[6px] font-black rounded-xs flex items-center justify-center leading-none">S</span>
-                  <span className="w-2.5 h-2.5 bg-amber-400 text-[6px] font-black rounded-xs flex items-center justify-center leading-none text-slate-900">A</span>
-                  <span className="w-2.5 h-2.5 bg-emerald-500 text-[6px] font-black rounded-xs flex items-center justify-center leading-none">F</span>
-                  <span className="w-2.5 h-2.5 bg-blue-400 text-[6px] font-black rounded-xs flex items-center justify-center leading-none">E</span>
-                </div>
-                {/* Running + Days */}
-                <div className="flex flex-col items-start leading-none">
-                  <span className="text-[7px] font-black tracking-wider uppercase opacity-90">ELITE</span>
-                  <div className="flex items-center gap-0.5 mt-0.5">
-                    <span className="text-[10px]">🏃</span>
-                    <span className="text-xs font-black">58</span>
-                  </div>
-                  <span className="text-[6.5px] opacity-80 mt-0.5">days</span>
-                </div>
-              </div>
-            </div>
-
-            {/* 8 Key Health Metrics (4 x 2 Grid) */}
-            <div className="grid grid-cols-4 gap-1 mb-2">
-              {/* Heart Rate */}
-              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
-                <span className="text-[7px] font-semibold text-slate-500 leading-none">Heart Rate</span>
-                <div className="my-1 text-red-500">
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                </div>
-                <span className="text-[10px] font-black text-slate-900 leading-none">72</span>
-                <span className="text-[7px] text-slate-400 font-medium mt-0.5">bpm</span>
-              </div>
-
-              {/* Activity */}
-              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
-                <span className="text-[7px] font-semibold text-slate-500 leading-none">Activity</span>
-                <div className="my-1 text-emerald-500">
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" />
-                  </svg>
-                </div>
-                <span className="text-[10px] font-black text-slate-900 leading-none">350</span>
-                <span className="text-[7px] text-slate-400 font-medium mt-0.5">kcal</span>
-              </div>
-
-              {/* Calories */}
-              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
-                <span className="text-[7px] font-semibold text-slate-500 leading-none">Calories</span>
-                <div className="my-1 text-amber-500">
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 2c-.6 3-3 5-3 8 0 3.31 2.69 6 6 6s6-2.69 6-6c0-3.3-2.6-5.8-3.4-6.6-.4-.4-1-.1-1 .4 0 1.5-.9 2.6-2.1 2.6-1.5 0-2.5-1.5-2.5-4.4z"/>
-                  </svg>
-                </div>
-                <span className="text-[10px] font-black text-slate-900 leading-none">1,250</span>
-                <span className="text-[7px] text-slate-400 font-medium mt-0.5">kcal</span>
-              </div>
-
-              {/* Body Weight */}
-              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
-                <span className="text-[7px] font-semibold text-slate-500 leading-none">Body Weight</span>
-                <div className="my-1 text-purple-500">
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <rect x="3" y="4" width="18" height="16" rx="3" />
-                    <circle cx="12" cy="10" r="3" />
-                    <path d="M12 9v2l1 1" />
-                  </svg>
-                </div>
-                <span className="text-[10px] font-black text-slate-900 leading-none">70.5</span>
-                <span className="text-[7px] text-slate-400 font-medium mt-0.5">kg</span>
-              </div>
-
-              {/* Body Fat */}
-              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
-                <span className="text-[7px] font-semibold text-slate-500 leading-none">Body Fat</span>
-                <div className="my-1 text-teal-500 font-bold text-[10px]">
-                  %
-                </div>
-                <span className="text-[10px] font-black text-slate-900 leading-none">18.6</span>
-                <span className="text-[7px] text-slate-400 font-medium mt-0.5">%</span>
-              </div>
-
-              {/* Muscle Mass */}
-              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
-                <span className="text-[7px] font-semibold text-slate-500 leading-none">Muscle Mass</span>
-                <div className="my-1 text-rose-500">
-                  <span className="text-[10px]">💪</span>
-                </div>
-                <span className="text-[10px] font-black text-slate-900 leading-none">52.3</span>
-                <span className="text-[7px] text-slate-400 font-medium mt-0.5">kg</span>
-              </div>
-
-              {/* BMI */}
-              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
-                <span className="text-[7px] font-semibold text-slate-500 leading-none">BMI</span>
-                <div className="my-1 text-blue-500">
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <circle cx="12" cy="6" r="3" />
-                    <path strokeLinecap="round" d="M9 12h6m-5 9v-7m4 7v-7" />
-                  </svg>
-                </div>
-                <span className="text-[10px] font-black text-slate-900 leading-none">22.4</span>
-                <span className="text-[6.5px] text-slate-400 font-medium mt-0.5">Normal</span>
-              </div>
-
-              {/* Resting HR */}
-              <div className="bg-white rounded-xl p-1.5 border border-slate-100 flex flex-col items-center text-center shadow-2xs">
-                <span className="text-[7px] font-semibold text-slate-500 leading-none">Resting HR</span>
-                <div className="my-1 text-purple-600 flex items-center justify-center">
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                  </svg>
-                </div>
-                <span className="text-[10px] font-black text-slate-900 leading-none">56</span>
-                <span className="text-[7px] text-slate-400 font-medium mt-0.5">bpm</span>
-              </div>
-            </div>
-
-            {/* Timestamp Bar */}
-            <div className="flex items-center justify-center gap-1 text-[8px] text-slate-400 mb-2">
-              <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <circle cx="12" cy="12" r="9" />
-                <path strokeLinecap="round" d="M12 6v6l3 3" />
-              </svg>
-              <span>Updated at 02:29 PM</span>
-            </div>
-
-            {/* Daily Habit Trackers (2x2 Grid) */}
-            <div className="grid grid-cols-2 gap-1.5 mb-2">
-              {/* Steps */}
-              <div className="bg-white rounded-xl p-2 border border-slate-100 flex flex-col items-center shadow-2xs">
-                <span className="text-[8px] font-bold text-slate-700">Steps</span>
-                <div className="w-10 h-10 rounded-full bg-amber-50/80 border-2 border-amber-300 flex items-center justify-center my-1 shadow-2xs">
-                  <span className="text-xs">👣</span>
-                </div>
-                <span className="text-[8px] text-slate-600">
-                  <strong className="text-slate-900">0</strong> of 5,000
-                </span>
-              </div>
-
-              {/* Hydration */}
-              <div className="bg-white rounded-xl p-2 border border-slate-100 flex flex-col items-center shadow-2xs">
-                <span className="text-[8px] font-bold text-slate-700">Hydration</span>
-                <div className="w-10 h-10 rounded-full bg-blue-50/80 border-2 border-blue-300 flex items-center justify-center my-1 shadow-2xs">
-                  <span className="text-xs">🥤</span>
-                </div>
-                <span className="text-[8px] text-slate-600">
-                  <strong className="text-slate-900">0.0L</strong> of 3.0L
-                </span>
-              </div>
-
-              {/* Sleep */}
-              <div className="bg-white rounded-xl p-2 border border-slate-100 flex flex-col items-center shadow-2xs">
-                <span className="text-[8px] font-bold text-slate-700">Sleep</span>
-                <div className="w-10 h-10 rounded-full bg-indigo-50/80 border-2 border-indigo-200 flex items-center justify-center my-1 shadow-2xs">
-                  <span className="text-xs">🌙</span>
-                </div>
-              </div>
-
-              {/* Food */}
-              <div className="bg-white rounded-xl p-2 border border-slate-100 flex flex-col items-center shadow-2xs">
-                <span className="text-[8px] font-bold text-slate-700">Food</span>
-                <div className="w-10 h-10 rounded-full bg-rose-50/80 border-2 border-rose-200 flex items-center justify-center my-1 shadow-2xs">
-                  <span className="text-xs">🍽️</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Bottom App Navigation Bar */}
-          <div className="pt-1.5 border-t border-slate-100 mt-0.5">
-            <div className="flex justify-between items-center px-1 text-center">
-              {/* Home (Active) */}
-              <div className="flex flex-col items-center gap-0.5 text-slate-900">
-                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 11-1.06 1.06l-.92-.92v6.58A2.25 2.25 0 0117 21.5H7a2.25 2.25 0 01-2.25-2.25v-6.58l-.92.92a.75.75 0 01-1.06-1.06l8.7-8.69z" />
-                </svg>
-                <span className="text-[7px] font-bold">Home</span>
-                <div className="w-3 h-0.5 bg-slate-900 rounded-full mt-px" />
-              </div>
-
-              {/* Play */}
-              <div className="flex flex-col items-center gap-0.5 text-slate-400">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <rect x="4" y="4" width="16" height="16" rx="4" />
-                  <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" />
-                </svg>
-                <span className="text-[7px] font-medium">Play</span>
-              </div>
-
-              {/* Add (+) */}
-              <div className="flex flex-col items-center justify-center">
-                <div className="w-6 h-6 rounded-full border border-slate-300 text-slate-700 flex items-center justify-center">
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Arena */}
-              <div className="flex flex-col items-center gap-0.5 text-slate-400">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <circle cx="12" cy="5" r="2.5" />
-                  <circle cx="6" cy="17" r="2.5" />
-                  <circle cx="18" cy="17" r="2.5" />
-                  <path strokeLinecap="round" d="m7.5 15 3.5-7.5 3.5 7.5M8 17h8" />
-                </svg>
-                <span className="text-[7px] font-medium">Arena</span>
-              </div>
-
-              {/* Store */}
-              <div className="flex flex-col items-center gap-0.5 text-slate-400">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                </svg>
-                <span className="text-[7px] font-medium">Store</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Home Indicator */}
-          <div className="w-24 h-1 bg-slate-900 rounded-full mx-auto mt-1.5 mb-0.5" />
-        </div>
-      </div>
-    </div>
   )
 }
 
@@ -1510,7 +1137,10 @@ export default function App() {
                             rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                             onClick={(e) => {
                               setOpenDropdown(null)
-                              if (item.action === 'faq') {
+                              if (item.action === 'partner') {
+                                e.preventDefault()
+                                setIsPartnerModalOpen(true)
+                              } else if (item.action === 'faq') {
                                 e.preventDefault()
                                 navigateToFaq()
                               } else if (item.action === 'trust') {
@@ -1641,7 +1271,10 @@ export default function App() {
                           rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                           onClick={(e) => {
                             setMobileOpen(false)
-                            if (item.action === 'faq') {
+                            if (item.action === 'partner') {
+                              e.preventDefault()
+                              setIsPartnerModalOpen(true)
+                            } else if (item.action === 'faq') {
                               e.preventDefault()
                               navigateToFaq()
                             } else if (item.action === 'trust') {
@@ -1754,16 +1387,20 @@ export default function App() {
               GOQii combines AI, behavioral intelligence, and human expertise to turn health insights into lasting action and measurable outcomes.
             </p>
 
-            {/* Home Banner Partner / Certification Logo */}
-            <div className="pt-1">
-              <div className="inline-block p-2 sm:p-0 rounded-xl bg-white/90 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none">
-                <img
-                  src={heroBannerLogo}
-                  alt="Partner Logo"
-                  className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
+            {/* Core Capability Pillars */}
+            <div className="pt-2 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-slate-200 sm:text-slate-600 font-medium">
+              <span className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#f05a28]" />
+                Human-in-the-Loop Coaching
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-blue-500" />
+                Continuous Biometric Insights
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                Adaptive Motivation
+              </span>
             </div>
           </div>
 
@@ -1850,40 +1487,40 @@ export default function App() {
                 From engagement to outcomes, GOQii brings AI, coaching, analytics, and health intelligence together in one unified platform.
               </p>
 
-              {/* 3 Key Stats Row */}
+              {/* 3 Value Pillars Row (Audited Qualitative Highlights) */}
               <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-lg">
                 
-                {/* Stat 1: 5M+ Lives Impacted */}
+                {/* Pillar 1: Population Scale */}
                 <div className="flex flex-col items-start">
                   <div className="w-11 h-11 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mb-2.5 shadow-2xs border border-emerald-100/80">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.999-3.199a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
                     </svg>
                   </div>
-                  <span className="text-xl sm:text-2xl font-black text-emerald-600 leading-none">
-                    5M+
+                  <span className="text-base sm:text-lg font-bold text-emerald-600 leading-snug">
+                    Population Scale
                   </span>
-                  <span className="text-xs text-slate-600 font-medium leading-tight mt-1">
-                    Lives Impacted
+                  <span className="text-xs text-slate-500 font-medium leading-tight mt-1">
+                    Enterprise Health Programs
                   </span>
                 </div>
 
-                {/* Stat 2: 90% Member Satisfaction */}
+                {/* Pillar 2: Member Satisfaction */}
                 <div className="flex flex-col items-start">
                   <div className="w-11 h-11 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-2.5 shadow-2xs border border-blue-100/80">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 0 5.814-5.518l2.74-1.22m0 0-3.94-1.22m3.94 1.22-1.22 3.94" />
                     </svg>
                   </div>
-                  <span className="text-xl sm:text-2xl font-black text-blue-600 leading-none">
-                    90%
-                  </span>
-                  <span className="text-xs text-slate-600 font-medium leading-tight mt-1">
+                  <span className="text-base sm:text-lg font-bold text-blue-600 leading-snug">
                     Member Satisfaction
+                  </span>
+                  <span className="text-xs text-slate-500 font-medium leading-tight mt-1">
+                    High Program Engagement
                   </span>
                 </div>
 
-                {/* Stat 3: 85% Engagement Rate */}
+                {/* Pillar 3: Dynamic Motivation */}
                 <div className="flex flex-col items-start">
                   <div className="w-11 h-11 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center mb-2.5 shadow-2xs border border-purple-100/80">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -1891,11 +1528,11 @@ export default function App() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M8.5 12h2l1.5-3 2 6 1.5-3h1.5" />
                     </svg>
                   </div>
-                  <span className="text-xl sm:text-2xl font-black text-purple-600 leading-none">
-                    85%
+                  <span className="text-base sm:text-lg font-bold text-purple-600 leading-snug">
+                    Dynamic Motivation
                   </span>
-                  <span className="text-xs text-slate-600 font-medium leading-tight mt-1">
-                    Engagement Rate
+                  <span className="text-xs text-slate-500 font-medium leading-tight mt-1">
+                    Sustained Habit Retention
                   </span>
                 </div>
 
@@ -1918,6 +1555,9 @@ export default function App() {
                     </div>
                     <span className="text-xs sm:text-sm font-extrabold text-slate-900">
                       GOQii Enterprise Dashboard
+                    </span>
+                    <span className="text-[10px] font-bold text-slate-500 bg-slate-100 border border-slate-200/80 px-2 py-0.5 rounded-full uppercase tracking-wider ml-1">
+                      Illustrative Demo
                     </span>
                   </div>
 
@@ -1983,7 +1623,7 @@ export default function App() {
                           Welcome back, Admin
                         </h3>
                         <p className="text-[11px] text-slate-400 font-normal">
-                          Here's what's happening with your program today.
+                          Here&apos;s an illustrative overview of population health metrics.
                         </p>
                       </div>
 
@@ -1992,7 +1632,7 @@ export default function App() {
                         <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
                         </svg>
-                        <span>May 20 – May 26, 2024</span>
+                        <span>Demo Overview (Last 7 Days)</span>
                         <svg className="w-3 h-3 text-slate-400 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                         </svg>
@@ -2491,7 +2131,7 @@ export default function App() {
                 </h3>
               </div>
               <span className="text-[11px] font-medium text-emerald-600 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full">
-                Enterprise Certified & Audited
+                Enterprise Standards &amp; Architecture
               </span>
             </div>
 
@@ -2511,7 +2151,7 @@ export default function App() {
       {/* ── Section: THE GOQii ECOSYSTEM (Better Health Doesn't Happen Alone.) ── */}
       <GoqiiEcosystemSection />
 
-      {/* ── Section: Real Results. Real Change. (Shifted to last before footer) ── */}
+      {/* ── Section: Outcomes & Impact (Better engagement. Better outcomes.) ── */}
       <section className="w-full relative overflow-hidden py-16 sm:py-20 xl:py-24" style={{ minHeight: '440px', fontFamily: 'Poppins, sans-serif' }}>
         {/* Background photo */}
         <img
@@ -2527,55 +2167,47 @@ export default function App() {
           <div className="max-w-3xl mb-12 sm:mb-14">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-[#f05a28] text-xs font-semibold uppercase tracking-wider mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#f05a28] animate-pulse" />
-              Proven Impact
+              Measurable Outcomes
             </div>
             <h2 className="text-3xl sm:text-4xl xl:text-5xl font-semibold text-white tracking-tight leading-tight">
-              Real Results. <span className="text-[#f05a28]">Real Change.</span>
+              Better engagement. <span className="text-[#f05a28]">Better outcomes.</span>
             </h2>
-            <p className="text-lg sm:text-xl font-semibold text-slate-200 mt-2">
-              Health Engagement That Delivers Measurable Outcomes.
-            </p>
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed mt-2 max-w-2xl">
-              From chronic care and employee health to public health programs, GOQii turns intelligent engagement into measurable impact.
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed mt-4 max-w-2xl">
+              Connect health insights with meaningful daily action. By aligning continuous data, intelligent risk detection, and certified coaching, GOQii helps organizations achieve sustainable health improvements across populations.
             </p>
           </div>
 
-          {/* 5 Outcome Cards Grid with Hero Numbers */}
+          {/* 5 Outcome Value Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 xl:gap-6">
             {[
               {
                 tag: 'Payers & Health Plans',
-                num: '34%',
-                label: 'Reduction in ER Visits',
-                desc: 'GOQii-powered engagement helped reduce ER visits and associated claims.',
+                headline: 'Preventive Risk Reduction',
+                desc: 'Continuous engagement and early lifestyle intervention help lower avoidable claims and support proactive population health.',
                 color: '#f05a28',
               },
               {
                 tag: 'Chronic Care',
-                num: '90%',
-                label: 'Patient Satisfaction',
-                desc: 'High patient satisfaction across NHS-backed care programs.',
+                headline: 'Care Continuity',
+                desc: 'Supported lifestyle adherence and continuous vital monitoring bridge the gap between clinical appointments.',
                 color: '#3b82f6',
               },
               {
                 tag: 'Employers',
-                num: '85%',
-                label: 'Lower Absenteeism',
-                desc: 'Improved employee engagement contributed to reduced absenteeism.',
+                headline: 'Workforce Well-Being',
+                desc: 'Tailored health challenges and 1-on-1 coaching foster sustained habit change and healthier, more energized teams.',
                 color: '#10b981',
               },
               {
-                tag: 'Digital Adherence',
-                num: '28%',
-                label: 'Increase in Adherence',
-                desc: 'Digital engagement helped strengthen adherence in chronic disease management.',
+                tag: 'Behavioral Adherence',
+                headline: 'Sustained Daily Habits',
+                desc: 'Behavioral neurocoding and micro-goals build long-term retention far beyond traditional 30-day wellness apps.',
                 color: '#a855f7',
               },
               {
                 tag: 'Public Health',
-                num: '30%',
-                label: 'Higher Preventive Engagement',
-                desc: 'GOQii-led programs increased participation in preventive health.',
+                headline: 'Population Engagement',
+                desc: 'Scalable preventive health programs designed to activate diverse communities through accessible digital wellness.',
                 color: '#f59e0b',
               },
             ].map((card) => (
@@ -2588,22 +2220,14 @@ export default function App() {
                     {card.tag}
                   </span>
 
-                  {/* Hero Metric Number */}
-                  <div className="my-2">
-                    <span
-                      style={{ color: card.color }}
-                      className="text-5xl sm:text-6xl font-black tracking-tight leading-none drop-shadow-sm"
-                    >
-                      {card.num}
-                    </span>
-                  </div>
+                  <div className="w-8 h-1 rounded-full mb-3" style={{ backgroundColor: card.color }} />
 
-                  <h3 className="text-base font-bold text-white leading-snug mt-3 mb-2 group-hover:text-orange-200 transition-colors">
-                    {card.label}
+                  <h3 className="text-lg font-bold text-white leading-snug group-hover:text-orange-200 transition-colors">
+                    {card.headline}
                   </h3>
                 </div>
 
-                <p className="text-xs text-slate-300 leading-relaxed mt-2 pt-3 border-t border-white/10">
+                <p className="text-xs text-slate-300 leading-relaxed mt-4 pt-3 border-t border-white/10">
                   {card.desc}
                 </p>
               </div>
@@ -2644,22 +2268,26 @@ export default function App() {
                 </li>
                 <li>
                   <a
-                    href="https://goqii.com/healthengage"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-slate-900 transition-colors"
+                    href="#solutions"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setIsPartnerModalOpen(true)
+                    }}
+                    className="hover:text-slate-900 transition-colors cursor-pointer"
                   >
                     Enterprise Health
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://goqii.com/healthengage"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-slate-900 transition-colors"
+                    href="#solutions"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setIsPartnerModalOpen(true)
+                    }}
+                    className="hover:text-slate-900 transition-colors cursor-pointer"
                   >
-                    HealthEngage
+                    HealthEngage Platform
                   </a>
                 </li>
                 <li>
@@ -2725,12 +2353,14 @@ export default function App() {
                 </li>
                 <li>
                   <a
-                    href="https://goqii.com/blog"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-slate-900 transition-colors"
+                    href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      navigateToContact()
+                    }}
+                    className="hover:text-slate-900 transition-colors cursor-pointer"
                   >
-                    Insights / Resources
+                    Insights &amp; Perspectives
                   </a>
                 </li>
                 <li>
@@ -2758,20 +2388,32 @@ export default function App() {
               <ul className="flex flex-col gap-3 text-[14px] text-slate-600 font-normal">
                 <li>
                   <a
-                    href="https://goqii.com/us-en/privacypolicy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-slate-900 transition-colors"
+                    href="#privacy"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      navigateToPrivacy()
+                    }}
+                    className={`transition-colors cursor-pointer ${
+                      currentView === 'privacy'
+                        ? 'text-[#f05a28] font-bold underline'
+                        : 'hover:text-slate-900'
+                    }`}
                   >
                     Privacy Policy
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://coach.goqii.com/us-en/terms"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-slate-900 transition-colors"
+                    href="#terms"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      navigateToTerms()
+                    }}
+                    className={`transition-colors cursor-pointer ${
+                      currentView === 'terms'
+                        ? 'text-[#f05a28] font-bold underline'
+                        : 'hover:text-slate-900'
+                    }`}
                   >
                     Terms of Service
                   </a>
@@ -2907,7 +2549,7 @@ export default function App() {
           {/* Bottom Bar: Legal & Copyright */}
           <div className="border-t border-slate-100 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[13px] text-slate-500">
             <div>
-              <p className="text-[12px] text-slate-400">© 2026 GOQii Technologies Private Limited. All rights reserved.</p>
+              <p className="text-[12px] text-slate-400">© 2026 GOQii Inc. All rights reserved.</p>
             </div>
 
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
@@ -2943,19 +2585,31 @@ export default function App() {
               </a>
               <span>|</span>
               <a
-                href="https://goqii.com/us-en/privacypolicy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-600 hover:text-[#f05a28] transition-colors"
+                href="#privacy"
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigateToPrivacy()
+                }}
+                className={`transition-colors cursor-pointer ${
+                  currentView === 'privacy'
+                    ? 'text-[#f05a28] font-bold underline'
+                    : 'text-slate-600 hover:text-[#f05a28]'
+                }`}
               >
                 Privacy Policy
               </a>
               <span>|</span>
               <a
-                href="https://coach.goqii.com/us-en/terms"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-600 hover:text-[#f05a28] transition-colors"
+                href="#terms"
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigateToTerms()
+                }}
+                className={`transition-colors cursor-pointer ${
+                  currentView === 'terms'
+                    ? 'text-[#f05a28] font-bold underline'
+                    : 'text-slate-600 hover:text-[#f05a28]'
+                }`}
               >
                 Terms of Service
               </a>
