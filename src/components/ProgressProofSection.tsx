@@ -3,7 +3,7 @@ export default function ProgressProofSection() {
     {
       metric: 'Consistent',
       metricLabel: 'Daily Habit Retention',
-      quote: '“Having a coach check my sleep and vitals every week changed how I build my daily routine.”',
+      description: 'Structured weekly touchpoints and objective vital logging help members transform scattered wellness intentions into durable, self-reinforcing daily routines.',
       photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=700&q=80',
       alt: 'Member enjoying an active and healthy morning',
       tag: 'Habit Consistency',
@@ -12,16 +12,16 @@ export default function ProgressProofSection() {
     {
       metric: 'Continuous',
       metricLabel: 'Coaching Support',
-      quote: '“The insights are continuous, not once-a-year. It keeps our members actively engaged in preventive care.”',
+      description: 'Continuous longitudinal insights replace intermittent annual check-ups, keeping individuals actively supported throughout their daily preventative journey.',
       photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=700&q=80',
       alt: 'Adult discussing preventive health progress',
       tag: 'Care Team Alignment',
       color: 'text-[#f05a28]',
     },
     {
-      metric: 'Positive',
-      metricLabel: 'Member Feedback',
-      quote: '“Actionable guidance instead of an overwhelming pile of numbers. That makes all the difference.”',
+      metric: 'Actionable',
+      metricLabel: 'Member Experience',
+      description: 'Clear, prioritized health guidance and personalized micro-goals replace overwhelming data feeds with intuitive, achievable daily steps.',
       photo: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=700&q=80',
       alt: 'Professional sharing positive feedback on health journey',
       tag: 'Member Experience',
@@ -79,8 +79,8 @@ export default function ProgressProofSection() {
                   <div className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4">
                     {panel.metricLabel}
                   </div>
-                  <p className="text-sm text-slate-600 font-medium italic leading-relaxed">
-                    {panel.quote}
+                  <p className="text-sm text-slate-600 font-normal leading-relaxed">
+                    {panel.description}
                   </p>
                 </div>
               </div>

@@ -1,7 +1,5 @@
 import heroLifestyleWalk from '../assets/images/hero_lifestyle_walk_1791195005469.jpg'
 
-const heroBannerLogo = 'https://appcdn.goqii.com/storeimg/45528_1790592365.png'
-
 interface HeroVisualSectionProps {
   onOpenPartnerModal: () => void
 }
@@ -21,7 +19,7 @@ export default function HeroVisualSection({ onOpenPartnerModal }: HeroVisualSect
 
   return (
     <section
-      id="hero"
+      id="introducing-goqii"
       className="relative w-full overflow-hidden bg-white pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 border-b border-slate-100"
       style={{ fontFamily: 'Poppins, sans-serif' }}
     >
